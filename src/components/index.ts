@@ -10,6 +10,7 @@ export * from './DashedBorder';
 export * from './DashedButton';
 export * from './EmptyProfileImage';
 export * from './Fab';
+export * from './FieldRow';
 export * from './FloatingButton';
 export * from './FullScreenLoader';
 export * from './IconButton';
