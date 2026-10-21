@@ -59,6 +59,7 @@ export * from './OptionRow';
 export * from './PercentageValueField';
 export * from './PetAvatar';
 export * from './PetOwnerAvatar';
+export * from './PetPickerRow';
 export * from './PhotoUploadPreview';
 export * from './PhotosPreviewCard';
 export * from './PickerNoneRow';
