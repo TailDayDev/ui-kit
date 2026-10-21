@@ -86,6 +86,7 @@ export * from './TodayDoorButton';
 export * from './TodaySkipReasonContent';
 export * from './TodaySkippedAction';
 export * from './TodayTaskFooter';
+export * from './TodayTaskHeader';
 export * from './TodayTaskTime';
 export * from './TodayTaskTypeBadge';
 export * from './TodayUndoToast';
