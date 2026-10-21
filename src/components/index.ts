@@ -1,5 +1,6 @@
 export * from './Accordion';
 export * from './ActionListRow';
+export * from './AdditionalNotes';
 export * from './BaseSkeleton';
 export * from './Button';
 export * from './CalendarModal';
