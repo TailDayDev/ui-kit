@@ -4,3 +4,4 @@ export * from './CardLocked';
 export * from './InfoCard';
 export * from './InfoRow';
 export * from './Tag';
+export * from './Tips';
