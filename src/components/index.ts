@@ -83,6 +83,7 @@ export * from './Textarea';
 export * from './Tips';
 export * from './TodayCompletionSlider';
 export * from './TodayDoorButton';
+export * from './TodayDoorDetails';
 export * from './TodayMultiPetSummary';
 export * from './TodayPetIdentity';
 export * from './TodayPlacementList';
