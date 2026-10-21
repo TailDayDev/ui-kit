@@ -9,6 +9,7 @@ export * from './CardLocked';
 export * from './CenteredScreenHeader';
 export * from './CheckBox';
 export * from './ChipGroup';
+export * from './ConfirmationModal';
 export * from './ContactDetailsCard';
 export * from './CustomCalendar';
 export * from './CustomModal';
