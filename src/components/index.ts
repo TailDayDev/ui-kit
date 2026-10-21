@@ -88,6 +88,7 @@ export * from './TodayPetIdentity';
 export * from './TodayPlacementList';
 export * from './TodaySkipReasonContent';
 export * from './TodaySkippedAction';
+export * from './TodayTaskDetails';
 export * from './TodayTaskFooter';
 export * from './TodayTaskHeader';
 export * from './TodayTaskTime';
