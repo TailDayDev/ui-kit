@@ -70,6 +70,7 @@ export * from './StickySegmentedControl';
 export * from './StickyTabs';
 export * from './SyncedTextInput';
 export * from './Tag';
+export * from './TaskSheetContent';
 export * from './TaskSheetRow';
 export * from './Textarea';
 export * from './Tips';
