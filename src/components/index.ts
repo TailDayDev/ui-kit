@@ -42,6 +42,7 @@ export * from './InputMaxHeight';
 export * from './LabeledDetailRow';
 export * from './LimitedListCard';
 export * from './LoadingWrapper';
+export * from './ModalHeader';
 export * from './ModalLayer';
 export * from './ModalWithFooterActions';
 export * from './MultiSelect';
