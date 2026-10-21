@@ -94,6 +94,7 @@ export * from './TodayTaskFooter';
 export * from './TodayTaskHeader';
 export * from './TodayTaskTime';
 export * from './TodayTaskTypeBadge';
+export * from './TodayTransferDetails';
 export * from './TodayUndoToast';
 export * from './Toggle';
 export * from './UserDetailsCard';
