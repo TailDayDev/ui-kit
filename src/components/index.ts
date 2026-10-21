@@ -62,6 +62,7 @@ export * from './Radio';
 export * from './ScheduleOverview';
 export * from './ScheduleRadioRow';
 export * from './ScreenNav';
+export * from './ScrollToTodayButton';
 export * from './SegmentedControl';
 export * from './Select';
 export * from './SelectTimeModal';

@@ -1,0 +1,58 @@
+import { Pressable, StyleSheet } from 'react-native';
+
+import { IconArrowDown } from '../../icons/figma';
+import { Icon } from '../../primitives/Icon';
+import { useTheme, useThemedStyles, type Theme } from '../../theme';
+import type { ScrollToTodayButtonProps } from './ScrollToTodayButton.types';
+
+// Figma ScrollToTodayButton: layer opacity 0.8.
+const BUTTON_OPACITY = 0.8;
+// Figma ScrollToTodayButton › arrow-down: 16×16.
+const ARROW_ICON_SIZE = 16;
+// App scroll-to-today button: 8pt extra touch area around the 32pt circle.
+const BUTTON_HIT_SLOP = 8;
+
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    button: {
+      alignItems: 'center',
+      backgroundColor: theme.colors.bg.surface,
+      borderColor: theme.colors.border.default,
+      borderRadius: theme.radius.full,
+      borderWidth: theme.stroke[1],
+      justifyContent: 'center',
+      // Figma stroke is INSIDE; RN border shifts content, so it is taken out of the padding.
+      padding: theme.space[2] - theme.stroke[1],
+    },
+  });
+
+/**
+ * Floating 32pt circle with a down arrow that scrolls the Today feed back to
+ * today's tasks (Figma `ScrollToTodayButton`). White fill, pale border,
+ * 80% opacity.
+ */
+export const ScrollToTodayButton = ({
+  onPress,
+  accessibilityLabel,
+  style,
+  testID,
+}: ScrollToTodayButtonProps) => {
+  const theme = useTheme();
+  const styles = useThemedStyles(createStyles);
+  return (
+    <Pressable
+      testID={testID}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      hitSlop={BUTTON_HIT_SLOP}
+      onPress={onPress}
+      style={({ pressed }) => [
+        styles.button,
+        { opacity: BUTTON_OPACITY * (pressed ? theme.opacity.pressed : 1) },
+        style,
+      ]}
+    >
+      <Icon icon={IconArrowDown} size={ARROW_ICON_SIZE} />
+    </Pressable>
+  );
+};
