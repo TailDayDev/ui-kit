@@ -22,6 +22,7 @@ export * from './Radio';
 export * from './ScheduleRadioRow';
 export * from './SegmentedControl';
 export * from './SelectableOptionCard';
+export * from './StickySegmentedControl';
 export * from './SyncedTextInput';
 export * from './Tag';
 export * from './Textarea';
