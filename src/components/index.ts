@@ -14,6 +14,7 @@ export * from './ConfirmationModal';
 export * from './ContactDetailsCard';
 export * from './CustomCalendar';
 export * from './CustomModal';
+export * from './CustomTabBar';
 export * from './DashedBorder';
 export * from './DashedButton';
 export * from './DatePicker';
