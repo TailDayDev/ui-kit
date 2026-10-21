@@ -18,33 +18,33 @@ How components move from `frontend-mobile/src/shared/ui` into the kit. Goal: **t
 
 Read the theme with `useTheme()` or `useThemedStyles(createStyles)`; `createStyles` lives at module level.
 
-| App (`theme.colors.*`) | Kit | When |
-| --- | --- | --- |
-| `baseGray` | `colors.text.primary` | text |
-| `mediumGray` | `colors.text.secondary` / `colors.icon.default` | text / icon |
-| `white` | `colors.bg.surface` / `colors.text.inverse` | background / text on accent |
-| `primary` | `colors.bg.accent` / `colors.text.accent` / `colors.icon.accent` | fill / text / icon |
-| `primaryLight` | `colors.bg.accentSoft` | |
-| `red` | `colors.text.error` | text, border, fill of destructive |
-| `redLight` | `colors.bg.errorSoft` | |
-| `green` | `colors.text.success` | |
-| `secondaryLight` | `colors.bg.successSoft` | |
-| `warning` | `colors.bg.warningSoft` | |
-| `screenBackground` | `colors.bg.screen` | |
-| `softGray` | `colors.bg.subtle` | |
-| `paleGray` | `colors.border.default` | borders, dividers (as fill: `palette.paleGray`) |
-| `black50` | `colors.overlay.scrim` | |
-| anything else (`lightGray`, `darkGray`, `secondary`, badge colors…) | `palette.<same name>` | no semantic role yet |
+| App (`theme.colors.*`)                                              | Kit                                                              | When                                            |
+| ------------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------- |
+| `baseGray`                                                          | `colors.text.primary`                                            | text                                            |
+| `mediumGray`                                                        | `colors.text.secondary` / `colors.icon.default`                  | text / icon                                     |
+| `white`                                                             | `colors.bg.surface` / `colors.text.inverse`                      | background / text on accent                     |
+| `primary`                                                           | `colors.bg.accent` / `colors.text.accent` / `colors.icon.accent` | fill / text / icon                              |
+| `primaryLight`                                                      | `colors.bg.accentSoft`                                           |                                                 |
+| `red`                                                               | `colors.text.error`                                              | text, border, fill of destructive               |
+| `redLight`                                                          | `colors.bg.errorSoft`                                            |                                                 |
+| `green`                                                             | `colors.text.success`                                            |                                                 |
+| `secondaryLight`                                                    | `colors.bg.successSoft`                                          |                                                 |
+| `warning`                                                           | `colors.bg.warningSoft`                                          |                                                 |
+| `screenBackground`                                                  | `colors.bg.screen`                                               |                                                 |
+| `softGray`                                                          | `colors.bg.subtle`                                               |                                                 |
+| `paleGray`                                                          | `colors.border.default`                                          | borders, dividers (as fill: `palette.paleGray`) |
+| `black50`                                                           | `colors.overlay.scrim`                                           |                                                 |
+| anything else (`lightGray`, `darkGray`, `secondary`, badge colors…) | `palette.<same name>`                                            | no semantic role yet                            |
 
 Values are identical, so the swap does not change pixels.
 
-| Numbers | Kit |
-| --- | --- |
+| Numbers                                                      | Kit                                                                       |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------- |
 | 1 2 4 8 10 12 16 20 24 32 40 48 52 56 (padding, margin, gap) | `space[0.25] [0.5] [1] [2] [2.5] [3] [4] [5] [6] [8] [10] [12] [13] [14]` |
-| radius 8 / 12 / 16 / 24 / fully round | `radius.sm / md / lg / xl / full` |
-| border 1 / 2 / 4 | `stroke[1] / [2] / [4]` |
-| text styles | `typography.<group>.<weight>` (same values) |
-| pressed opacity 0.85 | `opacity.pressed` |
+| radius 8 / 12 / 16 / 24 / fully round                        | `radius.sm / md / lg / xl / full`                                         |
+| border 1 / 2 / 4                                             | `stroke[1] / [2] / [4]`                                                   |
+| text styles                                                  | `typography.<group>.<weight>` (same values)                               |
+| pressed opacity 0.85                                         | `opacity.pressed`                                                         |
 
 A value with no token (e.g. a 51pt control height, a 14pt padding) stays as a **named constant** at the top of the file with a comment saying where it comes from (`// Figma Button height` or `// off-scale: not in Figma Spacing`). No bare numbers in style objects except 0, 1 for flex, and percentages.
 

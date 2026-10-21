@@ -29,7 +29,19 @@ npm install "@tessera/ui-kit@github:TailDayDev/ui-kit#semver:^0.1.0"
 
 Нужен доступ на чтение к `TailDayDev/ui-kit`: локально через `gh auth login` или SSH-ключ, в CI приложения — через deploy key или токен.
 
-Peer-зависимости, которые ставит приложение: `react >= 19`, `react-native >= 0.79`, `react-native-svg >= 15`.
+Peer-зависимости ставит приложение:
+
+| Пакет                                               | Версия              | Зачем                                  |
+| --------------------------------------------------- | ------------------- | -------------------------------------- |
+| `react` / `react-native`                            | `>= 19` / `>= 0.79` | основа                                 |
+| `react-native-svg`                                  | `>= 15`             | иконки, пунктир, скелетон, иллюстрации |
+| `react-native-safe-area-context`                    | `>= 5`              | шапки экранов, модалки                 |
+| `react-native-reanimated` + `react-native-worklets` | `>= 4.1` / `>= 0.6` | SegmentedControl, StickyTabs, OTPInput |
+| `react-native-gesture-handler` + `its-fine`         | `>= 2.20` / `>= 2`  | слой модалок (`ModalLayer`)            |
+| `react-native-calendars`                            | `>= 1.1300`         | CustomCalendar, CalendarModal          |
+| `@react-native-picker/picker`                       | `>= 2.11`           | NativePicker, WheelPicker, Select      |
+
+Библиотека не знает про переводы, загрузку картинок, сеть и навигацию. Там, где компоненту нужны тексты, картинки или состояние приложения, они приходят через props (`labels`, `renderImage`, `illustration`, `isOffline` …), а приложение держит тонкие обёртки, которые их подставляют. Список таких обёрток и того, что осталось в приложении, — в [docs/migration-guide.md](docs/migration-guide.md).
 
 Шрифты (Inter) подключает приложение. Библиотека ссылается на них по имени: `Inter-Regular`, `Inter-Medium`, `Inter-SemiBold`, `Inter-Bold`.
 
