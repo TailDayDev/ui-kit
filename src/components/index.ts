@@ -6,6 +6,7 @@ export * from './Card';
 export * from './CardLocked';
 export * from './CenteredScreenHeader';
 export * from './CheckBox';
+export * from './ChipGroup';
 export * from './ContactDetailsCard';
 export * from './DashedBorder';
 export * from './DashedButton';
