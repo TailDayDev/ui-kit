@@ -50,3 +50,6 @@ export const OnSurface: Story = {
     </Box>
   ),
 };
+
+/** Figma `PetOwnerAvatar`: 64pt photo, radius 12, `body/regular` initials. */
+export const FigmaSize: Story = { args: { size: 64, petPhotoUrl: null } };

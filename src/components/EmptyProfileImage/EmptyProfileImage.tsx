@@ -65,6 +65,9 @@ const createStyles = (
       letterSpacing: INITIALS_LETTER_SPACING,
       color: initialsColor ?? theme.colors.text.success,
     },
+    initialsColor: {
+      color: initialsColor ?? theme.colors.text.success,
+    },
     placeholder: {
       alignItems: 'center',
       backgroundColor: backgroundColor ?? theme.colors.bg.successSoft,
@@ -96,6 +99,7 @@ const EmptyProfileImageComponent = ({
   shape = 'square',
   backgroundColor,
   initialsColor,
+  initialsVariant,
   imageUrl,
   photoCacheKey,
   imageRefreshKey,
@@ -169,7 +173,11 @@ const EmptyProfileImageComponent = ({
         renderPhoto()
       ) : (
         <View style={styles.placeholder}>
-          <Text variant="body/bold" align="center" style={styles.initials}>
+          <Text
+            variant={initialsVariant ?? 'body/bold'}
+            align="center"
+            style={initialsVariant ? styles.initialsColor : styles.initials}
+          >
             {initials}
           </Text>
         </View>

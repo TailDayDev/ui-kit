@@ -22,6 +22,7 @@ const PetAvatarComponent = ({
   photoCacheKey,
   shape = 'circle',
   size = 'l',
+  radius = 'sm',
   placeholder,
   renderImage,
   testID,
@@ -29,7 +30,8 @@ const PetAvatarComponent = ({
   const theme = useTheme();
   const [failedUri, setFailedUri] = useState<string | null>(null);
   const dimension = PET_AVATAR_SIZES[size];
-  const borderRadius = shape === 'circle' ? dimension / 2 : theme.radius.sm;
+  const borderRadius =
+    shape === 'circle' ? dimension / 2 : theme.radius[radius];
   const uri = photoUrl?.trim() ?? '';
   const frameStyle = useMemo(
     () => ({ borderRadius, height: dimension, width: dimension }),

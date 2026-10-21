@@ -62,6 +62,7 @@ export const TodayPetIdentity = ({
       ]}
     >
       <PetOwnerAvatar
+        size={64}
         {...avatar}
         testID={avatar.testID ?? (testID ? `${testID}.avatar` : undefined)}
       />

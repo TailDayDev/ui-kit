@@ -11,9 +11,7 @@ const OWNER_BADGE_SIZE = 28;
 const createStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      height: PET_AVATAR_SIZES.l,
       position: 'relative',
-      width: PET_AVATAR_SIZES.l,
     },
     ownerBadge: {
       alignItems: 'center',
@@ -42,15 +40,21 @@ export const PetOwnerAvatar = ({
   petPlaceholder,
   renderPetImage,
   renderOwnerImage,
+  size = 56,
   accessibilityLabel,
   testID,
 }: PetOwnerAvatarProps) => {
   const styles = useThemedStyles(createStyles);
   const isLabelled = Boolean(accessibilityLabel);
+  const isFigmaSize = size === 64;
+  const petSize = isFigmaSize ? 'lg' : 'l';
 
   return (
     <View
-      style={styles.container}
+      style={[
+        styles.container,
+        { height: PET_AVATAR_SIZES[petSize], width: PET_AVATAR_SIZES[petSize] },
+      ]}
       testID={testID}
       accessible={isLabelled}
       accessibilityRole={isLabelled ? 'image' : undefined}
@@ -59,8 +63,9 @@ export const PetOwnerAvatar = ({
       <PetAvatar
         photoUrl={petPhotoUrl}
         photoCacheKey={petCacheKey}
-        size="l"
+        size={petSize}
         shape="square"
+        radius={isFigmaSize ? 'md' : 'sm'}
         placeholder={petPlaceholder}
         renderImage={renderPetImage}
         testID={testID ? `${testID}.pet` : undefined}
@@ -76,6 +81,7 @@ export const PetOwnerAvatar = ({
           photoCacheKey={ownerCacheKey}
           size="xs"
           shape="circle"
+          initialsVariant={isFigmaSize ? 'body/regular' : undefined}
           renderImage={renderOwnerImage}
           testID={testID ? `${testID}.owner` : undefined}
         />
