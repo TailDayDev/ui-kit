@@ -80,6 +80,7 @@ export * from './TaskSheetContent';
 export * from './TaskSheetRow';
 export * from './Textarea';
 export * from './Tips';
+export * from './TodayCompletionSlider';
 export * from './TodayDoorButton';
 export * from './TodaySkipReasonContent';
 export * from './TodaySkippedAction';
