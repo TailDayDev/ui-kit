@@ -26,6 +26,7 @@ export * from './FAQ';
 export * from './Fab';
 export * from './FieldRow';
 export * from './FilterTrigger';
+export * from './FiltersSelectionModal';
 export * from './FloatingButton';
 export * from './FullScreenLoader';
 export * from './IconButton';
