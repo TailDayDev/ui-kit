@@ -46,3 +46,17 @@ jest.mock('react-native-svg', () => {
   mocks.default = mocks.Svg;
   return { ...actual, ...mocks };
 });
+
+// Native animation, gesture and safe-area modules: use the mocks shipped by each library.
+jest.mock('react-native-reanimated', () =>
+  jest.requireActual('react-native-reanimated/mock'),
+);
+jest.mock(
+  'react-native-safe-area-context',
+  () =>
+    jest.requireActual<{ default: unknown }>(
+      'react-native-safe-area-context/jest/mock',
+    ).default,
+);
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- side-effect setup shipped by the library
+require('react-native-gesture-handler/jestSetup');
