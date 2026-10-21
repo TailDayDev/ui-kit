@@ -15,6 +15,7 @@ export * from './CustomCalendar';
 export * from './CustomModal';
 export * from './DashedBorder';
 export * from './DashedButton';
+export * from './DatePicker';
 export * from './DateRangeField';
 export * from './EditPercentageModal';
 export * from './EditPriceModal';
