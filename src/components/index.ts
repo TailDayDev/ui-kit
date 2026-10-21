@@ -32,6 +32,7 @@ export * from './LabeledDetailRow';
 export * from './LimitedListCard';
 export * from './LoadingWrapper';
 export * from './MultiSelect';
+export * from './MultipleResultsList';
 export * from './NetworkFallback';
 export * from './NoImagePlaceholder';
 export * from './OTPInput';
