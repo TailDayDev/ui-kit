@@ -1,5 +1,99 @@
 # @tessera/ui-kit
 
+## 0.2.0
+
+### Minor Changes
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`40b012c`](https://github.com/TailDayDev/ui-kit/commit/40b012cbf5a4582697f8245b503e9b96a35306f2) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `Chip` (Figma Chip): standalone filter chip with optional count badge.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`c03c061`](https://github.com/TailDayDev/ui-kit/commit/c03c061dfe94eccfea4fa813a66ec051721de9cf) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `ConfirmationModalContent` (Figma ConfirmationModalContent): confirmation title, description and optional picture.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`c08c870`](https://github.com/TailDayDev/ui-kit/commit/c08c8706c75ad7790c5acf427b4be0332605ea96) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `CustomModalFooterActions` (Figma CustomModalFooterActions): cancel + primary action in a row or column.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`eb5e160`](https://github.com/TailDayDev/ui-kit/commit/eb5e160e6f794b5126338131a21347a82668ce2a) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `CustomTabBar` (Figma CustomTabBar): data-driven floating tab bar with a sliding indicator.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`7fdb1e1`](https://github.com/TailDayDev/ui-kit/commit/7fdb1e101a771fdb0ffb9cfae2060e5d1a06349e) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add the Figma icon set (`IconSearch`, `IconCheck`, `IconTabToday`, … 27 icons) generated from the design file by `scripts/figma/build-icons.mjs`.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`f44a99e`](https://github.com/TailDayDev/ui-kit/commit/f44a99eed31c3dc5d5f1f166ac3bfba6ab9200a8) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `ManualTaskSheetContent` (Figma ManualTaskSheetContent): manual task form body (title, due, pet, staff).
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`e0f535a`](https://github.com/TailDayDev/ui-kit/commit/e0f535a14bff9c88b899652d02cf1894751a4b07) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `ModalHeader` (Figma ModalHeader): sheet header with title and close button.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`b32d31b`](https://github.com/TailDayDev/ui-kit/commit/b32d31b8eb9a577fc07f85254d46e0d48e052864) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `MultiActionDetailsContent` (Figma MultiActionDetailsContent): shared header with scrolling task cards.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`abd5cfb`](https://github.com/TailDayDev/ui-kit/commit/abd5cfb3eff2a4a1a810993439b2f81e3623a8e3) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `OptionRow` (Figma OptionRow): single-choice text row with radio semantics.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`40f7021`](https://github.com/TailDayDev/ui-kit/commit/40f702110c50a8641367a62a2b17ff698997a3a2) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add the Figma size to `PetOwnerAvatar` (`size={64}`: 64pt photo, radius 12, `body/regular` initials) with the supporting `PetAvatar` `radius` / `size="lg"` and `EmptyProfileImage` `initialsVariant` props. Defaults are unchanged; `TodayPetIdentity` uses the Figma size.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`f93744e`](https://github.com/TailDayDev/ui-kit/commit/f93744efd4f70ae88d70d58615f4c7d19588e52f) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `PetPickerRow` (Figma PetPickerRow): pet row with the Figma-size avatar, placements and radio.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`fa643a9`](https://github.com/TailDayDev/ui-kit/commit/fa643a9bf70dd23fad2510c47438a4ebb69d61b9) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `PickerNoneRow`: the "nothing selected" option of the manual-task pet and staff pickers (Figma frames Без питомца / Без сотрудника).
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`7357813`](https://github.com/TailDayDev/ui-kit/commit/7357813e4b567ad4ba9b0094178b26e4b56307e8) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `ScrollToTodayButton` (Figma ScrollToTodayButton).
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`14e69fb`](https://github.com/TailDayDev/ui-kit/commit/14e69fbae002f9dcc78ac46e330c9d4012a2354e) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `ServiceHeaderTrigger` (Figma ServiceHeaderTrigger): hotel selector trigger with notifications badge.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`3adf580`](https://github.com/TailDayDev/ui-kit/commit/3adf580b3cefca57e8ca57c2a69b25a6d878fa3e) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `ServiceHeader` (Figma ServiceHeader): section header with selector, search and a bottom content slot.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`b5cfb97`](https://github.com/TailDayDev/ui-kit/commit/b5cfb972dd3d46534ff0a82e550c2ac56f5579c4) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `StaffPickerRow` (Figma StaffPickerRow): staff member row with initials avatar and radio.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`31f1fa2`](https://github.com/TailDayDev/ui-kit/commit/31f1fa2df11490e30e0a5030c1d3fead6ed84cbc) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TabBarItem` (Figma TabBarItem): bottom tab with focused state and dot badge.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`b548765`](https://github.com/TailDayDev/ui-kit/commit/b548765c5a0e6e701535ba7aef6dac81bdc118d2) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TaskSheetContent` (Figma TaskSheetContent): data-driven task sheet body with an optional destructive block.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`07b5f35`](https://github.com/TailDayDev/ui-kit/commit/07b5f3547b71b3638472c1bca48d2684ea165f4b) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TaskSheetRow` (Figma TaskSheetRow): task sheet action row, destructive variant tints the icon.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`904b88c`](https://github.com/TailDayDev/ui-kit/commit/904b88c887c856256390c99dcee2e9ae5f76dfab) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TaskSheet` (Figma TaskSheet): task actions sheet built on CustomModal with the Figma ModalHeader.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`a4d7ea3`](https://github.com/TailDayDev/ui-kit/commit/a4d7ea32bf15f8a3ad621565b55a4b0f23587e8b) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayCompletionSlider` (Figma TodayCompletionSlider): swipe-to-complete slider with an accessibility action.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`c493607`](https://github.com/TailDayDev/ui-kit/commit/c4936079eef1dd524f7662ae38e675a5bdc0de43) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayDoorButton` (Figma TodayDoorButton): check-in/check-out action bar.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`58ca6db`](https://github.com/TailDayDev/ui-kit/commit/58ca6dbf7020fd15ddc6df4d107be15bcbf952e6) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayDoorDetails` (Figma TodayDoorDetails): check-in/check-out placement and dates.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`b2f9ea5`](https://github.com/TailDayDev/ui-kit/commit/b2f9ea596f606c219abd14d71c02f7f126bd140c) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayManualDuePickerContent` (Figma TodayManualDuePickerContent): no time / day part / exact time picker body.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`7d55903`](https://github.com/TailDayDev/ui-kit/commit/7d559032536db0670cfc0870149394455e433b18) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayManualPetPickerContent` (Figma TodayManualPetPickerContent): choose-pet modal body.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`ec33e45`](https://github.com/TailDayDev/ui-kit/commit/ec33e4599b3096c6dc42fdeff41fd19c49193fce) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayManualStaffPickerContent` (Figma TodayManualStaffPickerContent): choose-staff modal body.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`6845e13`](https://github.com/TailDayDev/ui-kit/commit/6845e134c3dfc0418b74b7292d22c3ac01af5bdb) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayMultiPetSummary` (Figma TodayMultiPetSummary): overlapping pet photos with a details link.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`52b21f9`](https://github.com/TailDayDev/ui-kit/commit/52b21f9a841542c7c52475f52b0c13f11bf9c6e7) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayPetIdentity` (Figma TodayPetIdentity): pet and owner avatar, name, meta and placements.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`599cb24`](https://github.com/TailDayDev/ui-kit/commit/599cb24c254fa25620873f8bdd5fda585ab1bc6c) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayPlacementList` (Figma TodayPlacementList): one or two placements.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`72a3790`](https://github.com/TailDayDev/ui-kit/commit/72a3790f61ae13059a8e5b6e7fd528e80b3690c6) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayScreenState` (Figma TodayScreenState): no-auth, no-hotel, empty, no-results and offline states.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`90d5472`](https://github.com/TailDayDev/ui-kit/commit/90d54721997fc107acb08701957beff054f9a055) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodaySearchModalContent` (Figma TodaySearchModalContent): search field with sectioned task results.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`a82e46c`](https://github.com/TailDayDev/ui-kit/commit/a82e46cae5f7ecd9b88813e5530dbd9830e30670) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodaySectionHeader` (Figma TodaySectionHeader): collapsible feed section header.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`a2d87f5`](https://github.com/TailDayDev/ui-kit/commit/a2d87f53a2dd22a05cece76af3fb51e166eed11d) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodaySkeleton` (Figma TodaySkeleton): Today feed loading skeleton.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`0d985c4`](https://github.com/TailDayDev/ui-kit/commit/0d985c439f6a92760aa976522df796bac9f5fc27) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodaySkipReasonContent` (Figma TodaySkipReasonContent): skip-reason list with an optional description field.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`dc0d6ce`](https://github.com/TailDayDev/ui-kit/commit/dc0d6cec5edccb06ae6e349700d1f744049f1411) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodaySkippedAction` (Figma TodaySkippedAction): skipped-task capsule.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`b56002d`](https://github.com/TailDayDev/ui-kit/commit/b56002d38d714ce17548e470b72120acf994c4dd) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTaskCard` (Figma TodayTaskCard): Today feed task card composed of header, pet, details and footer with the finished veil.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`8acaac9`](https://github.com/TailDayDev/ui-kit/commit/8acaac94200789ef6a8aff795262cf438a027d31) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTaskDetails` (Figma TodayTaskDetails): what to do, with trailing value and note.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`6b30a1b`](https://github.com/TailDayDev/ui-kit/commit/6b30a1b25a003bcd5735e78b306c116f46144fc6) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTaskFooter` (Figma TodayTaskFooter): task card footer with menu and slider, door or skipped action.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`f5eb09c`](https://github.com/TailDayDev/ui-kit/commit/f5eb09c109b89b61a96ac430bca4acb092b50459) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTaskHeader` (Figma TodayTaskHeader): type badge and time row.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`46e23dc`](https://github.com/TailDayDev/ui-kit/commit/46e23dc3f820ae617b1d07549f6da0d187bf5765) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTaskTime` (Figma TodayTaskTime): task time with default, overdue and completed tones.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`7dae6ab`](https://github.com/TailDayDev/ui-kit/commit/7dae6ab5da25a81c6729fede8944932215cc26fe) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTaskTypeBadge` (Figma TodayTaskTypeBadge): task type badge for all seven action types with care types.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`01c0903`](https://github.com/TailDayDev/ui-kit/commit/01c090321f6dca01dbbcfbd9ec71b53349da250c) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayTransferDetails` (Figma TodayTransferDetails): from → to placements.
+
+- [#6](https://github.com/TailDayDev/ui-kit/pull/6) [`3c6573b`](https://github.com/TailDayDev/ui-kit/commit/3c6573b1f1d500619fa300104889b5a906431e3b) Thanks [@IgorCavliuc](https://github.com/IgorCavliuc)! - Add `TodayUndoToast` (Figma TodayUndoToast): animated undo toast.
+
+### Patch Changes
+
+- [`ced1e4a`](https://github.com/TailDayDev/ui-kit/commit/ced1e4ae80b8b5a1ed47eb10c025068499095d1d) - Fix `BaseSkeleton` restarting the shimmer loop on every JS-driven frame (infinite re-render on web): the shared animation is now retained in an effect.
+
 ## 0.1.0
 
 ### Minor Changes
