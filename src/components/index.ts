@@ -47,6 +47,7 @@ export * from './LoadingWrapper';
 export * from './ModalHeader';
 export * from './ModalLayer';
 export * from './ModalWithFooterActions';
+export * from './MultiActionDetailsContent';
 export * from './MultiSelect';
 export * from './MultipleResultsList';
 export * from './NativePicker';
