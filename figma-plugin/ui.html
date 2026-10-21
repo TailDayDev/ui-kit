@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <body
+    style="
+      font:
+        13px Inter,
+        sans-serif;
+      margin: 16px;
+    "
+  >
+    <p id="status">Preparing export…</p>
+    <button id="download" disabled>Download figma-export.json</button>
+    <button id="close">Close</button>
+    <script>
+      let json = '';
+      onmessage = event => {
+        json = event.data.pluginMessage;
+        document.getElementById('status').textContent =
+          'Ready. Save the file as tokens/figma-export.json in the ui-kit repo.';
+        document.getElementById('download').disabled = false;
+      };
+      document.getElementById('download').onclick = () => {
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(
+          new Blob([json], { type: 'application/json' }),
+        );
+        link.download = 'figma-export.json';
+        link.click();
+      };
+      document.getElementById('close').onclick = () =>
+        parent.postMessage({ pluginMessage: 'close' }, '*');
+    </script>
+  </body>
+</html>
