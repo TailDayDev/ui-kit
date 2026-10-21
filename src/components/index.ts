@@ -2,6 +2,7 @@ export * from './Button';
 export * from './Card';
 export * from './CardLocked';
 export * from './CheckBox';
+export * from './FloatingButton';
 export * from './IconButton';
 export * from './InfoCard';
 export * from './InfoRow';
