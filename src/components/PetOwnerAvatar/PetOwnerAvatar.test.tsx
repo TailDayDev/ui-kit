@@ -1,0 +1,94 @@
+import { StyleSheet, View } from 'react-native';
+import { render, screen } from '@testing-library/react-native';
+
+import { lightTheme } from '../../theme';
+import type { EmptyProfileImageRenderParams } from '../EmptyProfileImage';
+import type { PetAvatarRenderParams } from '../PetAvatar';
+import { PetOwnerAvatar } from './PetOwnerAvatar';
+
+const flatStyle = (testID: string) =>
+  StyleSheet.flatten(
+    screen.getByTestId(testID, { includeHiddenElements: true }).props.style,
+  );
+
+describe('PetOwnerAvatar', () => {
+  it.each([undefined, 'pet.jpg'])(
+    'keeps the same composition with pet photo %p',
+    async petPhotoUrl => {
+      const petCalls: PetAvatarRenderParams[] = [];
+      const ownerCalls: EmptyProfileImageRenderParams[] = [];
+      await render(
+        <PetOwnerAvatar
+          testID="poa"
+          petPhotoUrl={petPhotoUrl}
+          petCacheKey="pet:1"
+          ownerFirstName="Anna"
+          ownerLastName="Smith"
+          ownerPhotoUrl=" owner.jpg "
+          ownerCacheKey="owner:1"
+          renderPetImage={params => {
+            petCalls.push(params);
+            return <View />;
+          }}
+          renderOwnerImage={params => {
+            ownerCalls.push(params);
+            return <View />;
+          }}
+        />,
+      );
+
+      expect(petCalls.at(-1)).toMatchObject({
+        uri: petPhotoUrl ?? '',
+        photoCacheKey: petPhotoUrl ? 'pet:1' : undefined,
+        size: 56,
+        borderRadius: lightTheme.radius.sm,
+      });
+      expect(ownerCalls.at(-1)).toMatchObject({
+        imageUrl: 'owner.jpg',
+        photoCacheKey: 'owner:1',
+        size: 24,
+      });
+      expect(flatStyle('poa')).toMatchObject({ width: 56, height: 56 });
+      expect(flatStyle('poa.owner').borderRadius).toBe(12);
+      expect(flatStyle('poa.ownerBadge')).toMatchObject({
+        width: 28,
+        height: 28,
+        borderRadius: 14,
+        borderWidth: 2,
+        bottom: -2,
+        right: -2,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: lightTheme.colors.bg.successSoft,
+        borderColor: lightTheme.colors.bg.surface,
+      });
+    },
+  );
+
+  it('draws the owner initials with the standard owner colors', async () => {
+    await render(
+      <PetOwnerAvatar ownerFirstName="Boris" ownerLastName="Rising" />,
+    );
+    const initials = screen.getByText('BR');
+    expect(StyleSheet.flatten(initials.props.style).color).toBe(
+      lightTheme.colors.text.success,
+    );
+    expect(
+      StyleSheet.flatten(initials.parent?.props.style).backgroundColor,
+    ).toBe(lightTheme.colors.bg.successSoft);
+  });
+
+  it('shows the pet placeholder without a pet photo', async () => {
+    await render(
+      <PetOwnerAvatar petPlaceholder={<View testID="no-image" />} />,
+    );
+    expect(screen.getByTestId('no-image')).toBeTruthy();
+  });
+
+  it('is an image with a label when labelled', async () => {
+    await render(<PetOwnerAvatar accessibilityLabel="Rex, owner Anna Smith" />);
+    expect(
+      screen.getByRole('image', { name: 'Rex, owner Anna Smith' }),
+    ).toBeTruthy();
+  });
+});
