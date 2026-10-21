@@ -6,3 +6,4 @@ package-lock.json
 CHANGELOG.md
 .changeset/*.md
 tokens/figma-export.json
+figma/components
