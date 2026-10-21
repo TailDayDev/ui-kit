@@ -91,6 +91,7 @@ export * from './Tips';
 export * from './TodayCompletionSlider';
 export * from './TodayDoorButton';
 export * from './TodayDoorDetails';
+export * from './TodayManualDuePickerContent';
 export * from './TodayManualPetPickerContent';
 export * from './TodayManualStaffPickerContent';
 export * from './TodayMultiPetSummary';
