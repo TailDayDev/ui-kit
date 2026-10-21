@@ -1,0 +1,24 @@
+# PetPickerRow (257:3258) — COMPONENT_SET
+Description: Назначение: Питомец в списке выбора: фото, кличка, порода, места и кружок. | Не использовать: Питомец в карточке задачи → TodayPetIdentity. | Код: нет — ждёт кода | Статус: beta
+Props:
+  name: TEXT default=Title
+  meta: TEXT default=Subtitle
+  isSelected: VARIANT default=false options=['false', 'true']
+Render: png/257-3258.png
+
+COMPONENT "isSelected=false" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+  INSTANCE "Photo" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG INSTANCE OF PetOwnerAvatar / hasPhoto=true with ownerInitials=RL, hasPhoto=true
+  FRAME "Питомец" 242x64 auto:V pad=0/0/0/0 gap=2 main=CENTER cross=MIN size=FILL/FILL
+    TEXT "Имя питомца" 242x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT maxLines=1
+    TEXT "Порода" 242x15 props=characters->meta size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT maxLines=1
+    INSTANCE "Service" 242x16 auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPlacementList / itemsCount=2 with title=Label, itemsCount=2
+  INSTANCE "Radio" 20x20 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=false, size=20 with isActive=false, size=20
+
+COMPONENT "isSelected=true" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FIXED/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=16
+  INSTANCE "Photo" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG INSTANCE OF PetOwnerAvatar / hasPhoto=true with ownerInitials=RL, hasPhoto=true
+  FRAME "Питомец" 242x64 auto:V pad=0/0/0/0 gap=2 main=CENTER cross=MIN size=FILL/FILL
+    TEXT "Имя питомца" 242x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT maxLines=1
+    TEXT "Порода" 242x15 props=characters->meta size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT maxLines=1
+    INSTANCE "Service" 242x16 auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPlacementList / itemsCount=2 with title=Label, itemsCount=2
+  INSTANCE "Radio" 20x20 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=true, size=20 with isActive=true, size=20
+

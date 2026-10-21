@@ -129,6 +129,10 @@ CI запускает `npm run tokens:check` и падает, если сген�
 
 **Локально:** `npm run storybook` → http://localhost:6006. Шрифты Inter для Storybook лежат в `.storybook/public/fonts` (в пакет не входят).
 
+## Компоненты из Figma
+
+Все компоненты страницы **01 Components** в Figma есть в библиотеке под теми же именами и с теми же свойствами. Таблица соответствия, известные отличия и процесс синхронизации (выгрузка через Figma REST API, спецификации, генерация иконок) — в [docs/figma-components.md](docs/figma-components.md).
+
 ## Локальная разработка с приложением
 
 ### yalc (рекомендуется)

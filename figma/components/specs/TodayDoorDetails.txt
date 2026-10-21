@@ -1,0 +1,52 @@
+# TodayDoorDetails (91:61) — COMPONENT_SET
+Description: Назначение: Где питомец живёт и даты брони в карточке заезда и выезда. | Не использовать: Время задачи → TodayTaskTime. | Код: src/widgets/today-action-list/task-constructor/TodayDoorDetails.tsx · ждёт кода: даты=обычное начертание, вторая дата=серая | Статус: beta
+Props:
+  title: TEXT default=Title
+  checkInDate: TEXT default=Label
+  checkOutDate: TEXT default=Label
+  actionType: VARIANT default=CheckIn options=['CheckIn', 'CheckOut']
+  isDaycare: VARIANT default=false options=['false', 'true']
+Render: png/91-61.png
+
+COMPONENT "actionType=CheckIn, isDaycare=false" 398x85 auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FIXED/HUG
+  RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  FRAME "Размещение и даты" 366x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Место" 318x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      RECTANGLE "Картинка места · с сервера" 40x40 size=FIXED/FIXED fill=IMAGE
+      FRAME "Название" 266x17 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MIN size=FILL/HUG
+        TEXT "Размещение" 266x17 props=characters->title size=FILL/FILL text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+    FRAME "Даты" 36x38 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MAX size=HUG/HUG
+      TEXT "Дата" 36x17 props=characters->checkInDate size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT
+      TEXT "Дата" 36x17 props=characters->checkOutDate size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=RIGHT
+
+COMPONENT "actionType=CheckIn, isDaycare=true" 398x85 auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FIXED/HUG
+  RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  FRAME "Размещение и даты" 366x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Место" 318x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      RECTANGLE "Иконка · img:DayCareIcon" 40x40 size=FIXED/FIXED fill=IMAGE
+      FRAME "Название" 266x17 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MIN size=FILL/HUG
+        TEXT "Размещение" 266x17 props=characters->title size=FILL/FILL text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+    FRAME "Даты" 36x17 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MAX size=HUG/HUG
+      TEXT "Дата" 36x17 props=characters->checkInDate size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT
+
+COMPONENT "actionType=CheckOut, isDaycare=false" 398x85 auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FIXED/HUG
+  RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  FRAME "Размещение и даты" 366x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Место" 318x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      RECTANGLE "Картинка места · с сервера" 40x40 size=FIXED/FIXED fill=IMAGE
+      FRAME "Название" 266x17 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MIN size=FILL/HUG
+        TEXT "Размещение" 266x17 props=characters->title size=FILL/FILL text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+    FRAME "Даты" 36x38 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MAX size=HUG/HUG
+      TEXT "Дата" 36x17 props=characters->checkInDate size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=RIGHT
+      TEXT "Дата" 36x17 props=characters->checkOutDate size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT
+
+COMPONENT "actionType=CheckOut, isDaycare=true" 398x85 auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FIXED/HUG
+  RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  FRAME "Размещение и даты" 366x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Место" 318x40 auto:H pad=0/0/0/0 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      RECTANGLE "Иконка · img:DayCareIcon" 40x40 size=FIXED/FIXED fill=IMAGE
+      FRAME "Название" 266x17 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MIN size=FILL/HUG
+        TEXT "Размещение" 266x17 props=characters->title size=FILL/FILL text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+    FRAME "Даты" 36x17 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MAX size=HUG/HUG
+      TEXT "Дата" 36x17 props=characters->checkOutDate size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT
+

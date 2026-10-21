@@ -1,0 +1,24 @@
+# StaffPickerRow (257:3283) — COMPONENT_SET
+Description: Назначение: Сотрудник в списке выбора: инициалы, имя, должность и кружок. | Не использовать: Выбор питомца → PetPickerRow. | Код: нет — ждёт кода | Статус: beta
+Props:
+  name: TEXT default=Title
+  position: TEXT default=Subtitle
+  isSelected: VARIANT default=false options=['false', 'true']
+Render: png/257-3283.png
+
+COMPONENT "isSelected=false" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FIXED/FIXED stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+  INSTANCE "EmptyProfileImage" 56x56 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#E9FFD5 [palette.secondaryLight|colors.bg.success-soft] var15:24 radius=8 INSTANCE OF EmptyProfileImage with initials=RL
+    TEXT "Инициалы" 20x19 props=characters->initials size=HUG/HUG text="RL" style=headline/bold (Bold 16) color=#28B105 [palette.green|colors.text.success] var15:22 align=LEFT
+  FRAME "Имя и должность" 248x38 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FILL/HUG
+    TEXT "Имя" 248x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Должность" 248x15 props=characters->position size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+  INSTANCE "Radio" 20x20 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=false, size=20 with isActive=false, size=20
+
+COMPONENT "isSelected=true" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FIXED/FIXED fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=16
+  INSTANCE "EmptyProfileImage" 56x56 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#E9FFD5 [palette.secondaryLight|colors.bg.success-soft] var15:24 radius=8 INSTANCE OF EmptyProfileImage with initials=RL
+    TEXT "Инициалы" 20x19 props=characters->initials size=HUG/HUG text="RL" style=headline/bold (Bold 16) color=#28B105 [palette.green|colors.text.success] var15:22 align=LEFT
+  FRAME "Имя и должность" 248x38 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FILL/HUG
+    TEXT "Имя" 248x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Должность" 248x15 props=characters->position size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+  INSTANCE "Radio" 20x20 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=true, size=20 with isActive=true, size=20
+

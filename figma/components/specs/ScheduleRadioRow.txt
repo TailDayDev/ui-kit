@@ -1,0 +1,20 @@
+# ScheduleRadioRow (257:3176) — COMPONENT_SET
+Description: Назначение: Строка выбора режима: кружок, заголовок и пояснение. | Не использовать: Вариант текстом без пояснения → OptionRow. | Код: src/shared/ui/schedule-radio/ScheduleRadioRow.tsx · в коде есть ещё: descriptionColor, disabled | Статус: beta
+Props:
+  title: TEXT default=Title
+  description: TEXT default=Text
+  selected: VARIANT default=false options=['false', 'true']
+Render: png/257-3176.png
+
+COMPONENT "selected=false" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FIXED/HUG
+  INSTANCE "Radio" 32x32 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=false, size=24 with isActive=false, size=24
+  FRAME "Тексты" 310x34 auto:V pad=0/0/0/0 gap=0 main=CENTER cross=MIN size=FILL/HUG
+    TEXT "Заголовок" 310x19 props=characters->title size=FILL/HUG text="Title" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Пояснение" 310x15 props=characters->description size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+
+COMPONENT "selected=true" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FIXED/HUG
+  INSTANCE "Radio" 32x32 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=true, size=24 with isActive=true, size=24
+  FRAME "Тексты" 310x34 auto:V pad=0/0/0/0 gap=0 main=CENTER cross=MIN size=FILL/HUG
+    TEXT "Заголовок" 310x19 props=characters->title size=FILL/HUG text="Title" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Пояснение" 310x15 props=characters->description size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+

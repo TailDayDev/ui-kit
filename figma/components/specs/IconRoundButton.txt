@@ -1,0 +1,16 @@
+# IconRoundButton (83:14) — COMPONENT_SET
+Description: Назначение: Круглая серая кнопка со значком: поиск, свернуть раздел, подробнее, закрыть окно. | Не использовать: Главное действие экрана → Fab. | Код: src/shared/ui/icon-button/IconRoundButton.tsx | Статус: beta
+Props:
+  icon: INSTANCE_SWAP default=78:4
+  size: VARIANT default=28 options=['28', '40', '36']
+Render: png/83-14.png
+
+COMPONENT "size=28" 24x24 auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999
+  INSTANCE "search" 16x16 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF search
+
+COMPONENT "size=36" 36x36 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999
+  INSTANCE "search" 20x20 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF search
+
+COMPONENT "size=40" 40x40 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999
+  INSTANCE "search" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF search
+

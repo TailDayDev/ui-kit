@@ -1,0 +1,5 @@
+# clock-edit-outline (147:249) — COMPONENT
+Render: png/147-249.png
+
+COMPONENT "clock-edit-outline" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 20.85x21 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

@@ -1,0 +1,5 @@
+# circle-x (254:294) — COMPONENT
+Render: png/254-294.png
+
+COMPONENT "circle-x" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 22x22 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

@@ -1,0 +1,5 @@
+# tab-icon-today (79:14) — COMPONENT
+Render: png/79-14.png
+
+COMPONENT "tab-icon-today" 24x24 size=FIXED/FIXED
+  VECTOR "glyph" 20.5x20.5 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

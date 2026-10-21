@@ -1,0 +1,5 @@
+# chevron-right (79:7) — COMPONENT
+Render: png/79-7.png
+
+COMPONENT "chevron-right" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 7.41x12 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

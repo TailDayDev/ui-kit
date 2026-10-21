@@ -1,0 +1,8 @@
+# EmptyProfileImage (255:310) — COMPONENT
+Description: Назначение: Человек без фото: инициалы на цветном квадрате. | Не использовать: Фото питомца с хозяином → PetOwnerAvatar. | Код: src/shared/ui/EmptyProfileImage.tsx · в коде есть ещё: size (xs, s, m, xl), shape=circle, фото, loading | Статус: beta
+Props:
+  initials: TEXT default=RL
+Render: png/255-310.png
+
+COMPONENT "EmptyProfileImage" 56x56 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#E9FFD5 [palette.secondaryLight|colors.bg.success-soft] var15:24 radius=8
+  TEXT "Инициалы" 20x19 props=characters->initials size=HUG/HUG text="RL" style=headline/bold (Bold 16) color=#28B105 [palette.green|colors.text.success] var15:22 align=LEFT

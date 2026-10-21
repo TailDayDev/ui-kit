@@ -1,0 +1,16 @@
+# TaskSheetRow (148:767) — COMPONENT_SET
+Description: Назначение: Строка действия в шторке задачи: подпись слева, значок справа. | Не использовать: Строка списка с описанием или переключателем → строки списков (на «01» нет). | Код: нет — ждёт кода | Статус: beta
+Props:
+  label: TEXT default=Label
+  icon: INSTANCE_SWAP default=147:258
+  isDestructive: VARIANT default=false options=['false', 'true']
+Render: png/148-767.png
+
+COMPONENT "isDestructive=false" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+  TEXT "Label" 41x19 props=characters->label size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  INSTANCE "Icon" 20x20 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF calendar-days
+
+COMPONENT "isDestructive=true" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+  TEXT "Label" 41x19 props=characters->label size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  INSTANCE "Icon" 20x20 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF calendar-days
+

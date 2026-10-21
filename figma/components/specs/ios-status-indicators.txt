@@ -1,0 +1,12 @@
+# ios-status-indicators (79:39) — COMPONENT
+Render: png/79-39.png
+
+COMPONENT "ios-status-indicators" 77x13 size=FIXED/FIXED
+  GROUP "Mask group" 25.23x13.0
+    GROUP "Group" 25.23x13.0
+      VECTOR "Vector" 25.23x13.0 fill=#333333 [palette.baseGray|colors.text.primary] var15:51
+    VECTOR "Vector" 27.52x15.29 fill=#333333 [palette.baseGray|colors.text.primary] var15:51 opacity=0.35
+  VECTOR "Vector" 1.52x4.59 fill=#333333 [palette.baseGray|colors.text.primary] var15:51 opacity=0.4
+  VECTOR "Vector" 20.64x8.41 fill=#333333 [palette.baseGray|colors.text.primary] var15:51
+  VECTOR "Vector" 17.51x12.58 fill=#333333 [palette.baseGray|colors.text.primary] var15:51
+  VECTOR "Vector" 19.5x12.23 fill=#333333 [palette.baseGray|colors.text.primary] var15:51

@@ -1,0 +1,15 @@
+# TodayPlacementList (126:12) — COMPONENT_SET
+Description: Назначение: Где питомец: значок и название места, одного или двух. | Не использовать: Место в деталях заезда и выезда → TodayDoorDetails. | Код: src/widgets/today-action-list/task-constructor/TodayPlacementList.tsx · в коде есть ещё: isVertical | Статус: beta
+Props:
+  title: TEXT default=Label
+  itemsCount: VARIANT default=1 options=['1', '2']
+Render: png/126-12.png
+
+COMPONENT "itemsCount=1" 290x16 auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FIXED/HUG
+  RECTANGLE "Картинка места · с сервера" 16x16 size=FIXED/FIXED fill=IMAGE
+  TEXT "Название" 270x15 props=characters->title size=FILL/HUG text="Label" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT maxLines=1
+
+COMPONENT "itemsCount=2" 290x16 auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FIXED/HUG
+  INSTANCE "TodayPlacementList" 51x16 auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=HUG/HUG INSTANCE OF TodayPlacementList / itemsCount=1 with title=Label, itemsCount=1
+  INSTANCE "TodayPlacementList" 235x16 auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPlacementList / itemsCount=1 with title=Label, itemsCount=1
+

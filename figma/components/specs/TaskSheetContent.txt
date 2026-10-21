@@ -1,0 +1,28 @@
+# TaskSheetContent (264:561) — COMPONENT_SET
+Description: Назначение: Тело шторки задачи: строки действий и «Удалить». | Не использовать: Подтверждение действия → ConfirmationModalContent. | Код: нет — ждёт кода | Статус: beta
+Props:
+  hasDestructive: BOOLEAN default=False
+  rows: VARIANT default=1 options=['1', '2', '3']
+Render: png/264-561.png
+
+COMPONENT "rows=1" 430x72 auto:V pad=0/0/20/0 gap=0 main=MIN cross=CENTER size=FIXED/HUG
+  FRAME "Actions" 382x52 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FIXED/HUG
+    INSTANCE "TaskSheetRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=false with icon=147:258, label=Label, isDestructive=false
+  FRAME "Destructive" 382x104 HIDDEN props=visible->hasDestructive auto:V pad=52/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG
+    INSTANCE "DestructiveRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=true with icon=147:261, label=Удалить, isDestructive=true
+
+COMPONENT "rows=2" 430x132 auto:V pad=0/0/20/0 gap=0 main=MIN cross=CENTER size=FIXED/HUG
+  FRAME "Actions" 382x112 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FIXED/HUG
+    INSTANCE "TaskSheetRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=false with icon=147:240, label=Label, isDestructive=false
+    INSTANCE "TaskSheetRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=false with icon=147:258, label=Label, isDestructive=false
+  FRAME "Destructive" 382x104 HIDDEN props=visible->hasDestructive auto:V pad=52/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG
+    INSTANCE "DestructiveRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=true with icon=147:261, label=Удалить, isDestructive=true
+
+COMPONENT "rows=3" 430x192 auto:V pad=0/0/20/0 gap=0 main=MIN cross=CENTER size=FIXED/HUG
+  FRAME "Actions" 382x172 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FIXED/HUG
+    INSTANCE "TaskSheetRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=false with icon=175:979, label=Label, isDestructive=false
+    INSTANCE "TaskSheetRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=false with icon=147:249, label=Label, isDestructive=false
+    INSTANCE "TaskSheetRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=false with icon=147:258, label=Label, isDestructive=false
+  FRAME "Destructive" 382x104 HIDDEN props=visible->hasDestructive auto:V pad=52/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG
+    INSTANCE "DestructiveRow" 382x52 auto:H pad=16/24/16/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF TaskSheetRow / isDestructive=true with icon=147:261, label=Удалить, isDestructive=true
+

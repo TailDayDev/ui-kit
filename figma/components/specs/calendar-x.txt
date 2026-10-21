@@ -1,0 +1,5 @@
+# calendar-x (175:979) — COMPONENT
+Render: png/175-979.png
+
+COMPONENT "calendar-x" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 20x21 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

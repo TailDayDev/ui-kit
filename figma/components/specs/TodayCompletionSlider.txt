@@ -1,0 +1,21 @@
+# TodayCompletionSlider (84:17) — COMPONENT_SET
+Description: Назначение: Ползунок «Готово!»: провести вправо — задача выполнена. | Не использовать: Заезд, выезд, переезд → TodayDoorButton. | Код: src/widgets/today-action-list/TodayCompletionSlider.tsx · ждёт кода: дорожка=48, ручка=40 | Статус: beta
+Props:
+  completedLabel: TEXT default=Label
+  isCompleted: VARIANT default=false options=['false', 'true']
+  isDisabled: VARIANT default=false options=['false', 'true']
+Render: png/84-17.png
+
+COMPONENT "isCompleted=false, isDisabled=false" 180x48 auto:H pad=4/0/4/4 gap=10 main=MIN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=9999 clip
+  FRAME "Ручка" 40x40 auto:H pad=10/10/10/10 gap=10 main=MIN cross=MIN size=HUG/HUG fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:60 radius=9999
+    INSTANCE "check" 20x20 size=FIXED/FIXED INSTANCE OF check
+
+COMPONENT "isCompleted=true, isDisabled=false" 180x48 auto:H pad=4/4/4/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=9999 clip
+  TEXT "Подпись" 41x19 props=characters->completedLabel size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  FRAME "Ручка" 40x40 auto:H pad=10/10/10/10 gap=10 main=MIN cross=MIN size=HUG/HUG fill=#87D241 [palette.secondary] var15:23 radius=9999
+    INSTANCE "check" 20x20 size=FIXED/FIXED INSTANCE OF check
+
+COMPONENT "isCompleted=false, isDisabled=true" 180x48 auto:H pad=4/0/4/4 gap=10 main=MIN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=9999 opacity=0.6 clip
+  FRAME "Ручка" 40x40 auto:H pad=10/10/10/10 gap=10 main=MIN cross=MIN size=HUG/HUG fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:60 radius=9999
+    INSTANCE "check" 20x20 size=FIXED/FIXED INSTANCE OF check
+

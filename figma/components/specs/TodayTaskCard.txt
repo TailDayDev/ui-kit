@@ -1,0 +1,58 @@
+# TodayTaskCard (94:163) — COMPONENT_SET
+Description: Назначение: Карточка задачи ленты «Сегодня»: тип, время, питомец, что сделать и действие. | Не использовать: Заглушка при загрузке → TodaySkeleton. | Код: src/widgets/today-action-list/task-constructor/TodayTaskCard.tsx · ждёт кода: вуаль isFinished=вся карточка с подвалом, нажатие isFinished=шторка «⋮» · ждёт кода: причина пропуска — слоем карточки над вуалью, во всю ширину под подвалом | Статус: beta
+Props:
+  hasPet: BOOLEAN default=True
+  hasDetails: BOOLEAN default=True
+  pet: INSTANCE_SWAP default=88:158
+  details: INSTANCE_SWAP default=91:28
+  hasHeader: BOOLEAN default=True
+  hasSkipReason: BOOLEAN default=False
+  skipReason: TEXT default=Text
+  isFinished: VARIANT default=false options=['false', 'true']
+Render: png/94-163.png
+
+COMPONENT "isFinished=false" 398x280 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 effect=shadow/block
+  INSTANCE "Шапка карточки" 398x40 props=visible->hasHeader auto:H pad=8/16/0/1 gap=0 main=SPACE_BETWEEN cross=MAX size=FILL/HUG clip INSTANCE OF TodayTaskHeader
+    INSTANCE "Метка типа" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#FFF8B6 [palette.feedingBadgeBackground] var15:14 radii=[8, 24, 24, 0] INSTANCE OF TodayTaskTypeBadge / actionType=Feeding with secondCareType=Label, hasSecondCareType=False, hasCareType=False, careType=Label, label=Label, actionType=Feeding
+    INSTANCE "Время" 37x31 auto:H pad=0/0/0/0 gap=8 main=MAX cross=MAX size=HUG/HUG INSTANCE OF TodayTaskTime / tone=default with hasSubtitle=True, subtitle=Subtitle, title=Title, tone=default
+  INSTANCE "Питомец" 398x80 props=visible->hasPet,mainComponent->pet auto:H pad=16/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPetIdentity with hasPlacements=True, meta=Subtitle, name=Title
+    INSTANCE "Фото" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG INSTANCE OF PetOwnerAvatar / hasPhoto=true with ownerInitials=RL, hasPhoto=true
+    FRAME "Имя, порода, место" 290x64 auto:V pad=0/0/0/0 gap=2 main=CENTER cross=MIN size=FILL/FILL
+      TEXT "Имя" 290x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+      TEXT "Порода" 290x15 props=characters->meta size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT maxLines=1
+      INSTANCE "Размещение" 290x16 props=visible->hasPlacements auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPlacementList / itemsCount=1 with title=Label, itemsCount=1
+  INSTANCE "Детали" 398x88 props=visible->hasDetails,mainComponent->details auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FILL/HUG INSTANCE OF TodayTaskDetails with hasNote=True, trailing=Label, title=Title, hasTrailing=True, note=Text, hasIcon=True
+    RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+    FRAME "Задача" 366x43 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FILL/HUG
+      FRAME "Название и количество" 366x24 auto:H pad=0/0/0/0 gap=12 main=MIN cross=MIN size=FILL/HUG
+        RECTANGLE "Иконка · img:dry_food_icon" 24x24 props=visible->hasIcon size=FIXED/FIXED fill=IMAGE
+        TEXT "Название" 282x17 props=characters->title size=FILL/HUG text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+        TEXT "Количество" 36x17 props=visible->hasTrailing,characters->trailing size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+      TEXT "Описание" 366x15 props=visible->hasNote,characters->note size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT
+  INSTANCE "Футер" 398x72 auto:H pad=8/16/16/16 gap=0 main=SPACE_BETWEEN cross=MIN size=FILL/HUG INSTANCE OF TodayTaskFooter / action=slider with action=slider
+  FRAME "Причина пропуска" 398x31 HIDDEN props=visible->hasSkipReason auto:H pad=0/16/16/16 gap=0 main=MIN cross=MIN size=FIXED/HUG
+    TEXT "Текст причины" 366x15 props=characters->skipReason size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+
+COMPONENT "isFinished=true" 398x280 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 effect=shadow/block
+  INSTANCE "Шапка карточки" 398x40 props=visible->hasHeader auto:H pad=8/16/0/1 gap=0 main=SPACE_BETWEEN cross=MAX size=FILL/HUG clip INSTANCE OF TodayTaskHeader
+    INSTANCE "Метка типа" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#FFF8B6 [palette.feedingBadgeBackground] var15:14 radii=[8, 24, 24, 0] INSTANCE OF TodayTaskTypeBadge / actionType=Feeding with secondCareType=Label, hasSecondCareType=False, hasCareType=False, careType=Label, label=Label, actionType=Feeding
+    INSTANCE "Время" 37x31 auto:H pad=0/0/0/0 gap=8 main=MAX cross=MAX size=HUG/HUG INSTANCE OF TodayTaskTime / tone=completed with subtitle=Subtitle, hasSubtitle=True, title=Title, tone=completed
+  INSTANCE "Питомец" 398x80 props=visible->hasPet,mainComponent->pet auto:H pad=16/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPetIdentity with hasPlacements=True, meta=Subtitle, name=Title
+    INSTANCE "Фото" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG INSTANCE OF PetOwnerAvatar / hasPhoto=true with ownerInitials=RL, hasPhoto=true
+    FRAME "Имя, порода, место" 290x64 auto:V pad=0/0/0/0 gap=2 main=CENTER cross=MIN size=FILL/FILL
+      TEXT "Имя" 290x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+      TEXT "Порода" 290x15 props=characters->meta size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT maxLines=1
+      INSTANCE "Размещение" 290x16 props=visible->hasPlacements auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPlacementList / itemsCount=1 with title=Label, itemsCount=1
+  INSTANCE "Детали" 398x88 props=visible->hasDetails,mainComponent->details auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FILL/HUG INSTANCE OF TodayTaskDetails with hasNote=True, trailing=Label, title=Title, hasTrailing=True, note=Text, hasIcon=True
+    RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+    FRAME "Задача" 366x43 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FILL/HUG
+      FRAME "Название и количество" 366x24 auto:H pad=0/0/0/0 gap=12 main=MIN cross=MIN size=FILL/HUG
+        RECTANGLE "Иконка · img:dry_food_icon" 24x24 props=visible->hasIcon size=FIXED/FIXED fill=IMAGE
+        TEXT "Название" 282x17 props=characters->title size=FILL/HUG text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+        TEXT "Количество" 36x17 props=visible->hasTrailing,characters->trailing size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+      TEXT "Описание" 366x15 props=visible->hasNote,characters->note size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT
+  INSTANCE "Футер" 398x72 auto:H pad=8/16/16/16 gap=0 main=SPACE_BETWEEN cross=MIN size=FILL/HUG INSTANCE OF TodayTaskFooter / action=slider with action=slider
+  RECTANGLE "Вуаль · выполнено" 398x280 size=FIXED/FIXED ABSOLUTE fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 opacity=0.6
+  FRAME "Причина пропуска" 398x31 HIDDEN props=visible->hasSkipReason auto:H pad=0/16/16/16 gap=0 main=MIN cross=MIN size=FIXED/HUG
+    TEXT "Текст причины" 366x15 props=characters->skipReason size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+

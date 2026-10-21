@@ -1,0 +1,8 @@
+# TodayDoorButton (78:24) — COMPONENT
+Description: Назначение: Кнопка действия с бронью в подвале карточки: заселить, выселить, переселить. | Не использовать: Кормление, лекарство, услуга, ручная задача → TodayCompletionSlider. | Код: нет — ждёт кода | Статус: beta
+Props:
+  label: TEXT default=Label
+Render: png/78-24.png
+
+COMPONENT "TodayDoorButton" 302x48 auto:H pad=16/32/16/32 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=8
+  TEXT "Подпись" 41x19 props=characters->label size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER

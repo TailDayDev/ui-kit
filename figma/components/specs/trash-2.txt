@@ -1,0 +1,5 @@
+# trash-2 (147:261) — COMPONENT
+Render: png/147-261.png
+
+COMPONENT "trash-2" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 16x18 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

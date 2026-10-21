@@ -1,0 +1,10 @@
+# ManualTaskSheetContent (266:556) — COMPONENT
+Description: Назначение: Тело окна ручной задачи: название, срок, питомец и сотрудник. | Не использовать: Выбор одного значения → тело окна выбора. | Код: нет — ждёт кода | Статус: beta
+Render: png/266-556.png
+
+COMPONENT "ManualTaskSheetContent" 430x687 auto:V pad=0/24/0/24 gap=24 main=MIN cross=MIN size=FIXED/FIXED
+  INSTANCE "Textarea" 382x120 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FILL/FIXED INSTANCE OF Textarea / state=empty with counter=0/120, placeholder=Что бы вы хотели сделать?, value=Text, label=Новая задача, state=empty
+  FRAME "Строки" 382x160 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+    INSTANCE "Срок исполнения" 382x48 auto:H pad=12/12/12/12 gap=8 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF FieldRow / isEmpty=true with icon=254:278, value=Без времени, label=Срок исполнения, isEmpty=true
+    INSTANCE "Питомец" 382x48 auto:H pad=12/12/12/12 gap=8 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF FieldRow / isEmpty=true with icon=254:281, value=Без питомца, label=Питомец, isEmpty=true
+    INSTANCE "Сотрудник" 382x48 auto:H pad=12/12/12/12 gap=8 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF FieldRow / isEmpty=true with icon=254:285, value=Без сотрудника, label=Сотрудник, isEmpty=true

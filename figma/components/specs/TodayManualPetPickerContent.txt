@@ -1,0 +1,14 @@
+# TodayManualPetPickerContent (266:3414) — COMPONENT
+Description: Назначение: Тело окна выбора питомца: «Без питомца» и список питомцев. | Не использовать: Выбор сотрудника → TodayManualStaffPickerContent. | Код: нет — ждёт кода | Статус: beta
+Render: png/266-3414.png
+
+COMPONENT "TodayManualPetPickerContent" 430x687 auto:V pad=8/24/24/24 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "PetList" 382x568 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+    FRAME "Без питомца" 382x88 auto:H pad=16/16/16/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+      TEXT "Без питомца" 318x19 size=FILL/HUG text="Без питомца" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      INSTANCE "Radio" 20x20 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=false, size=20 with isActive=false, size=20
+    INSTANCE "Pet · Rocky" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FILL/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=16 INSTANCE OF PetPickerRow / isSelected=true with meta=Джек-рассел, name=Rocky, isSelected=true
+    INSTANCE "Pet · Bella" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF PetPickerRow / isSelected=false with meta=Такса, name=Bella, isSelected=false
+    INSTANCE "Pet · Cooper" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF PetPickerRow / isSelected=false with meta=Хаски, name=Cooper, isSelected=false
+    INSTANCE "Pet · Molly" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF PetPickerRow / isSelected=false with meta=Пудель, name=Molly, isSelected=false
+    INSTANCE "Pet · Daisy" 382x88 auto:H pad=12/16/12/16 gap=12 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF PetPickerRow / isSelected=false with meta=Корги, name=Daisy, isSelected=false

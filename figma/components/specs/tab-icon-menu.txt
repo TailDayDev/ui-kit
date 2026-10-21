@@ -1,0 +1,5 @@
+# tab-icon-menu (79:28) — COMPONENT
+Render: png/79-28.png
+
+COMPONENT "tab-icon-menu" 24x24 size=FIXED/FIXED
+  VECTOR "glyph" 19.5x13.5 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

@@ -1,0 +1,37 @@
+# TodaySectionHeader (88:130) — COMPONENT_SET
+Description: Назначение: Заголовок раздела ленты: название, число задач и кнопка свернуть. | Не использовать: Заголовок экрана → ServiceHeader. | Код: src/screens/today/components/TodaySectionHeader.tsx | Статус: beta
+Props:
+  title: TEXT default=Title
+  isCollapsible: BOOLEAN default=True
+  isExpanded: VARIANT default=true options=['true', 'false']
+  isPastDate: VARIANT default=false options=['false', 'true']
+Render: png/88-130.png
+
+COMPONENT "isExpanded=true, isPastDate=false" 398x36 auto:H pad=12/0/0/0 gap=8 main=MIN cross=CENTER size=FIXED/HUG
+  RECTANGLE "Линия" 178.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  TEXT "Раздел: счётчик" 25x15 props=characters->title size=HUG/HUG text="Title" style=caption/regular (Regular 12) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  FRAME "Шеврон и линия" 178.5x24 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+    INSTANCE "Кнопка · свернуть раздел" 24x24 props=visible->isCollapsible auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=79:4, size=28
+    RECTANGLE "Линия" 146.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+
+COMPONENT "isExpanded=true, isPastDate=true" 398x36 auto:H pad=12/0/0/0 gap=8 main=MIN cross=CENTER size=FIXED/HUG
+  RECTANGLE "Линия" 178.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  TEXT "Раздел: счётчик" 25x15 props=characters->title size=HUG/HUG text="Title" style=caption/regular (Regular 12) color=#E40E0E [palette.red|colors.text.error] var15:55 align=LEFT
+  FRAME "Шеврон и линия" 178.5x24 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+    INSTANCE "Кнопка · свернуть раздел" 24x24 props=visible->isCollapsible auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=79:4, size=28
+    RECTANGLE "Линия" 146.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+
+COMPONENT "isExpanded=false, isPastDate=false" 398x36 auto:H pad=12/0/0/0 gap=8 main=MIN cross=CENTER size=FIXED/HUG
+  RECTANGLE "Линия" 178.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  TEXT "Раздел: счётчик" 25x15 props=characters->title size=HUG/HUG text="Title" style=caption/regular (Regular 12) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  FRAME "Шеврон и линия" 178.5x24 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+    INSTANCE "Кнопка · свернуть раздел" 24x24 props=visible->isCollapsible auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=78:17, size=28
+    RECTANGLE "Линия" 146.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+
+COMPONENT "isExpanded=false, isPastDate=true" 398x36 auto:H pad=12/0/0/0 gap=8 main=MIN cross=CENTER size=FIXED/HUG
+  RECTANGLE "Линия" 178.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  TEXT "Раздел: счётчик" 25x15 props=characters->title size=HUG/HUG text="Title" style=caption/regular (Regular 12) color=#E40E0E [palette.red|colors.text.error] var15:55 align=LEFT
+  FRAME "Шеврон и линия" 178.5x24 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+    INSTANCE "Кнопка · свернуть раздел" 24x24 props=visible->isCollapsible auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=78:17, size=28
+    RECTANGLE "Линия" 146.5x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+

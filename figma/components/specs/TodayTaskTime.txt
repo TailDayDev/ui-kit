@@ -1,0 +1,24 @@
+# TodayTaskTime (78:66) — COMPONENT_SET
+Description: Назначение: Время задачи в шапке карточки и подпись под ним: сколько осталось, опоздание или когда выполнена. | Не использовать: Даты брони → TodayDoorDetails. | Код: src/widgets/today-action-list/task-constructor/TodayTaskTime.tsx · в коде есть ещё: tone=canceled · ждёт кода: tone=completed подпись=серая | Статус: beta
+Props:
+  title: TEXT default=Title
+  subtitle: TEXT default=Subtitle
+  hasSubtitle: BOOLEAN default=True
+  tone: VARIANT default=default options=['default', 'overdue', 'completed']
+Render: png/78-66.png
+
+COMPONENT "tone=default" 37x31 auto:H pad=0/0/0/0 gap=8 main=MAX cross=MAX size=HUG/HUG
+  FRAME "Время" 37x31 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MAX size=HUG/HUG
+    TEXT "Время · заголовок" 35x19 props=characters->title size=HUG/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT maxLines=1
+    TEXT "Время · подпись" 37x12 props=visible->hasSubtitle,characters->subtitle size=HUG/HUG text="Subtitle" style=smallCaption/regular (Regular 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=RIGHT maxLines=1
+
+COMPONENT "tone=overdue" 37x31 auto:H pad=0/0/0/0 gap=8 main=MAX cross=MAX size=HUG/HUG
+  FRAME "Время" 37x31 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MAX size=HUG/HUG
+    TEXT "Время · заголовок" 35x19 props=characters->title size=HUG/HUG text="Title" style=headline/bold (Bold 16) color=#E40E0E [palette.red|colors.text.error] var15:55 align=RIGHT maxLines=1
+    TEXT "Время · подпись" 37x12 props=visible->hasSubtitle,characters->subtitle size=HUG/HUG text="Subtitle" style=smallCaption/regular (Regular 10) color=#E40E0E [palette.red|colors.text.error] var15:55 align=RIGHT maxLines=1
+
+COMPONENT "tone=completed" 37x31 auto:H pad=0/0/0/0 gap=8 main=MAX cross=MAX size=HUG/HUG
+  FRAME "Время" 37x31 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MAX size=HUG/HUG
+    TEXT "Время · заголовок" 35x19 props=characters->title size=HUG/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT maxLines=1
+    TEXT "Время · подпись" 37x12 props=visible->hasSubtitle,characters->subtitle size=HUG/HUG text="Subtitle" style=smallCaption/regular (Regular 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=RIGHT maxLines=1
+

@@ -1,0 +1,5 @@
+# plus (78:7) — COMPONENT
+Render: png/78-7.png
+
+COMPONENT "plus" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 14x14 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

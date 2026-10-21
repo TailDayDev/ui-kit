@@ -1,0 +1,45 @@
+# TaskSheet (151:950) — COMPONENT_SET
+Description: Назначение: Шторка действий задачи: открывается по «⋮» карточки, строки — по типу и статусу задачи. | Не использовать: Окно с полями или выбором → копия CustomModal. | Код: src/screens/today/components/TaskSheet.tsx · в коде есть ещё: isWriterEnabled=false · ждёт кода: значок noShow=calendar-x | Статус: beta
+Props:
+  rows: VARIANT default=1 options=['1', '2', '3']
+Render: png/151-950.png
+
+COMPONENT "rows=1" 430x166 auto:V pad=0/0/0/0 gap=0 main=MIN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=24 clip
+  INSTANCE "Окно" 430x166 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] clip INSTANCE OF CustomModal with footer=257:3001, hasHomeIndicator=True, hasFooter=False, divider=True, content=264:510
+    INSTANCE "Шапка" 430x60 auto:H pad=12/12/12/56 gap=8 main=MAX cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] INSTANCE OF ModalHeader with hasTitle=False, title=Title
+      TEXT "Label" 318x19 HIDDEN props=visible->hasTitle,characters->title size=FIXED/FIXED text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER maxLines=1
+      INSTANCE "CloseButton" 36x36 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=36 with icon=147:237, size=36
+    INSTANCE "Содержимое" 430x72 props=mainComponent->content auto:V pad=0/0/20/0 gap=0 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TaskSheetContent / rows=1 with hasDestructive=False, rows=1
+    FRAME "Подвал" 430x80 HIDDEN props=visible->hasFooter auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG
+      FRAME "Разделитель" 430x1 props=visible->divider size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33
+      FRAME "Кнопки" 430x79 auto:V pad=16/24/12/24 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+        INSTANCE "CustomModalFooterActions" 382x51 props=mainComponent->footer auto:H pad=0/0/0/0 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG INSTANCE OF CustomModalFooterActions / direction=row with direction=row
+    FRAME "Полоска дома" 430x34 props=visible->hasHomeIndicator auto:V pad=0/0/8/0 gap=0 main=MAX cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+      FRAME "Полоска" 155x5 size=FIXED/FIXED fill=#333333 [palette.baseGray|colors.text.primary] var15:29 radius=9999
+
+COMPONENT "rows=2" 430x226 auto:V pad=0/0/0/0 gap=0 main=MIN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=24 clip
+  INSTANCE "Окно" 430x226 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] clip INSTANCE OF CustomModal with footer=257:3001, hasHomeIndicator=True, hasFooter=False, divider=True, content=264:522
+    INSTANCE "Шапка" 430x60 auto:H pad=12/12/12/56 gap=8 main=MAX cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] INSTANCE OF ModalHeader with hasTitle=False, title=Title
+      TEXT "Label" 318x19 HIDDEN props=visible->hasTitle,characters->title size=FIXED/FIXED text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER maxLines=1
+      INSTANCE "CloseButton" 36x36 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=36 with icon=147:237, size=36
+    INSTANCE "Содержимое" 430x132 props=mainComponent->content auto:V pad=0/0/20/0 gap=0 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TaskSheetContent / rows=2 with hasDestructive=False, rows=2
+    FRAME "Подвал" 430x80 HIDDEN props=visible->hasFooter auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG
+      FRAME "Разделитель" 430x1 props=visible->divider size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33
+      FRAME "Кнопки" 430x79 auto:V pad=16/24/12/24 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+        INSTANCE "CustomModalFooterActions" 382x51 props=mainComponent->footer auto:H pad=0/0/0/0 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG INSTANCE OF CustomModalFooterActions / direction=row with direction=row
+    FRAME "Полоска дома" 430x34 props=visible->hasHomeIndicator auto:V pad=0/0/8/0 gap=0 main=MAX cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+      FRAME "Полоска" 155x5 size=FIXED/FIXED fill=#333333 [palette.baseGray|colors.text.primary] var15:29 radius=9999
+
+COMPONENT "rows=3" 430x286 auto:V pad=0/0/0/0 gap=0 main=MIN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=24 clip
+  INSTANCE "Окно" 430x286 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] clip INSTANCE OF CustomModal with footer=257:3001, hasHomeIndicator=True, hasFooter=False, divider=True, content=264:539
+    INSTANCE "Шапка" 430x60 auto:H pad=12/12/12/56 gap=8 main=MAX cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] INSTANCE OF ModalHeader with hasTitle=False, title=Title
+      TEXT "Label" 318x19 HIDDEN props=visible->hasTitle,characters->title size=FIXED/FIXED text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER maxLines=1
+      INSTANCE "CloseButton" 36x36 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=36 with icon=147:237, size=36
+    INSTANCE "Содержимое" 430x192 props=mainComponent->content auto:V pad=0/0/20/0 gap=0 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TaskSheetContent / rows=3 with hasDestructive=False, rows=3
+    FRAME "Подвал" 430x80 HIDDEN props=visible->hasFooter auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG
+      FRAME "Разделитель" 430x1 props=visible->divider size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33
+      FRAME "Кнопки" 430x79 auto:V pad=16/24/12/24 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+        INSTANCE "CustomModalFooterActions" 382x51 props=mainComponent->footer auto:H pad=0/0/0/0 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG INSTANCE OF CustomModalFooterActions / direction=row with direction=row
+    FRAME "Полоска дома" 430x34 props=visible->hasHomeIndicator auto:V pad=0/0/8/0 gap=0 main=MAX cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+      FRAME "Полоска" 155x5 size=FIXED/FIXED fill=#333333 [palette.baseGray|colors.text.primary] var15:29 radius=9999
+

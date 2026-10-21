@@ -1,0 +1,5 @@
+# pencil (147:243) — COMPONENT
+Render: png/147-243.png
+
+COMPONENT "pencil" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 18.0x18 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

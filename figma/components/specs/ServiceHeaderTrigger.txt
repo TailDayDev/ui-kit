@@ -1,0 +1,15 @@
+# ServiceHeaderTrigger (88:76) — COMPONENT
+Description: Назначение: Выбор гостиницы в шапке: фото, название, стрелка и счётчик новых броней в других гостиницах. | Не использовать: Заголовок экрана без выбора гостиницы → ServiceHeader forceTitleOnly. | Код: src/widgets/service-header/components/ServiceHeaderTrigger.tsx | Статус: beta
+Props:
+  titleSelected: TEXT default=Title
+  notifications: TEXT default=0
+  hasNotificationsBadge: BOOLEAN default=True
+Render: png/88-76.png
+
+COMPONENT "ServiceHeaderTrigger" 126x40 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=HUG/HUG
+  RECTANGLE "Картинка · img:PhotoPlaceholderIcon" 40x40 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 + IMAGE radius=9999
+  TEXT "Название гостиницы" 46x24 props=characters->titleSelected size=HUG/HUG text="Title" style=title/bold (Bold 20) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  FRAME "Шеврон гостиниц" 24x24 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999
+    INSTANCE "chevron-down" 24x24 INSTANCE OF chevron-down
+    FRAME "Бейдж · брони других гостиниц" 20x15 props=visible->hasNotificationsBadge auto:H pad=0/4/0/4 gap=0 main=CENTER cross=CENTER size=HUG/HUG minW=20 maxW=None fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:60 radius=16
+      TEXT "Счётчик" 8x15 props=characters->notifications size=HUG/HUG text="0" style=caption/medium (Medium 12) color=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:53 align=CENTER

@@ -1,0 +1,5 @@
+# calendar-plus (147:252) — COMPONENT
+Render: png/147-252.png
+
+COMPONENT "calendar-plus" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 18x20 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

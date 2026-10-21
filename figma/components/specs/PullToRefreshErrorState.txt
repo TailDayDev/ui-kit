@@ -1,0 +1,11 @@
+# PullToRefreshErrorState (257:3371) — COMPONENT
+Description: Назначение: Ошибка загрузки: картинка и подсказка потянуть экран вниз. | Не использовать: Нет сети при загруженной ленте → TodayScreenState offline. | Код: src/shared/ui/pull-to-refresh-error-state/PullToRefreshErrorState.tsx | Статус: beta
+Render: png/257-3371.png
+
+COMPONENT "PullToRefreshErrorState" 382x202 auto:V pad=0/40/0/40 gap=48 main=MIN cross=CENTER size=FIXED/HUG
+  FRAME "Message" 302x202 auto:V pad=0/0/0/0 gap=16 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Картинка · img:NetworkIssues" 120x120 size=FIXED/FIXED fill=IMAGE
+    FRAME "Texts" 302x66 auto:V pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+      TEXT "Title" 302x24 size=FILL/HUG text="Не удалось загрузить" style=title/medium (Medium 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      TEXT "Body" 302x34 size=FILL/HUG text="Проверьте подключение к интернету
+и потяните вниз для обновления" style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER

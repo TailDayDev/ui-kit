@@ -1,0 +1,16 @@
+# TabBarItem (84:90) — COMPONENT_SET
+Description: Назначение: Вкладка нижней панели: значок раздела, у активной — цветной. | Не использовать: Переключение внутри экрана → чипы или вкладки экрана. | Код: src/navigation/tab-bar/TabBarItem.tsx · ждёт кода: подпись=нет, точка=6 у угла значка · в коде есть ещё: счётчик | Статус: beta
+Props:
+  icon: INSTANCE_SWAP default=79:14
+  hasBadge: BOOLEAN default=False
+  isFocused: VARIANT default=true options=['true', 'false']
+Render: png/84-90.png
+
+COMPONENT "isFocused=true" 92x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FIXED/HUG
+  INSTANCE "icon" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF tab-icon-today
+  ELLIPSE "Badge" 6x6 HIDDEN props=visible->hasBadge size=FIXED/FIXED ABSOLUTE fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6
+
+COMPONENT "isFocused=false" 92x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FIXED/HUG
+  INSTANCE "icon" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF tab-icon-today
+  ELLIPSE "Badge" 6x6 HIDDEN props=visible->hasBadge size=FIXED/FIXED ABSOLUTE fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6
+

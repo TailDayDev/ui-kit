@@ -1,0 +1,5 @@
+# loader (254:315) — COMPONENT
+Render: png/254-315.png
+
+COMPONENT "loader" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 22x22 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

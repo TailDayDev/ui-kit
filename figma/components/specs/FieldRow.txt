@@ -1,0 +1,21 @@
+# FieldRow (257:3148) — COMPONENT_SET
+Description: Назначение: Строка выбора значения: значок, подпись, значение и кнопка открыть или сбросить. | Не использовать: Ввод текста → Textarea. | Код: src/shared/ui/field-row/FieldRow.tsx · ждёт кода: крестик сброса у заполненной (onClear) · в коде есть ещё: isError, showAction | Статус: beta
+Props:
+  label: TEXT default=Label
+  value: TEXT default=Text
+  icon: INSTANCE_SWAP default=254:278
+  isEmpty: VARIANT default=true options=['true', 'false']
+Render: png/257-3148.png
+
+COMPONENT "isEmpty=true" 382x48 auto:H pad=12/12/12/12 gap=8 main=MIN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8
+  INSTANCE "Значок" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF clock-3
+  TEXT "Подпись" 257x17 props=characters->label size=FILL/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+  TEXT "Значение" 29x17 props=characters->value size=HUG/HUG text="Text" style=body/medium (Medium 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+  INSTANCE "Кнопка" 24x24 auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=78:17, size=28
+
+COMPONENT "isEmpty=false" 382x48 auto:H pad=12/12/12/12 gap=8 main=MIN cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8
+  INSTANCE "Значок" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF clock-3
+  TEXT "Подпись" 257x17 props=characters->label size=FILL/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+  TEXT "Значение" 29x17 props=characters->value size=HUG/HUG text="Text" style=body/medium (Medium 14) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 align=LEFT
+  INSTANCE "Кнопка" 24x24 auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=147:237, size=28
+

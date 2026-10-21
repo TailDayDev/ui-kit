@@ -1,0 +1,5 @@
+# paw-print (254:281) — COMPONENT
+Render: png/254-281.png
+
+COMPONENT "paw-print" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 21.33x18.37 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

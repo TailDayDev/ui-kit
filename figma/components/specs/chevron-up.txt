@@ -1,0 +1,5 @@
+# chevron-up (79:4) — COMPONENT
+Render: png/79-4.png
+
+COMPONENT "chevron-up" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 12x7.41 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

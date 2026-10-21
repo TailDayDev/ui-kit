@@ -1,0 +1,20 @@
+# TodayMultiPetSummary (91:14) — COMPONENT
+Description: Назначение: Несколько питомцев в одной задаче: стопка фото и «Показать детально». | Не использовать: Один питомец → TodayPetIdentity. | Код: src/widgets/today-action-list/task-constructor/TodayMultiPetSummary.tsx · ждёт кода: значок=chevron-right, без фото=NoImageIcon 32 на softGray | Статус: beta
+Props:
+  detailsLabel: TEXT default=Label
+  extraCount: TEXT default=+0
+Render: png/91-14.png
+
+COMPONENT "TodayMultiPetSummary" 398x128 auto:V pad=16/16/8/16 gap=8 main=CENTER cross=CENTER size=FIXED/HUG radius=16
+  FRAME "Стопка фото" 232x64 auto:H pad=0/0/0/0 gap=-8 main=MIN cross=CENTER size=HUG/HUG
+    ELLIPSE "Фото питомца" 64x64 size=FIXED/FIXED fill=IMAGE stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=4 OUTSIDE
+    ELLIPSE "Фото питомца" 64x64 size=FIXED/FIXED fill=IMAGE stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=4 OUTSIDE
+    ELLIPSE "Фото питомца" 64x64 size=FIXED/FIXED fill=IMAGE stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=4 OUTSIDE
+    FRAME "Без фото" 64x64 HIDDEN size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=4 OUTSIDE radius=9999 clip
+      RECTANGLE "Заглушка · img:NoImageIcon" 32x32 fill=IMAGE
+    FRAME "Ещё питомцы" 64x64 size=FIXED/FIXED fill=#87D241 [palette.secondary] var15:23 stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=4 OUTSIDE radius=9999 clip
+      TEXT "Счётчик" 21x19 props=characters->extraCount text="+0" style=headline/medium (Medium 16) color=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:53 align=CENTER
+  INSTANCE "plus" 20x20 HIDDEN size=FIXED/FIXED INSTANCE OF plus
+  FRAME "Показать детально" 84x32 auto:H pad=4/4/4/12 gap=8 main=CENTER cross=CENTER size=HUG/HUG radius=8
+    TEXT "Подпись" 36x17 props=characters->detailsLabel size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+    INSTANCE "Кнопка · подробнее" 24x24 auto:H pad=4/4/4/4 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=28 with icon=79:7, size=28

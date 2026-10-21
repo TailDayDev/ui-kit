@@ -1,0 +1,21 @@
+# Radio (255:299) — COMPONENT_SET
+Description: Назначение: Кружок выбора одного варианта из списка. | Не использовать: Фильтр ленты → Chip. | Код: src/shared/ui/Radio.tsx · в коде есть ещё: другие size и dotSize | Статус: beta
+Props:
+  isActive: VARIANT default=false options=['false', 'true']
+  size: VARIANT default=24 options=['24', '20']
+Render: png/255-299.png
+
+COMPONENT "isActive=false, size=24" 32x32 size=FIXED/FIXED clip
+  ELLIPSE "Кольцо" 24x24 fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 w=1 INSIDE
+
+COMPONENT "isActive=true, size=24" 32x32 size=FIXED/FIXED clip
+  ELLIPSE "Кольцо" 24x24 fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE
+  ELLIPSE "Точка" 12x12 fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6
+
+COMPONENT "isActive=false, size=20" 20x20 size=FIXED/FIXED clip
+  ELLIPSE "Кольцо" 20x20 fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 w=1 INSIDE
+
+COMPONENT "isActive=true, size=20" 20x20 size=FIXED/FIXED clip
+  ELLIPSE "Кольцо" 20x20 fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE
+  ELLIPSE "Точка" 10x10 fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6
+
