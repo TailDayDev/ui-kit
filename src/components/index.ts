@@ -9,6 +9,7 @@ export * from './CheckBox';
 export * from './ChipGroup';
 export * from './ContactDetailsCard';
 export * from './CustomCalendar';
+export * from './CustomModal';
 export * from './DashedBorder';
 export * from './DashedButton';
 export * from './DateRangeField';

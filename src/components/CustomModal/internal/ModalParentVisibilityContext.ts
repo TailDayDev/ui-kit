@@ -1,0 +1,7 @@
+import { createContext } from 'react';
+
+/**
+ * Whether the CustomModal this one is declared inside (children, header,
+ * footer or nestedOverlays) is still shown. True outside any modal.
+ */
+export const ModalParentVisibilityContext = createContext(true);
