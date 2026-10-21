@@ -27,6 +27,7 @@ export * from './ScheduleRadioRow';
 export * from './ScreenNav';
 export * from './SegmentedControl';
 export * from './SelectableOptionCard';
+export * from './SourceActionSheet';
 export * from './StickySegmentedControl';
 export * from './StickyTabs';
 export * from './SyncedTextInput';
