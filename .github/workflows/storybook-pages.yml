@@ -1,0 +1,58 @@
+name: Storybook (GitHub Pages)
+
+# Publishes the built Storybook to the PUBLIC repository TailDayDev/ui-kit-storybook,
+# served at https://taildaydev.github.io/ui-kit-storybook/.
+# Needs one credential with write access to that repository only:
+#   STORYBOOK_DEPLOY_KEY   – private SSH key of a deploy key (preferred), or
+#   STORYBOOK_PAGES_TOKEN  – fine-grained token: ui-kit-storybook, Contents read/write.
+# Skipped until one of them exists.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: storybook-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_KEY: ${{ secrets.STORYBOOK_DEPLOY_KEY }}
+      PAGES_TOKEN: ${{ secrets.STORYBOOK_PAGES_TOKEN }}
+    steps:
+      - name: Skip without publishing access
+        if: env.DEPLOY_KEY == '' && env.PAGES_TOKEN == ''
+        run: echo "::notice::No STORYBOOK_DEPLOY_KEY or STORYBOOK_PAGES_TOKEN secret; Storybook was not published to GitHub Pages."
+
+      - uses: actions/checkout@v4
+        if: env.DEPLOY_KEY != '' || env.PAGES_TOKEN != ''
+
+      - uses: actions/setup-node@v4
+        if: env.DEPLOY_KEY != '' || env.PAGES_TOKEN != ''
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Build Storybook
+        if: env.DEPLOY_KEY != '' || env.PAGES_TOKEN != ''
+        run: |
+          npm ci
+          npm run storybook:build -- --quiet
+          cp .github/storybook-pages-README.md storybook-static/README.md
+
+      - name: Publish to TailDayDev/ui-kit-storybook
+        if: env.DEPLOY_KEY != '' || env.PAGES_TOKEN != ''
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.STORYBOOK_DEPLOY_KEY }}
+          personal_token: ${{ secrets.STORYBOOK_PAGES_TOKEN }}
+          external_repository: TailDayDev/ui-kit-storybook
+          publish_branch: main
+          publish_dir: ./storybook-static
+          force_orphan: true
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          full_commit_message: 'Storybook for TailDayDev/ui-kit@${{ github.sha }}'
