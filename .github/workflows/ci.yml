@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run tokens:check
+      - run: npm test -- --ci
+      - run: npm run build
+      - run: npm run storybook:build -- --quiet
+
+  changeset:
+    name: Changeset present
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Require a changeset when src/ changes
+        run: |
+          base="origin/${{ github.base_ref }}"
+          changed_src=$(git diff --name-only "$base"...HEAD -- src | grep -v -E '\.(test|stories)\.tsx?$' || true)
+          added_changesets=$(git diff --name-only --diff-filter=A "$base"...HEAD -- '.changeset/*.md' | grep -v README.md || true)
+          if [ -n "$changed_src" ] && [ -z "$added_changesets" ]; then
+            echo "::error::src/ changed but no changeset was added. Run: npm run changeset"
+            exit 1
+          fi

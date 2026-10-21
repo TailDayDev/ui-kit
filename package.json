@@ -1,0 +1,128 @@
+{
+  "name": "@tessera/ui-kit",
+  "version": "0.0.0",
+  "description": "Presentational React Native UI kit: design tokens, theme, primitives and components. No data fetching, state, navigation or i18n.",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TailDayDev/ui-kit.git"
+  },
+  "main": "./lib/commonjs/index.js",
+  "module": "./lib/module/index.js",
+  "types": "./lib/typescript/module/index.d.ts",
+  "react-native": "./src/index.ts",
+  "source": "./src/index.ts",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "react-native": "./src/index.ts",
+      "import": {
+        "types": "./lib/typescript/module/index.d.ts",
+        "default": "./lib/module/index.js"
+      },
+      "require": {
+        "types": "./lib/typescript/commonjs/index.d.ts",
+        "default": "./lib/commonjs/index.js"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "lib",
+    "!**/__tests__",
+    "!**/*.test.ts",
+    "!**/*.test.tsx",
+    "!**/*.stories.tsx",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "bob build",
+    "clean": "rm -rf lib",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "check": "npm run lint && npm run typecheck && npm test && npm run build",
+    "tokens:build": "node scripts/tokens/build-tokens.mjs",
+    "tokens:check": "node scripts/tokens/build-tokens.mjs --check",
+    "storybook": "storybook dev -p 6006",
+    "storybook:build": "storybook build -o storybook-static",
+    "changeset": "changeset",
+    "version-packages": "changeset version && prettier --write CHANGELOG.md",
+    "release:tag": "node scripts/release/publish-git-tag.mjs",
+    "yalc:publish": "npm run build && npx --yes yalc publish --push"
+  },
+  "peerDependencies": {
+    "react": ">=19.0.0",
+    "react-native": ">=0.79.0",
+    "react-native-svg": ">=15.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@changesets/changelog-github": "^1.0.1",
+    "@changesets/cli": "^3.0.3",
+    "@eslint/js": "^9.39.0",
+    "@react-native/babel-preset": "0.79.2",
+    "@storybook/addon-docs": "10.6.3",
+    "@storybook/react-native-web-vite": "10.6.3",
+    "@testing-library/react-native": "^14.1.0",
+    "@types/jest": "^29.5.13",
+    "@types/react": "^19.0.0",
+    "eslint": "^9.39.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "globals": "^16.0.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.9.0",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-native": "0.79.2",
+    "react-native-builder-bob": "^0.43.2",
+    "react-native-svg": "^15.12.0",
+    "react-native-web": "^0.21.0",
+    "storybook": "10.6.3",
+    "test-renderer": "^1.0.0",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.72.0",
+    "vite": "^7.0.0"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "exclude": "**/{__tests__/**,__fixtures__/**,__mocks__/**,*.test.ts,*.test.tsx,*.stories.tsx}",
+    "targets": [
+      [
+        "module",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "commonjs",
+        {
+          "esm": true
+        }
+      ],
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  },
+  "engines": {
+    "node": ">=22.11"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
