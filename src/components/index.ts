@@ -44,6 +44,7 @@ export * from './PhotoUploadPreview';
 export * from './PhotosPreviewCard';
 export * from './PullToRefreshErrorState';
 export * from './Radio';
+export * from './ScheduleOverview';
 export * from './ScheduleRadioRow';
 export * from './ScreenNav';
 export * from './SegmentedControl';
