@@ -82,6 +82,7 @@ export * from './Textarea';
 export * from './Tips';
 export * from './TodayDoorButton';
 export * from './TodaySkipReasonContent';
+export * from './TodaySkippedAction';
 export * from './Toggle';
 export * from './UserDetailsCard';
 export * from './WheelPicker';
