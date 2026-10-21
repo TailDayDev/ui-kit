@@ -109,7 +109,7 @@ describe('TodaySkipReasonContent', () => {
     ).toMatchObject({
       borderRadius: 16,
       borderColor: lightTheme.colors.border.default,
-      padding: 16,
+      padding: 15,
       gap: 8,
     });
     expect(

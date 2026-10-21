@@ -32,19 +32,24 @@ const createStyles = (theme: Theme) => {
       borderRadius: theme.radius.lg,
       borderWidth: theme.stroke[1],
       gap: theme.space[2],
-      padding: theme.space[4],
+      // Figma stroke is INSIDE; RN border shifts content, so it is taken out of the padding.
+      padding: theme.space[4] - theme.stroke[1],
     },
     reasonCounter: {
       ...theme.typography.smallCaption.medium,
-      bottom: -counterSpace,
+      // Absolute offsets start inside the field border; step out of it so
+      // the counter lines up with the field's outer edge as in Figma.
+      bottom: -(counterSpace + theme.stroke[1]),
+      left: -theme.stroke[1],
       paddingTop: 0,
     },
     reasonField: {
       height: REASON_FIELD_HEIGHT,
       justifyContent: 'flex-start',
       paddingBottom: 0,
-      paddingHorizontal: theme.space[4],
-      paddingTop: theme.space[3],
+      // Figma stroke is INSIDE; the Textarea border shifts content, so it is taken out of the padding.
+      paddingHorizontal: theme.space[4] - theme.stroke[1],
+      paddingTop: theme.space[3] - theme.stroke[1],
     },
     reasonFieldWithCounter: {
       marginBottom: counterSpace,

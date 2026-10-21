@@ -16,6 +16,8 @@ const createStyles = (theme: Theme) =>
   StyleSheet.create({
     button: {
       alignItems: 'center',
+      // Figma: HUG — the circle never stretches with its parent.
+      alignSelf: 'flex-start',
       backgroundColor: theme.colors.bg.surface,
       borderColor: theme.colors.border.default,
       borderRadius: theme.radius.full,

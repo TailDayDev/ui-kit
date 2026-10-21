@@ -23,7 +23,8 @@ const createStyles = (theme: Theme) =>
       flexDirection: 'row',
       gap: theme.space[3],
       height: STAFF_PICKER_ROW_HEIGHT,
-      paddingHorizontal: theme.space[4],
+      // Figma stroke is INSIDE; RN border shifts content, so it is taken out of the padding.
+      paddingHorizontal: theme.space[4] - theme.stroke[1],
     },
     rowSelected: {
       backgroundColor: theme.colors.bg.accentSoft,

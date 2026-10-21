@@ -23,8 +23,9 @@ const createStyles = (theme: Theme) =>
       borderWidth: theme.stroke[1],
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingHorizontal: theme.space[6],
-      paddingVertical: theme.space[4],
+      // Figma stroke is INSIDE; RN border shifts content, so it is taken out of the padding.
+      paddingHorizontal: theme.space[6] - theme.stroke[1],
+      paddingVertical: theme.space[4] - theme.stroke[1],
     },
   });
 

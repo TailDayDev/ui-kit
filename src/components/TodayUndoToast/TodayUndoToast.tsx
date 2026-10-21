@@ -35,6 +35,8 @@ const createStyles = (theme: Theme) =>
   StyleSheet.create({
     pill: {
       alignItems: 'center',
+      // Figma: the pill HUGs its content; centered like the app positioner.
+      alignSelf: 'center',
       backgroundColor: theme.colors.overlay.scrim,
       borderRadius: theme.radius.full,
       flexDirection: 'row',

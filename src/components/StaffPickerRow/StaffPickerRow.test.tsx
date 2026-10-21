@@ -19,7 +19,7 @@ describe('StaffPickerRow', () => {
       borderRadius: 16,
       borderWidth: 1,
       borderColor: lightTheme.colors.border.default,
-      paddingHorizontal: 16,
+      paddingHorizontal: 15,
       gap: 12,
     });
     expect(screen.getByText('RL')).toBeTruthy();

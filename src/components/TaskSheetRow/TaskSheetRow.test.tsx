@@ -13,7 +13,7 @@ const svgColor = () =>
     .accessibilityHint;
 
 describe('TaskSheetRow', () => {
-  it('renders the Figma frame: white fill, light gray border, padding 16/24', async () => {
+  it('renders the Figma frame: white fill, light gray border, padding 16/24 (inside 1pt stroke)', async () => {
     await render(<TaskSheetRow testID="row" label="Label" icon={TestSvg} />);
     expect(
       StyleSheet.flatten(screen.getByTestId('row').props.style),
@@ -23,8 +23,8 @@ describe('TaskSheetRow', () => {
       borderRadius: 8,
       borderWidth: 1,
       justifyContent: 'space-between',
-      paddingHorizontal: 24,
-      paddingVertical: 16,
+      paddingHorizontal: 23,
+      paddingVertical: 15,
     });
     expect(
       StyleSheet.flatten(screen.getByText('Label').props.style),

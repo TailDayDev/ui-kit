@@ -8,14 +8,14 @@ const styleOf = (testID: string) =>
   StyleSheet.flatten(screen.getByTestId(testID).props.style);
 
 describe('OptionRow', () => {
-  it('renders the Figma default frame: pale border, radius 8, padding 12/16', async () => {
+  it('renders the Figma default frame: pale border, radius 8, padding 12/16 (inside 1pt stroke)', async () => {
     await render(<OptionRow testID="row" label="Label" />);
     expect(styleOf('row')).toMatchObject({
       borderColor: lightTheme.colors.border.default,
       borderRadius: 8,
       borderWidth: 1,
-      paddingHorizontal: 16,
-      paddingVertical: 12,
+      paddingHorizontal: 15,
+      paddingVertical: 11,
       gap: 8,
     });
     expect(styleOf('row').backgroundColor).toBeUndefined();
