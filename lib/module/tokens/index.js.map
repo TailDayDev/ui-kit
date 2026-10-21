@@ -1,0 +1,1 @@
+{"version":3,"names":["colors","palette","radius","shadows","space","stroke","typography","minTouchTarget","opacity"],"sourceRoot":"../../../src","sources":["tokens/index.ts"],"mappings":";;AAAA,SACEA,MAAM,EACNC,OAAO,EACPC,MAAM,EACNC,OAAO,EACPC,KAAK,EACLC,MAAM,EACNC,UAAU,QACL,sBAAa;AACpB,SAASC,cAAc,EAAEC,OAAO,QAAQ,aAAU","ignoreList":[]}

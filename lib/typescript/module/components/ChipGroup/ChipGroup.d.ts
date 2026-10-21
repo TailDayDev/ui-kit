@@ -1,0 +1,4 @@
+import type { ChipGroupProps } from './ChipGroup.types.js';
+/** Horizontal, scrollable single-select chip row with optional counts. Figma: `Chip`. */
+export declare const ChipGroup: import("react").MemoExoticComponent<({ items, value, onChange, variant, showAll, allLabel, isLoading, gap, itemHeight, chipBorderRadius, chipPaddingHorizontal, chipPaddingLeft, chipPaddingRight, contentPaddingHorizontal, selectedTextStyle, unselectedTextStyle, badgeTextStyle, selectedBadgeTextColor, unselectedBadgeTextColor, badgeMinWidth, badgeHeight, chipContentGap, scrollToSelectedOnMount, testIDPrefix, }: ChipGroupProps) => import("react").JSX.Element>;
+//# sourceMappingURL=ChipGroup.d.ts.map
