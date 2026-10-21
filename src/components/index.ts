@@ -43,6 +43,7 @@ export * from './ModalLayer';
 export * from './ModalWithFooterActions';
 export * from './MultiSelect';
 export * from './MultipleResultsList';
+export * from './NativePicker';
 export * from './NetworkFallback';
 export * from './NoImagePlaceholder';
 export * from './OTPInput';

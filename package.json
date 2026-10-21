@@ -68,7 +68,8 @@
     "react-native-safe-area-context": ">=5.0.0",
     "react-native-calendars": ">=1.1300.0",
     "react-native-gesture-handler": ">=2.20.0",
-    "its-fine": ">=2.0.0"
+    "its-fine": ">=2.0.0",
+    "@react-native-picker/picker": ">=2.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
