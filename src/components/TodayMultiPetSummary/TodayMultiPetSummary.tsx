@@ -11,10 +11,11 @@ import type { TodayMultiPetSummaryProps } from './TodayMultiPetSummary.types';
 const PHOTO_SIZE = 64;
 // Figma TodayMultiPetSummary › Заглушка: 32×32 no-photo artwork.
 const NO_PHOTO_IMAGE_SIZE = 32;
-// Figma TodayMultiPetSummary › Кнопка · подробнее: IconRoundButton size=28.
-const DETAILS_BUTTON_SIZE = 28;
-// Figma IconRoundButton size=28: 20pt glyph inside 4pt padding.
-const DETAILS_ICON_SIZE = 20;
+// Figma TodayMultiPetSummary › Кнопка · подробнее: 24×24 IconRoundButton
+// (the instance is named size=28 but is drawn 24pt: 16pt glyph + 4pt padding).
+const DETAILS_BUTTON_SIZE = 24;
+// Figma TodayMultiPetSummary › Кнопка · подробнее › chevron-right: 16×16.
+const DETAILS_ICON_SIZE = 16;
 // off-scale: pressed feedback of the details control, same as the app icon buttons.
 const DETAILS_PRESSED_OPACITY = 0.9;
 const IDLE_OPACITY = 1;

@@ -49,12 +49,12 @@ describe('TodayTaskTypeBadge', () => {
     },
   );
 
-  it('has the Figma shape: radii 8/24/24/0, padding 4/16/4/12, gap 8', async () => {
+  it('has the Figma shape: radii 8/16/16/0 (24 clamped to half height), padding 4/16/4/12, gap 8', async () => {
     await render(<TodayTaskTypeBadge testID="badge" label="Label" />);
     expect(flatStyle('badge')).toMatchObject({
       borderTopLeftRadius: 8,
-      borderTopRightRadius: 24,
-      borderBottomRightRadius: 24,
+      borderTopRightRadius: 16,
+      borderBottomRightRadius: 16,
       borderBottomLeftRadius: 0,
       paddingTop: 4,
       paddingRight: 16,

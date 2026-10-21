@@ -19,6 +19,11 @@ const ICON_SIZE = 24;
 const CARE_DOT_SIZE = 4;
 // Figma TodayTaskTypeBadge: frame height 32 (HUG of 24 icon + 4/4 padding).
 const BADGE_MIN_HEIGHT = 32;
+// Figma TodayTaskTypeBadge: radii [8, 24, 24, 0]. Figma clamps the 24pt end
+// radii per corner to half the 32pt height; RN/web instead scale ALL corners
+// down when adjacent radii overflow a side (which shrank the 8pt top-left
+// corner to ~5pt). Drawing the rendered 16pt directly keeps every corner exact.
+const BADGE_END_RADIUS = BADGE_MIN_HEIGHT / 2;
 
 interface BadgeColors {
   background: string;
@@ -76,9 +81,9 @@ const createStyles = (theme: Theme) =>
       alignItems: 'center',
       alignSelf: 'flex-start',
       borderBottomLeftRadius: 0,
-      borderBottomRightRadius: theme.radius.xl,
+      borderBottomRightRadius: BADGE_END_RADIUS,
       borderTopLeftRadius: theme.radius.sm,
-      borderTopRightRadius: theme.radius.xl,
+      borderTopRightRadius: BADGE_END_RADIUS,
       flexDirection: 'row',
       flexShrink: 1,
       gap: theme.space[2],
@@ -95,6 +100,11 @@ const createStyles = (theme: Theme) =>
       width: CARE_DOT_SIZE,
     },
     careType: {
+      flexShrink: 0,
+    },
+    // As in the app: only the last care type truncates, earlier ones keep
+    // their full width.
+    lastCareType: {
       flexShrink: 1,
       minWidth: 0,
     },
@@ -153,7 +163,11 @@ export const TodayTaskTypeBadge = ({
           value={value}
           color={foreground}
           dotStyle={styles.careDot}
-          textStyle={styles.careType}
+          textStyle={
+            index === careTypes.length - 1
+              ? styles.lastCareType
+              : styles.careType
+          }
           testID={testID ? `${testID}.careType${index + 1}` : undefined}
         />
       ))}
