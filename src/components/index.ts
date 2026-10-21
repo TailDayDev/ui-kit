@@ -66,6 +66,7 @@ export * from './SegmentedControl';
 export * from './Select';
 export * from './SelectTimeModal';
 export * from './SelectableOptionCard';
+export * from './ServiceHeader';
 export * from './ServiceHeaderTrigger';
 export * from './SourceActionSheet';
 export * from './StaffPickerRow';
