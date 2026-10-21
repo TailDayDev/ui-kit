@@ -10,6 +10,7 @@ export * from './ContactDetailsCard';
 export * from './DashedBorder';
 export * from './DashedButton';
 export * from './DateRangeField';
+export * from './EmptyList';
 export * from './EmptyProfileImage';
 export * from './EmptyState';
 export * from './ErrorCard';
