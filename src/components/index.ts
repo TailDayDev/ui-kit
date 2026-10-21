@@ -49,6 +49,7 @@ export * from './NetworkFallback';
 export * from './NoImagePlaceholder';
 export * from './OTPInput';
 export * from './OfflineDataBar';
+export * from './OptionRow';
 export * from './PercentageValueField';
 export * from './PetAvatar';
 export * from './PetOwnerAvatar';
