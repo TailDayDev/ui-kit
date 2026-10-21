@@ -57,8 +57,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version && prettier --write CHANGELOG.md",
     "release:tag": "node scripts/release/publish-git-tag.mjs",
-    "yalc:publish": "npm run build && npx --yes yalc publish --push",
-    "chromatic": "chromatic --build-script-name storybook:build --exit-zero-on-changes"
+    "yalc:publish": "npm run build && npx --yes yalc publish --push"
   },
   "peerDependencies": {
     "@react-native-picker/picker": ">=2.11.0",
@@ -84,7 +83,6 @@
     "@testing-library/react-native": "^14.1.0",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.0.0",
-    "chromatic": "^18.13.1",
     "eslint": "^9.39.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-react": "^7.37.5",

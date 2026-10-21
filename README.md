@@ -121,26 +121,11 @@ CI запускает `npm run tokens:check` и падает, если сген�
 
 ## Storybook
 
-**Всегда доступная версия** — в Chromatic (закрытый проект, доступ у тех, у кого есть доступ к репозиторию `TailDayDev/ui-kit`):
+**Всегда доступная версия:** **https://taildaydev.github.io/ui-kit-storybook/** — открывается без входа и без запусков. Сайт публичный: его видит любой, у кого есть ссылка (исходники библиотеки при этом закрыты).
 
-- `main` — постоянная ссылка **https://main--6ad8fb304da89f8ee410c834.chromatic.com**. Обновляется после каждого пуша в `main`. Проект в Chromatic: https://www.chromatic.com/library?appId=6ad8fb304da89f8ee410c834
-- PR — свой Storybook и визуальное сравнение с `main` в отдельной проверке PR. Визуальные изменения подтверждаются в Chromatic и не роняют CI.
-
-**Публичная копия на GitHub Pages:** https://taildaydev.github.io/ui-kit-storybook/ — открывается без входа, видна всем, у кого есть ссылка (исходники при этом закрыты). Собирается workflow `.github/workflows/storybook-pages.yml` после каждого пуша в `main` и выкладывается в публичный репозиторий `TailDayDev/ui-kit-storybook`. Для публикации нужен секрет `STORYBOOK_DEPLOY_KEY` (deploy-ключ с записью в `ui-kit-storybook`) или `STORYBOOK_PAGES_TOKEN` (fine-grained токен только на этот репозиторий, Contents: read and write).
-
-Публикует workflow `.github/workflows/chromatic.yml`. Он пропускается, пока в секретах репозитория нет `CHROMATIC_PROJECT_TOKEN`.
-
-Подключение (один раз):
-
-1. Войти на [chromatic.com](https://www.chromatic.com) через GitHub и дать доступ к организации `TailDayDev`.
-2. Add project → выбрать `TailDayDev/ui-kit`.
-3. Скопировать project token и сохранить его как секрет (не пересылать в чатах):
-   ```bash
-   gh secret set CHROMATIC_PROJECT_TOKEN --repo TailDayDev/ui-kit
-   ```
-4. Перезапустить workflow «Storybook (Chromatic)» или запушить что-нибудь в `main`.
-
-Бесплатный тариф Chromatic — 5000 снимков в месяц. Включён TurboSnap (`onlyChanged`): снимаются только stories, затронутые изменением.
+- Обновляется после каждого пуша в `main`: workflow `.github/workflows/storybook-pages.yml` собирает Storybook и выкладывает его в публичный репозиторий `TailDayDev/ui-kit-storybook` (там хранится только последняя сборка).
+- Доступ на запись даёт deploy-ключ репозитория `ui-kit-storybook`; его приватная часть — секрет `STORYBOOK_DEPLOY_KEY` в `ui-kit`. Вместо него можно задать `STORYBOOK_PAGES_TOKEN` (fine-grained токен только на `ui-kit-storybook`, Contents: read and write).
+- Запустить публикацию вручную: GitHub → Actions → «Storybook (GitHub Pages)» → Run workflow.
 
 **Локально:** `npm run storybook` → http://localhost:6006. Шрифты Inter для Storybook лежат в `.storybook/public/fonts` (в пакет не входят).
 
