@@ -37,6 +37,7 @@ export * from './LabeledDetailRow';
 export * from './LimitedListCard';
 export * from './LoadingWrapper';
 export * from './ModalLayer';
+export * from './ModalWithFooterActions';
 export * from './MultiSelect';
 export * from './MultipleResultsList';
 export * from './NetworkFallback';
