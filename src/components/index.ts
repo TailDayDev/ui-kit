@@ -90,6 +90,7 @@ export * from './TodayDoorDetails';
 export * from './TodayMultiPetSummary';
 export * from './TodayPetIdentity';
 export * from './TodayPlacementList';
+export * from './TodaySectionHeader';
 export * from './TodaySkipReasonContent';
 export * from './TodaySkippedAction';
 export * from './TodayTaskDetails';
