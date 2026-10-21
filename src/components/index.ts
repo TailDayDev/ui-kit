@@ -16,6 +16,7 @@ export * from './Input';
 export * from './InputClearButton';
 export * from './InputMaxHeight';
 export * from './NoImagePlaceholder';
+export * from './OTPInput';
 export * from './PetAvatar';
 export * from './PetOwnerAvatar';
 export * from './Radio';
