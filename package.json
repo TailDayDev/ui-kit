@@ -1,6 +1,6 @@
 {
   "name": "@tessera/ui-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Presentational React Native UI kit: design tokens, theme, primitives and components. No data fetching, state, navigation or i18n.",
   "license": "UNLICENSED",
   "private": true,
