@@ -15,6 +15,7 @@ export * from './EmptyList';
 export * from './EmptyProfileImage';
 export * from './EmptyState';
 export * from './ErrorCard';
+export * from './FAQ';
 export * from './Fab';
 export * from './FieldRow';
 export * from './FilterTrigger';
