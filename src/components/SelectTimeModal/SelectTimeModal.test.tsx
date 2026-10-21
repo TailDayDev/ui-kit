@@ -30,6 +30,8 @@ const pickInColumn = async (columnIndex: number, value: string) => {
   await act(() => {
     getColumns()[columnIndex]?.props.onValueChange(value, 0);
   });
+  // The picker echoes the native value for one frame; let that frame finish inside act.
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
 };
 
 /** Turns the wheel to 15:30. */

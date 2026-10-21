@@ -7,7 +7,7 @@ import type {
   NativePickerProps,
   NativePickerValue,
 } from './NativePicker.types';
-import { useNativeEchoValue } from './useNativeEchoValue';
+import { useNativeEchoValue } from '../../utils/useNativeEchoValue';
 
 /** Platform picker (iOS wheel / Android dropdown) with theme text colors. */
 export const NativePicker = <T extends NativePickerValue>({

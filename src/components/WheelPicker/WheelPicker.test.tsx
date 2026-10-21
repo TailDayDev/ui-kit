@@ -61,6 +61,8 @@ const pickInColumn = async (columnIndex: number, value: unknown, index = 0) => {
   await act(() => {
     getPicker(columnIndex).props.onValueChange(value, index);
   });
+  // The picker echoes the native value for one frame; let that frame finish inside act.
+  await act(() => new Promise(resolve => setTimeout(resolve, 0)));
 };
 
 describe('WheelPicker', () => {

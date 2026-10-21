@@ -1,7 +1,7 @@
 import { TextInput } from 'react-native';
 
 import type { SyncedTextInputProps } from './SyncedTextInput.types';
-import { useNativeEchoValue } from './useNativeEchoValue';
+import { useNativeEchoValue } from '../../utils/useNativeEchoValue';
 
 type TextInputChangeEvent = Parameters<
   NonNullable<SyncedTextInputProps['onChange']>

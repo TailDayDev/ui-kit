@@ -7,7 +7,7 @@ interface IEcho<T> {
 /**
  * For a controlled native component (TextInput, Picker): shows what the user
  * just typed or picked until the end of the frame, then the `value` prop
- * again. Copied from the app `shared/lib/hooks/useNativeEchoValue`.
+ * again. Copied from the app `shared/lib/hooks/useNativeEchoValue`; shared by SyncedTextInput and NativePicker.
  *
  * These components push `value` back to native in every commit where it
  * differs from what native shows. Modal content gets its owner's new value
