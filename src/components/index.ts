@@ -71,6 +71,7 @@ export * from './StatusBadge';
 export * from './StickySegmentedControl';
 export * from './StickyTabs';
 export * from './SyncedTextInput';
+export * from './TabBarItem';
 export * from './Tag';
 export * from './TaskSheetContent';
 export * from './TaskSheetRow';
