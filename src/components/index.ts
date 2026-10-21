@@ -28,6 +28,7 @@ export * from './InputClearButton';
 export * from './InputMaxHeight';
 export * from './LabeledDetailRow';
 export * from './LoadingWrapper';
+export * from './NetworkFallback';
 export * from './NoImagePlaceholder';
 export * from './OTPInput';
 export * from './PercentageValueField';
