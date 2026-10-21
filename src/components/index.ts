@@ -14,6 +14,7 @@ export * from './InfoCard';
 export * from './InfoRow';
 export * from './Input';
 export * from './InputClearButton';
+export * from './InputMaxHeight';
 export * from './NoImagePlaceholder';
 export * from './PetAvatar';
 export * from './PetOwnerAvatar';
