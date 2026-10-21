@@ -66,6 +66,16 @@ src/components/<Name>/
 - Tests use `@testing-library/react-native` v14: `await render(...)`, `await fireEvent.press(...)`, queries by role/label first; add `{ includeHiddenElements: true }` for nodes hidden from accessibility.
 - Stories: `import type { Meta, StoryObj } from '@storybook/react-native-web-vite'`, title `Components/<Name>`.
 
+## Patterns settled during migration
+
+- **Reuse kit components** instead of copying app ones. Available: `Button`, `Card`, `CardLocked`, `InfoCard`, `InfoRow`, `Tag`, `Tips`, `Radio`, `CheckBox`, `Toggle`, `ScheduleRadioRow`, `SelectableOptionCard`, `IconRoundButton`, `IconSquareButton`, `FloatingButton`, `DashedBorder`, `DashedButton`, `Fab`, `EmptyProfileImage`, `PetAvatar`, `OverlappingPetAvatars`, `PetOwnerAvatar`, `NoImagePlaceholder`, `BaseSkeleton`, `FullScreenLoader`, `SyncedTextInput`, `Input`, `Textarea`, `InputMaxHeight`, `InputClearButton`; primitives `Box`, `Text`, `Icon`, `Pressable`; icons in `src/icons/`. Import them by relative path (`../Button`), not via `src/index.ts`.
+- **Images** (`DinamicImage`, imageContext, `getImage`): the kit never loads or caches images. Take a ready element (`illustration?: ReactNode`, `icon?: ReactNode`) or a render prop (`renderImage`), as `InfoCard`/`PetAvatar` do.
+- **Texts** (`translate(...)`): string props, no defaults inside the kit. More than two strings → one `labels` object prop with a typed interface (`labels: { confirm: string; cancel: string }`). The app keeps a thin wrapper that fills them from translations.
+- **Domain helpers** (`resolveStayDatePresentation`, `shared/ui/service/*`, price formatting): take the computed value via props. A generic UI piece hidden inside a domain folder (e.g. `service/uielements/SegmentedControl`) may be ported as its own kit component.
+- **Interaction values that differ from kit tokens** (pressed 0.8, disabled 0.6…): keep the app value as a named constant and use RN `Pressable`/`TouchableOpacity`; don't force the kit `Pressable`.
+- **Jest:** `react-native-svg`, `react-native-reanimated`, `react-native-gesture-handler` and `react-native-safe-area-context` are mocked globally in `jest.setup.ts`; don't re-mock them locally.
+- **Peer dependencies available** (installed as dev deps at app versions): `react-native-safe-area-context`, `react-native-reanimated` + `react-native-worklets`, `react-native-gesture-handler`, `its-fine`, `react-native-calendars`, `@react-native-picker/picker`. Anything else (e.g. `moment`, clipboard, blur): don't add — refactor to props or report.
+
 ## Agreed Figma fixes
 
 - `Button` `style="danger"` becomes the Figma `red` button: red fill, white text (was: white fill, red border, red text).
