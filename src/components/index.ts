@@ -3,3 +3,4 @@ export * from './Card';
 export * from './CardLocked';
 export * from './InfoCard';
 export * from './InfoRow';
+export * from './Tag';
