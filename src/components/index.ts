@@ -4,6 +4,7 @@ export * from './CardLocked';
 export * from './CheckBox';
 export * from './DashedBorder';
 export * from './DashedButton';
+export * from './EmptyProfileImage';
 export * from './Fab';
 export * from './FloatingButton';
 export * from './IconButton';
