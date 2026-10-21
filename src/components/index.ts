@@ -65,6 +65,7 @@ export * from './Select';
 export * from './SelectTimeModal';
 export * from './SelectableOptionCard';
 export * from './SourceActionSheet';
+export * from './StaffPickerRow';
 export * from './StatusBadge';
 export * from './StickySegmentedControl';
 export * from './StickyTabs';
