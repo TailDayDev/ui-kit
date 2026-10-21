@@ -84,6 +84,7 @@ export * from './TodayCompletionSlider';
 export * from './TodayDoorButton';
 export * from './TodaySkipReasonContent';
 export * from './TodaySkippedAction';
+export * from './TodayTaskFooter';
 export * from './Toggle';
 export * from './UserDetailsCard';
 export * from './WheelPicker';
