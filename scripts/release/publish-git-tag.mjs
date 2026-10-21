@@ -16,11 +16,14 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
 const run = (cmd, args, options = {}) =>
-  execFileSync(cmd, args, {
-    encoding: 'utf8',
-    stdio: ['ignore', 'pipe', 'inherit'],
-    ...options,
-  }).trim();
+  // execFileSync returns null when stdout is inherited, so normalise to a string.
+  (
+    execFileSync(cmd, args, {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'inherit'],
+      ...options,
+    }) ?? ''
+  ).trim();
 
 const { name, version } = JSON.parse(readFileSync('package.json', 'utf8'));
 const tag = `v${version}`;
