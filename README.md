@@ -7,6 +7,7 @@
 - [Установка](#установка)
 - [Подключение темы](#подключение-темы)
 - [Токены](#токены)
+- [Storybook](#storybook)
 - [Локальная разработка с приложением](#локальная-разработка-с-приложением)
 - [Версии и релизы](#версии-и-релизы)
 - [Устаревание API](#устаревание-api)
@@ -117,6 +118,29 @@ export const PetHeader = ({ name }: { name: string }) => {
 Если значение в коде осознанно отличается от Figma, это записывается в `tokens/overrides.json` вместе с причиной. Генератор печатает каждое такое отличие. Чтобы Figma «победила», достаточно удалить запись.
 
 CI запускает `npm run tokens:check` и падает, если сгенерированные файлы не совпадают с выгрузкой.
+
+## Storybook
+
+**Всегда доступная версия** — в Chromatic (закрытый проект, доступ у тех, у кого есть доступ к репозиторию `TailDayDev/ui-kit`):
+
+- `main` — постоянная ссылка `https://main--<appId>.chromatic.com` (appId — в Chromatic: Manage → Permalinks). Обновляется после каждого пуша в `main`.
+- PR — свой Storybook и визуальное сравнение с `main` в отдельной проверке PR. Визуальные изменения подтверждаются в Chromatic и не роняют CI.
+
+Публикует workflow `.github/workflows/chromatic.yml`. Он пропускается, пока в секретах репозитория нет `CHROMATIC_PROJECT_TOKEN`.
+
+Подключение (один раз):
+
+1. Войти на [chromatic.com](https://www.chromatic.com) через GitHub и дать доступ к организации `TailDayDev`.
+2. Add project → выбрать `TailDayDev/ui-kit`.
+3. Скопировать project token и сохранить его как секрет (не пересылать в чатах):
+   ```bash
+   gh secret set CHROMATIC_PROJECT_TOKEN --repo TailDayDev/ui-kit
+   ```
+4. Перезапустить workflow «Storybook (Chromatic)» или запушить что-нибудь в `main`.
+
+Бесплатный тариф Chromatic — 5000 снимков в месяц. Включён TurboSnap (`onlyChanged`): снимаются только stories, затронутые изменением.
+
+**Локально:** `npm run storybook` → http://localhost:6006. Шрифты Inter для Storybook лежат в `.storybook/public/fonts` (в пакет не входят).
 
 ## Локальная разработка с приложением
 
