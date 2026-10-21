@@ -10,6 +10,7 @@ export * from './FloatingButton';
 export * from './IconButton';
 export * from './InfoCard';
 export * from './InfoRow';
+export * from './NoImagePlaceholder';
 export * from './Radio';
 export * from './ScheduleRadioRow';
 export * from './SelectableOptionCard';
