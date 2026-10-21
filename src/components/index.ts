@@ -32,6 +32,7 @@ export * from './InputMaxHeight';
 export * from './LabeledDetailRow';
 export * from './LimitedListCard';
 export * from './LoadingWrapper';
+export * from './ModalLayer';
 export * from './MultiSelect';
 export * from './MultipleResultsList';
 export * from './NetworkFallback';
