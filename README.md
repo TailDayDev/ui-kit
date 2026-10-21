@@ -126,6 +126,8 @@ CI запускает `npm run tokens:check` и падает, если сген�
 - `main` — постоянная ссылка **https://main--6ad8fb304da89f8ee410c834.chromatic.com**. Обновляется после каждого пуша в `main`. Проект в Chromatic: https://www.chromatic.com/library?appId=6ad8fb304da89f8ee410c834
 - PR — свой Storybook и визуальное сравнение с `main` в отдельной проверке PR. Визуальные изменения подтверждаются в Chromatic и не роняют CI.
 
+**Публичная копия на GitHub Pages:** https://taildaydev.github.io/ui-kit-storybook/ — открывается без входа, видна всем, у кого есть ссылка (исходники при этом закрыты). Собирается workflow `.github/workflows/storybook-pages.yml` после каждого пуша в `main` и выкладывается в публичный репозиторий `TailDayDev/ui-kit-storybook`. Для публикации нужен секрет `STORYBOOK_DEPLOY_KEY` (deploy-ключ с записью в `ui-kit-storybook`) или `STORYBOOK_PAGES_TOKEN` (fine-grained токен только на этот репозиторий, Contents: read and write).
+
 Публикует workflow `.github/workflows/chromatic.yml`. Он пропускается, пока в секретах репозитория нет `CHROMATIC_PROJECT_TOKEN`.
 
 Подключение (один раз):
