@@ -1,0 +1,41 @@
+# TodaySearchModalContent (267:938) — COMPONENT_SET
+Description: Назначение: Тело окна поиска задач: поле поиска и результаты по разделам. | Не использовать: Фильтр ленты по типу → ChipGroup. | Код: нет — ждёт кода | Статус: beta
+Props:
+  query: TEXT default=Text
+  state: VARIANT default=initial options=['initial', 'results', 'no-results']
+Render: png/267-938.png
+
+COMPONENT "state=initial" 430x779 auto:V pad=8/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "Поиск" 430x771 auto:V pad=0/16/0/16 gap=0 main=MIN cross=MIN size=FILL/FILL fill=#F9F9F7 [palette.screenBackground|colors.bg.screen] var15:57
+    FRAME "Поле поиска" 398x48 auto:H pad=0/0/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=8 effect=shadow/focus
+      FRAME "Слот лупы" 24x24 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED
+        INSTANCE "search" 18x18 size=FIXED/FIXED INSTANCE OF search
+      TEXT "Текст запроса" 344x19 size=FILL/HUG text="Поиск" style=headline/regular (Regular 16) color=#BDBDBD [palette.lightGray] var15:32 align=LEFT
+    FRAME "Список" 398x143 auto:V pad=20/0/24/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+      FRAME "Начальное состояние" 398x99 auto:V pad=40/0/40/0 gap=0 main=MIN cross=CENTER size=FILL/HUG
+        TEXT "Текст" 398x19 size=FILL/HUG text="Здесь отобразятся результаты поиска" style=headline/medium (Medium 16) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER
+
+COMPONENT "state=results" 430x779 auto:V pad=8/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "Поиск" 430x771 auto:V pad=0/16/0/16 gap=0 main=MIN cross=MIN size=FILL/FILL fill=#F9F9F7 [palette.screenBackground|colors.bg.screen] var15:57
+    FRAME "Поле поиска" 398x48 auto:H pad=0/0/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=8 effect=shadow/focus
+      FRAME "Слот лупы" 24x24 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED
+        INSTANCE "search" 18x18 size=FIXED/FIXED INSTANCE OF search
+      TEXT "Текст запроса" 296x19 props=characters->query size=FILL/HUG text="Text" style=headline/regular (Regular 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      FRAME "Кнопка стирания" 36x48 auto:V pad=12/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+        INSTANCE "circle-x" 24x24 size=FIXED/FIXED INSTANCE OF circle-x
+    FRAME "Список" 398x382 auto:V pad=20/0/24/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Заголовок группы" 398x27 auto:H pad=12/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodaySectionHeader / isExpanded=true, isPastDate=false with isCollapsible=False, title=Утро — 20 октября: 1, isExpanded=true, isPastDate=false
+      INSTANCE "Карточка · Утро · Доп. услуга · Molly" 398x295 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 effect=shadow/block INSTANCE OF TodayTaskCard / isFinished=false with hasHeader=True, skipReason=Text, details=91:28, pet=88:158, hasSkipReason=False, hasDetails=True, hasPet=True, isFinished=false
+
+COMPONENT "state=no-results" 430x779 auto:V pad=8/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "Поиск" 430x771 auto:V pad=0/16/0/16 gap=0 main=MIN cross=MIN size=FILL/FILL fill=#F9F9F7 [palette.screenBackground|colors.bg.screen] var15:57
+    FRAME "Поле поиска" 398x48 auto:H pad=0/0/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=8 effect=shadow/focus
+      FRAME "Слот лупы" 24x24 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED
+        INSTANCE "search" 18x18 size=FIXED/FIXED INSTANCE OF search
+      TEXT "Текст запроса" 296x19 props=characters->query size=FILL/HUG text="Text" style=headline/regular (Regular 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      FRAME "Кнопка стирания" 36x48 auto:V pad=12/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+        INSTANCE "circle-x" 24x24 size=FIXED/FIXED INSTANCE OF circle-x
+    FRAME "Список" 398x143 auto:V pad=20/0/24/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+      FRAME "Ничего не найдено" 398x99 auto:V pad=40/0/40/0 gap=0 main=MIN cross=CENTER size=FILL/HUG
+        TEXT "Текст" 398x19 size=FILL/HUG text="Ничего не найдено" style=headline/medium (Medium 16) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER
+

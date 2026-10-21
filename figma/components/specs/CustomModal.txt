@@ -1,0 +1,22 @@
+# CustomModal (259:346) — COMPONENT
+Description: Назначение: Окно снизу поверх экрана: шапка с крестиком, тело, подвал с кнопками. | Не использовать: Шторка действий задачи по «⋮» → TaskSheet. | Код: src/shared/ui/custom-modal/CustomModal.tsx · в коде есть ещё: handleBackBtn, withBackdrop, closeOnSwipeDown, isLocked | Статус: beta
+Props:
+  content: INSTANCE_SWAP default=255:330
+  hasFooter: BOOLEAN default=True
+  divider: BOOLEAN default=True
+  footer: INSTANCE_SWAP default=257:3001
+  hasHomeIndicator: BOOLEAN default=True
+Render: png/259-346.png
+
+COMPONENT "CustomModal" 430x294 auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] clip
+  INSTANCE "Шапка" 430x60 auto:H pad=12/12/12/56 gap=8 main=MAX cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0] INSTANCE OF ModalHeader with hasTitle=True, title=Title
+    TEXT "Label" 318x19 props=visible->hasTitle,characters->title size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER maxLines=1
+    INSTANCE "CloseButton" 36x36 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=36 with icon=147:237, size=36
+  INSTANCE "Содержимое" 430x120 props=mainComponent->content auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FILL/FIXED INSTANCE OF CustomModal · содержимое
+    TEXT "Подпись" 109x15 size=HUG/HUG text="Содержимое окна" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT
+  FRAME "Подвал" 430x80 props=visible->hasFooter auto:V pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG
+    FRAME "Разделитель" 430x1 props=visible->divider size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33
+    FRAME "Кнопки" 430x79 auto:V pad=16/24/12/24 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+      INSTANCE "CustomModalFooterActions" 382x51 props=mainComponent->footer auto:H pad=0/0/0/0 gap=0 main=SPACE_BETWEEN cross=CENTER size=FILL/HUG INSTANCE OF CustomModalFooterActions / direction=row with direction=row
+  FRAME "Полоска дома" 430x34 props=visible->hasHomeIndicator auto:V pad=0/0/8/0 gap=0 main=MAX cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+    FRAME "Полоска" 155x5 size=FIXED/FIXED fill=#333333 [palette.baseGray|colors.text.primary] var15:29 radius=9999

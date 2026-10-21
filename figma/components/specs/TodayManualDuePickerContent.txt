@@ -1,0 +1,54 @@
+# TodayManualDuePickerContent (264:502) — COMPONENT_SET
+Description: Назначение: Тело окна срока задачи: без времени, часть дня или точное время. | Не использовать: Причина пропуска → TodaySkipReasonContent. | Код: нет — ждёт кода | Статус: beta
+Props:
+  mode: VARIANT default=noTime options=['noTime', 'dayPart', 'exactTime']
+Render: png/264-502.png
+
+COMPONENT "mode=noTime" 430x440 auto:V pad=12/24/0/24 gap=16 main=MIN cross=MIN size=FIXED/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+  FRAME "ModeCard" 382x181 auto:V pad=16/16/16/16 gap=16 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+    INSTANCE "ModeRow · NoTime" 350x49 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=true with description=Задача на весь день, без привязки к точному времени., title=Без времени, selected=true
+    INSTANCE "ModeRow · DayPart" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=false with description=Утро, день, вечер или ночь., title=Часть дня, selected=false
+    INSTANCE "ModeRow · ExactTime" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=false with description=Задача привязана к конкретному времени., title=Точное время, selected=false
+
+COMPONENT "mode=dayPart" 430x440 auto:V pad=12/24/0/24 gap=16 main=MIN cross=MIN size=FIXED/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+  FRAME "ModeCard" 382x181 auto:V pad=16/16/16/16 gap=16 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+    INSTANCE "ModeRow · NoTime" 350x49 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=false with description=Задача на весь день, без привязки к точному времени., title=Без времени, selected=false
+    INSTANCE "ModeRow · DayPart" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=true with description=Утро, день, вечер или ночь., title=Часть дня, selected=true
+    INSTANCE "ModeRow · ExactTime" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=false with description=Задача привязана к конкретному времени., title=Точное время, selected=false
+  FRAME "Divider" 382x25 auto:V pad=12/0/12/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+    RECTANGLE "Line" 382x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33
+  FRAME "DayPartSection" 382x188 auto:V pad=0/0/0/0 gap=0 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "DayPartList" 382x188 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "DayPartRow · Morning" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=true with label=Утро, isSelected=true
+      INSTANCE "DayPartRow · Day" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=День, isSelected=false
+      INSTANCE "DayPartRow · Evening" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Вечер, isSelected=false
+      INSTANCE "DayPartRow · Night" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Ночь, isSelected=false
+
+COMPONENT "mode=exactTime" 430x440 auto:V pad=12/24/0/24 gap=16 main=MIN cross=MIN size=FIXED/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+  FRAME "ModeCard" 382x181 auto:V pad=16/16/16/16 gap=16 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+    INSTANCE "ModeRow · NoTime" 350x49 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=false with description=Задача на весь день, без привязки к точному времени., title=Без времени, selected=false
+    INSTANCE "ModeRow · DayPart" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=false with description=Утро, день, вечер или ночь., title=Часть дня, selected=false
+    INSTANCE "ModeRow · ExactTime" 350x34 auto:H pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF ScheduleRadioRow / selected=true with description=Задача привязана к конкретному времени., title=Точное время, selected=true
+  FRAME "Divider" 382x25 auto:V pad=12/0/12/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+    RECTANGLE "Line" 382x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33
+  FRAME "TimeWheelSection" 382x190 auto:V pad=0/0/0/0 gap=0 main=MIN cross=CENTER size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58
+    INSTANCE "TimeWheel" 240x190 auto:H pad=0/0/0/0 gap=8 main=CENTER cross=CENTER size=HUG/HUG INSTANCE OF WheelPicker
+      FRAME "Hours" 87x190 size=FIXED/FIXED
+        RECTANGLE "SelectionBand" 87x38 fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8
+        TEXT "Value · 6" 87x38 opacity=0.35 text="6" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 7" 87x38 opacity=0.35 text="7" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 8" 87x38 text="8" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 9" 87x38 opacity=0.35 text="9" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 10" 87x38 opacity=0.35 text="10" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      FRAME "Minutes" 87x190 size=FIXED/FIXED
+        RECTANGLE "SelectionBand" 87x38 fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8
+        TEXT "Value · 50" 87x38 opacity=0.35 text="50" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 55" 87x38 opacity=0.35 text="55" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 00" 87x38 text="00" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 05" 87x38 opacity=0.35 text="05" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · 10" 87x38 opacity=0.35 text="10" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      FRAME "Meridiem" 50x190 size=FIXED/FIXED
+        RECTANGLE "SelectionBand" 50x38 fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8
+        TEXT "Value · am" 50x38 text="am" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+        TEXT "Value · pm" 50x38 opacity=0.35 text="pm" style=title/regular (Regular 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+

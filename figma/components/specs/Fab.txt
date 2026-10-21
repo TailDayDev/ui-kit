@@ -1,0 +1,12 @@
+# Fab (257:3154) — COMPONENT_SET
+Description: Назначение: Круглая зелёная кнопка «+» над панелью вкладок: новая задача. | Не использовать: Действие с подписью внизу экрана → кнопка-пилюля FloatingButton. | Код: нет — ждёт кода | Статус: beta
+Props:
+  disabled: VARIANT default=false options=['false', 'true']
+Render: png/257-3154.png
+
+COMPONENT "disabled=false" 56x56 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#87D241 [palette.secondary] var15:23 radius=9999 effect=shadow/fab
+  INSTANCE "plus" 28.0x28.0 size=FIXED/FIXED INSTANCE OF plus
+
+COMPONENT "disabled=true" 56x56 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED fill=#87D241 [palette.secondary] var15:23 radius=9999 opacity=0.45 effect=shadow/fab
+  INSTANCE "plus" 28.0x28.0 size=FIXED/FIXED INSTANCE OF plus
+

@@ -1,0 +1,43 @@
+# TodaySkeleton (264:624) — COMPONENT
+Description: Назначение: Лента-заглушка при первой загрузке: заголовок раздела и три карточки. | Не использовать: Пустой день или ошибка → TodayScreenState. | Код: src/screens/today/components/TodaySkeleton.tsx · в коде есть ещё: бегущий блик | Статус: beta
+Render: png/264-624.png
+
+COMPONENT "TodaySkeleton" 430x644 auto:V pad=0/16/0/16 gap=16 main=MIN cross=MIN size=FIXED/HUG
+  FRAME "Заголовок раздела · заглушка" 398x44 auto:H pad=16/0/0/0 gap=0 main=MIN cross=MIN size=FILL/FIXED
+    INSTANCE "Заглушка заголовка" 120x20 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+  FRAME "Карточка · заглушка" 398x184 auto:V pad=8/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 effect=shadow/block
+    INSTANCE "Плашка" 140x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Строка" 398x56 auto:H pad=16/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      INSTANCE "Круг" 40x40 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=9999 INSTANCE OF BaseSkeleton
+      FRAME "Полосы" 140x32 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=HUG/HUG
+        INSTANCE "Полоса" 140x16 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+        INSTANCE "Полоса" 90x12 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Детали" 398x16 auto:H pad=0/16/0/16 gap=0 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Полоса деталей" 256x16 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Футер" 398x72 auto:H pad=8/16/16/16 gap=12 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Полоса действия" 306x48 size=FILL/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+      INSTANCE "Квадрат" 48x48 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+  FRAME "Карточка · заглушка" 398x184 auto:V pad=8/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 effect=shadow/block
+    INSTANCE "Плашка" 140x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Строка" 398x56 auto:H pad=16/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      INSTANCE "Круг" 40x40 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=9999 INSTANCE OF BaseSkeleton
+      FRAME "Полосы" 140x32 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=HUG/HUG
+        INSTANCE "Полоса" 140x16 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+        INSTANCE "Полоса" 90x12 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Детали" 398x16 auto:H pad=0/16/0/16 gap=0 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Полоса деталей" 256x16 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Футер" 398x72 auto:H pad=8/16/16/16 gap=12 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Полоса действия" 306x48 size=FILL/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+      INSTANCE "Квадрат" 48x48 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+  FRAME "Карточка · заглушка" 398x184 auto:V pad=8/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=16 effect=shadow/block
+    INSTANCE "Плашка" 140x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Строка" 398x56 auto:H pad=16/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/HUG
+      INSTANCE "Круг" 40x40 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=9999 INSTANCE OF BaseSkeleton
+      FRAME "Полосы" 140x32 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=HUG/HUG
+        INSTANCE "Полоса" 140x16 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+        INSTANCE "Полоса" 90x12 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Детали" 398x16 auto:H pad=0/16/0/16 gap=0 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Полоса деталей" 256x16 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+    FRAME "Футер" 398x72 auto:H pad=8/16/16/16 gap=12 main=MIN cross=MIN size=FILL/HUG
+      INSTANCE "Полоса действия" 306x48 size=FILL/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+      INSTANCE "Квадрат" 48x48 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton

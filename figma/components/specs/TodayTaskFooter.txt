@@ -1,0 +1,34 @@
+# TodayTaskFooter (91:177) — COMPONENT_SET
+Description: Назначение: Подвал карточки: «⋮» слева и главное действие справа. | Не использовать: Действия внизу окна → кнопки окна. | Код: src/widgets/today-action-list/task-constructor/TodayTaskFooter.tsx | Статус: beta
+Props:
+  action: VARIANT default=slider options=['slider', 'door', 'skipped']
+Render: png/91-177.png
+
+COMPONENT "action=slider" 398x72 auto:H pad=8/16/16/16 gap=0 main=SPACE_BETWEEN cross=MIN size=FIXED/HUG
+  INSTANCE "Кнопка · ещё действия" 48x48 auto:H pad=12/12/12/12 gap=0 main=CENTER cross=CENTER size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=8 INSTANCE OF IconSquareButton with icon=79:10, loading=False, disabled=False
+    RECTANGLE "Disabled overlay" 48x48 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+    FRAME "LoadingSpinner" 48x48 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 clip
+      ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#333333 [palette.baseGray|colors.text.primary] var15:29 w=2 INSIDE
+    INSTANCE "ellipsis-vertical" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF ellipsis-vertical
+  INSTANCE "Ползунок «Готово!»" 180x48 auto:H pad=4/0/4/4 gap=10 main=MIN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=9999 clip INSTANCE OF TodayCompletionSlider / isCompleted=false, isDisabled=false with completedLabel=Label, isCompleted=false, isDisabled=false
+
+COMPONENT "action=door" 398x72 auto:H pad=8/16/16/16 gap=16 main=MIN cross=MIN size=FIXED/HUG
+  INSTANCE "Кнопка · ещё действия" 48x48 auto:H pad=12/12/12/12 gap=0 main=CENTER cross=CENTER size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=8 INSTANCE OF IconSquareButton with icon=79:10, loading=False, disabled=False
+    RECTANGLE "Disabled overlay" 48x48 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+    FRAME "LoadingSpinner" 48x48 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 clip
+      ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#333333 [palette.baseGray|colors.text.primary] var15:29 w=2 INSIDE
+    INSTANCE "ellipsis-vertical" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF ellipsis-vertical
+  INSTANCE "Кнопка двери" 302x48 auto:H pad=16/32/16/32 gap=0 main=CENTER cross=CENTER size=FILL/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=8 INSTANCE OF TodayDoorButton with label=Label
+    TEXT "Подпись" 41x19 props=characters->label size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER
+
+COMPONENT "action=skipped" 398x72 auto:H pad=8/16/16/16 gap=0 main=SPACE_BETWEEN cross=MIN size=FIXED/HUG
+  INSTANCE "Кнопка · ещё действия" 48x48 auto:H pad=12/12/12/12 gap=0 main=CENTER cross=CENTER size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=8 INSTANCE OF IconSquareButton with icon=79:10, loading=False, disabled=False
+    RECTANGLE "Disabled overlay" 48x48 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+    FRAME "LoadingSpinner" 48x48 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 clip
+      ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#333333 [palette.baseGray|colors.text.primary] var15:29 w=2 INSIDE
+    INSTANCE "ellipsis-vertical" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF ellipsis-vertical
+  INSTANCE "Капсула «Пропущено»" 180x48 auto:H pad=4/4/4/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=9999 clip INSTANCE OF TodaySkippedAction with label=Пропущено
+    TEXT "Статус" 90x19 props=characters->label size=HUG/HUG text="Пропущено" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    FRAME "Ручка" 40x40 auto:H pad=10/10/10/10 gap=10 main=MIN cross=MIN size=HUG/HUG fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 radius=9999
+      INSTANCE "x" 20x20 size=FIXED/FIXED INSTANCE OF x
+

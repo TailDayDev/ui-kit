@@ -1,0 +1,6 @@
+# CustomModal · содержимое (255:330) — COMPONENT
+Description: Назначение: Место под тело окна CustomModal, в копии окна подменяется. | Не использовать: В кадрах раздела → мастер тела окна. | Код: нет — ждёт кода | Статус: beta
+Render: png/255-330.png
+
+COMPONENT "CustomModal · содержимое" 430x120 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED
+  TEXT "Подпись" 109x15 size=HUG/HUG text="Содержимое окна" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT

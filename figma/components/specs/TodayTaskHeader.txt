@@ -1,0 +1,7 @@
+# TodayTaskHeader (88:144) — COMPONENT
+Description: Назначение: Шапка карточки задачи: метка типа слева, время справа. | Не использовать: Шапка экрана → ServiceHeader. | Код: src/widgets/today-action-list/task-constructor/TodayTaskHeader.tsx · ждёт кода: paddingLeft=1 | Статус: beta
+Render: png/88-144.png
+
+COMPONENT "TodayTaskHeader" 398x40 auto:H pad=8/16/0/1 gap=0 main=SPACE_BETWEEN cross=MAX size=FIXED/HUG clip
+  INSTANCE "Метка типа" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 radii=[8, 24, 24, 0] INSTANCE OF TodayTaskTypeBadge / actionType=CheckIn with hasSecondCareType=False, careType=Label, secondCareType=Label, hasCareType=False, label=Label, actionType=CheckIn
+  INSTANCE "Время" 37x31 auto:H pad=0/0/0/0 gap=8 main=MAX cross=MAX size=HUG/HUG INSTANCE OF TodayTaskTime / tone=default with hasSubtitle=True, subtitle=Subtitle, title=Title, tone=default

@@ -91,4 +91,26 @@ describe('PetOwnerAvatar', () => {
       screen.getByRole('image', { name: 'Rex, owner Anna Smith' }),
     ).toBeTruthy();
   });
+
+  it('draws the Figma size: 64pt photo, radius 12, body/regular initials', async () => {
+    await render(
+      <PetOwnerAvatar
+        size={64}
+        petPhotoUrl={null}
+        ownerFirstName="Rex"
+        ownerLastName="Lee"
+        testID="avatar"
+      />,
+    );
+    const container = StyleSheet.flatten(
+      screen.getByTestId('avatar').props.style,
+    );
+    expect(container).toMatchObject({ width: 64, height: 64 });
+    const pet = StyleSheet.flatten(
+      screen.getByTestId('avatar.pet').props.style,
+    );
+    expect(pet.borderRadius).toBe(lightTheme.radius.md);
+    const initials = StyleSheet.flatten(screen.getByText('RL').props.style);
+    expect(initials).toMatchObject(lightTheme.typography.body.regular);
+  });
 });

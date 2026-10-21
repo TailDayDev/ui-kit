@@ -1,0 +1,10 @@
+# ModalHeader (151:239) — COMPONENT
+Description: Назначение: Шапка окна снизу: заголовок по центру и крестик справа. | Не использовать: Шапка экрана → ServiceHeader. | Код: src/shared/ui/custom-modal/components/ModalHeader.tsx · в коде есть ещё: кнопка «назад» (onBack), isDisabled | Статус: beta
+Props:
+  title: TEXT default=Title
+  hasTitle: BOOLEAN default=True
+Render: png/151-239.png
+
+COMPONENT "ModalHeader" 430x60 auto:H pad=12/12/12/56 gap=8 main=MAX cross=CENTER size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radii=[24, 24, 0, 0]
+  TEXT "Label" 318x19 props=visible->hasTitle,characters->title size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=CENTER maxLines=1
+  INSTANCE "CloseButton" 36x36 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=9999 INSTANCE OF IconRoundButton / size=36 with icon=147:237, size=36

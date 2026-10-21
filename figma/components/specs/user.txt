@@ -1,0 +1,5 @@
+# user (254:285) — COMPONENT
+Render: png/254-285.png
+
+COMPONENT "user" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 16x16 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

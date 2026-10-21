@@ -1,0 +1,7 @@
+# TodayUndoToast (257:2976) — COMPONENT
+Description: Назначение: Плашка «Отменить» внизу экрана после отметки «Готово!». | Не использовать: Ошибка или нет сети → TodayScreenState. | Код: src/screens/today/components/TodayUndoToast.tsx · в коде есть ещё: размытие подложки | Статус: beta
+Render: png/257-2976.png
+
+COMPONENT "TodayUndoToast" 141x36 auto:H pad=8/12/8/24 gap=8 main=MIN cross=CENTER size=HUG/FIXED fill=#00000080 [palette.black50|colors.overlay.scrim] var15:27 radius=9999
+  TEXT "Отменить" 77x19 size=HUG/HUG text="Отменить" style=headline/medium (Medium 16) color=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 align=LEFT
+  INSTANCE "undo-2" 20x20 size=FIXED/FIXED INSTANCE OF undo-2

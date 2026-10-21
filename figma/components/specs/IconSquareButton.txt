@@ -1,0 +1,13 @@
+# IconSquareButton (83:20) — COMPONENT
+Description: Назначение: Квадратная серая кнопка со значком: «⋮» в подвале карточки. | Не использовать: Кнопка-значок в шапке → IconRoundButton. | Код: src/shared/ui/icon-button/IconSquareButton.tsx · ждёт кода: disabled=фон paleGray, loading=спиннер | Статус: beta
+Props:
+  icon: INSTANCE_SWAP default=79:10
+  disabled: BOOLEAN default=False
+  loading: BOOLEAN default=False
+Render: png/83-20.png
+
+COMPONENT "IconSquareButton" 48x48 auto:H pad=12/12/12/12 gap=0 main=CENTER cross=CENTER size=HUG/HUG fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:59 radius=8
+  RECTANGLE "Disabled overlay" 48x48 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+  FRAME "LoadingSpinner" 48x48 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 clip
+    ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#333333 [palette.baseGray|colors.text.primary] var15:29 w=2 INSIDE
+  INSTANCE "ellipsis-vertical" 24x24 props=mainComponent->icon size=FIXED/FIXED INSTANCE OF ellipsis-vertical

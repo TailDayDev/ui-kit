@@ -1,0 +1,30 @@
+# Button (255:288) — COMPONENT_SET
+Description: Назначение: Кнопка с подписью: основная, обведённая или красная. | Не использовать: Кнопка брони в подвале карточки → TodayDoorButton. | Код: src/shared/ui/Button.tsx · ждёт кода: style=red — заливка red, текст white (сейчас — фон red поверх default в ConfirmationModal) · в коде есть ещё: size (extraSmall, small, large), style (secondary, green, transparent, softGray, danger, dangerSimple, edit, link, main), icon, isRounded | Статус: beta
+Props:
+  title: TEXT default=Label
+  disabled: BOOLEAN default=False
+  loading: BOOLEAN default=False
+  style: VARIANT default=default options=['default', 'light', 'red']
+Render: png/255-288.png
+
+COMPONENT "style=default" 105x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8
+  RECTANGLE "Disabled overlay" 105x51 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+  FRAME "ContentRow" 41x19 auto:H pad=0/0/0/0 gap=8 main=CENTER cross=CENTER size=HUG/HUG clip
+    TEXT "Label" 41x19 props=characters->title size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 align=LEFT
+  FRAME "LoadingSpinner" 105x51 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8 clip
+    ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 w=2 INSIDE
+
+COMPONENT "style=light" 107x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+  RECTANGLE "Disabled overlay" 107x51 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+  FRAME "ContentRow" 41x19 auto:H pad=0/0/0/0 gap=8 main=CENTER cross=CENTER size=HUG/HUG clip
+    TEXT "Label" 41x19 props=characters->title size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+  FRAME "LoadingSpinner" 107x51 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=8 clip
+    ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#333333 [palette.baseGray|colors.text.primary] var15:29 w=2 INSIDE
+
+COMPONENT "style=red" 105x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#E40E0E [palette.red|colors.text.error] var15:9 radius=8
+  RECTANGLE "Disabled overlay" 105x51 HIDDEN props=visible->disabled size=FIXED/FIXED ABSOLUTE fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 radius=8
+  FRAME "ContentRow" 41x19 auto:H pad=0/0/0/0 gap=8 main=CENTER cross=CENTER size=HUG/HUG clip
+    TEXT "Label" 41x19 props=characters->title size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 align=LEFT
+  FRAME "LoadingSpinner" 105x51 HIDDEN props=visible->loading auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#E40E0E [palette.red|colors.text.error] var15:9 radius=8 clip
+    ELLIPSE "spinner-ring" 20x20 size=FIXED/FIXED stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 w=2 INSIDE
+

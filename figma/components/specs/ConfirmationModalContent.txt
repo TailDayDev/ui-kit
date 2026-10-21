@@ -1,0 +1,13 @@
+# ConfirmationModalContent (262:398) — COMPONENT
+Description: Назначение: Тело окна подтверждения: картинка, вопрос и пояснение. | Не использовать: Окно с выбором из списка → тело окна выбора. | Код: нет — ждёт кода · в коде есть ещё: строка ошибки error_occurred (ConfirmationModal) | Статус: beta
+Props:
+  title: TEXT default=Title
+  description: TEXT default=Text
+  hasDescription: BOOLEAN default=True
+Render: png/262-398.png
+
+COMPONENT "ConfirmationModalContent" 430x203 auto:V pad=0/24/24/24 gap=32 main=MIN cross=CENTER size=FIXED/HUG
+  RECTANGLE "Картинка · img:TrashIcon" 100x100 size=FIXED/FIXED fill=IMAGE radius=8
+  FRAME "Тексты" 382x47 auto:V pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+    TEXT "Заголовок" 382x24 props=characters->title size=FILL/HUG text="Title" style=title/bold (Bold 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+    TEXT "Текст" 382x15 props=visible->hasDescription,characters->description size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER

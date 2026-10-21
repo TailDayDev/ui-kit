@@ -1,0 +1,10 @@
+# TodaySkippedAction (257:2970) — COMPONENT
+Description: Назначение: Пропущенная задача в подвале карточки: неактивная капсула «Пропущено» с крестиком. | Не использовать: Задача в работе или выполнена → TodayCompletionSlider. | Код: src/widgets/today-action-list/task-constructor/TodaySkippedAction.tsx · ждёт кода: капсула=48, ручка=40 mediumGray, причина — слоем карточки над вуалью · в коде есть ещё: reason (причина под капсулой) | Статус: beta
+Props:
+  label: TEXT default=Label
+Render: png/257-2970.png
+
+COMPONENT "TodaySkippedAction" 180x48 auto:H pad=4/4/4/24 gap=0 main=SPACE_BETWEEN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=9999 clip
+  TEXT "Статус" 41x19 props=characters->label size=HUG/HUG text="Label" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+  FRAME "Ручка" 40x40 auto:H pad=10/10/10/10 gap=10 main=MIN cross=MIN size=HUG/HUG fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 radius=9999
+    INSTANCE "x" 20x20 size=FIXED/FIXED INSTANCE OF x

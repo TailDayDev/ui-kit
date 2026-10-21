@@ -1,0 +1,5 @@
+# skip-forward (147:255) — COMPONENT
+Render: png/147-255.png
+
+COMPONENT "skip-forward" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 12x12 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

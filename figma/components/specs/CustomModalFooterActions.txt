@@ -1,0 +1,14 @@
+# CustomModalFooterActions (257:3018) — COMPONENT_SET
+Description: Назначение: Кнопки внизу окна: «Отмена» и главное действие, в ряд или столбиком. | Не использовать: Подвал карточки задачи → TodayTaskFooter. | Код: нет — ждёт кода | Статус: beta
+Props:
+  direction: VARIANT default=row options=['row', 'column']
+Render: png/257-3018.png
+
+COMPONENT "direction=row" 382x51 auto:H pad=0/0/0/0 gap=0 main=SPACE_BETWEEN cross=CENTER size=FIXED/HUG
+  INSTANCE "Кнопка · вторая" 107x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF Button / style=light with disabled=False, loading=False, title=Label, style=light
+  INSTANCE "Кнопка · главная" 105x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8 INSTANCE OF Button / style=default with disabled=False, loading=False, title=Label, style=default
+
+COMPONENT "direction=column" 382x118 auto:V pad=0/0/0/0 gap=16 main=MIN cross=MIN size=FIXED/HUG
+  INSTANCE "Кнопка · главная" 382x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=FILL/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8 INSTANCE OF Button / style=default with disabled=False, loading=False, title=Label, style=default
+  INSTANCE "Кнопка · вторая" 382x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=FILL/FIXED fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8 INSTANCE OF Button / style=light with disabled=False, loading=False, title=Label, style=light
+

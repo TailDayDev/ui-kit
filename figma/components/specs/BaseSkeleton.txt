@@ -1,0 +1,5 @@
+# BaseSkeleton (255:312) — COMPONENT
+Description: Назначение: Серая плашка на месте данных при загрузке. | Не использовать: Пустой день или ошибка → TodayScreenState. | Код: src/shared/ui/skeleton/BaseSkeleton.tsx · в коде есть ещё: бегущий блик | Статус: beta
+Render: png/255-312.png
+
+COMPONENT "BaseSkeleton" 120x20 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8

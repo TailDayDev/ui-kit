@@ -1,12 +1,16 @@
 import type { ReactNode } from 'react';
 import type { ImageURISource } from 'react-native';
 
+import type { RadiusKey } from '../../tokens';
+
 /** Side length in points per size (app `PET_AVATAR_SIZES`). */
 export const PET_AVATAR_SIZES = {
   xs: 24,
   s: 40,
   m: 48,
   l: 56,
+  /** Figma `PetOwnerAvatar` pet photo. */
+  lg: 64,
   xl: 96,
 } as const;
 
@@ -41,8 +45,10 @@ export interface PetAvatarProps {
   photoCacheKey?: string;
   /** `'circle'` or `'square'` (radius 8). Defaults to `'circle'`. */
   shape?: PetAvatarShape;
-  /** Size step: xs 24, s 40, m 48, l 56, xl 96. Defaults to `'l'`. */
+  /** Size step: xs 24, s 40, m 48, l 56, lg 64, xl 96. Defaults to `'l'`. */
   size?: PetAvatarSize;
+  /** Corner radius of the square shape. Defaults to `'sm'` (8); Figma `PetOwnerAvatar` uses `'md'` (12). */
+  radius?: RadiusKey;
   /**
    * No-photo content drawn over the whole frame (app: `NoImagePlaceholder`
    * with the admin `NoImageIcon`). Defaults to an empty, transparent frame.

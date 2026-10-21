@@ -1,0 +1,13 @@
+# OptionRow (255:307) — COMPONENT_SET
+Description: Назначение: Строка выбора одного варианта текстом: причина пропуска, часть дня. | Не использовать: Строка действия в шторке → TaskSheetRow. | Код: нет — ждёт кода | Статус: beta
+Props:
+  label: TEXT default=Label
+  isSelected: VARIANT default=false options=['false', 'true']
+Render: png/255-307.png
+
+COMPONENT "isSelected=false" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FIXED/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8
+  TEXT "Label" 350x17 props=characters->label size=FILL/HUG text="Label" style=body/medium (Medium 14) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+
+COMPONENT "isSelected=true" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FIXED/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=8
+  TEXT "Label" 350x17 props=characters->label size=FILL/HUG text="Label" style=body/medium (Medium 14) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 align=LEFT
+

@@ -1,0 +1,17 @@
+# PetOwnerAvatar (127:9) — COMPONENT_SET
+Description: Назначение: Фото питомца с маленьким фото хозяина в углу. | Не использовать: Несколько питомцев в одной задаче → стопка фото TodayMultiPetSummary. | Код: src/shared/ui/pet-owner-avatar/PetOwnerAvatar.tsx · ждёт кода: без фото=NoImageIcon 32 на softGray | Статус: beta
+Props:
+  ownerInitials: TEXT default=RL
+  hasPhoto: VARIANT default=true options=['true', 'false']
+Render: png/127-9.png
+
+COMPONENT "hasPhoto=true" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG
+  FRAME "Фото питомца" 64x64 size=FIXED/FIXED fill=IMAGE radius=12 clip
+  FRAME "Фото владельца" 24x24 size=FIXED/FIXED fill=IMAGE stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=2 OUTSIDE radius=9999 clip
+
+COMPONENT "hasPhoto=false" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG
+  FRAME "Фото питомца" 64x64 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=12 clip
+    RECTANGLE "Заглушка · img:NoImageIcon" 32x32 fill=IMAGE
+  FRAME "Фото владельца" 24x24 size=FIXED/FIXED fill=#E9FFD5 [palette.secondaryLight|colors.bg.success-soft] var15:24 stroke=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 w=2 OUTSIDE radius=9999 clip
+    TEXT "RL" 17x17 props=characters->ownerInitials text="RL" style=body/regular (Regular 14) color=#28B105 [palette.green|colors.text.success] var15:22 align=CENTER
+

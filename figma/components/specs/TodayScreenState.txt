@@ -1,0 +1,45 @@
+# TodayScreenState (257:3363) — COMPONENT_SET
+Description: Назначение: Состояние экрана «Сегодня»: картинка, заголовок, пояснение и действие или полоса «нет сети». | Не использовать: Ошибка загрузки → PullToRefreshErrorState. | Код: src/screens/today/components/TodayScreenState.tsx · в коде есть ещё: kind=error | Статус: beta
+Props:
+  label: TEXT default=Label
+  kind: VARIANT default=no-auth options=['no-auth', 'no-hotel', 'empty', 'no-results', 'offline']
+Render: png/257-3363.png
+
+COMPONENT "kind=no-auth" 382x325 auto:V pad=0/40/0/40 gap=48 main=CENTER cross=CENTER size=FIXED/FIXED
+  FRAME "Message" 302x185 auto:V pad=0/0/0/0 gap=16 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Картинка · img:TodayTasksSignInRequiredIcon" 120x120 size=FIXED/FIXED fill=IMAGE
+    FRAME "Texts" 302x49 auto:V pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+      TEXT "Title" 302x24 size=FILL/HUG text="Войдите, чтобы продолжить" style=title/medium (Medium 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      TEXT "Body" 302x17 size=FILL/HUG text="На этом экране появятся задачи на сегодня." style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER
+  INSTANCE "Button" 111x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8 INSTANCE OF Button / style=default with disabled=False, loading=False, title=Войти, style=default
+
+COMPONENT "kind=no-hotel" 382x325 auto:V pad=0/40/0/40 gap=48 main=CENTER cross=CENTER size=FIXED/FIXED
+  FRAME "Message" 302x202 auto:V pad=0/0/0/0 gap=16 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Картинка · img:TodayTasksLocationRequiredIcon" 120x120 size=FIXED/FIXED fill=IMAGE
+    FRAME "Texts" 302x66 auto:V pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+      TEXT "Title" 302x24 size=FILL/HUG text="Создайте первую гостиницу" style=title/medium (Medium 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      TEXT "Body" 302x34 size=FILL/HUG text="Задачи дня появятся,
+когда будет гостиница." style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER
+  INSTANCE "Button" 212x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8 INSTANCE OF Button / style=default with disabled=False, loading=False, title=Создать гостиницу, style=default
+
+COMPONENT "kind=empty" 382x325 auto:V pad=0/40/0/40 gap=48 main=CENTER cross=CENTER size=FIXED/FIXED
+  FRAME "Message" 302x185 auto:V pad=0/0/0/0 gap=16 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Картинка · img:TodayTasksDoneIcon" 120x120 size=FIXED/FIXED fill=IMAGE
+    FRAME "Texts" 302x49 auto:V pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+      TEXT "Title" 302x24 size=FILL/HUG text="Все задачи выполнены" style=title/medium (Medium 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      TEXT "Body" 302x17 size=FILL/HUG text="День закрыт. Ниже — что сделано." style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER
+
+COMPONENT "kind=no-results" 382x325 auto:V pad=0/40/0/40 gap=48 main=CENTER cross=CENTER size=FIXED/FIXED
+  FRAME "Message" 302x226 auto:V pad=0/0/0/0 gap=16 main=MIN cross=CENTER size=FILL/HUG
+    FRAME "Картинка · img:ReservationsNotFounded" 120x120 size=FIXED/FIXED fill=IMAGE
+    FRAME "Texts" 302x90 auto:V pad=0/0/0/0 gap=8 main=MIN cross=CENTER size=FILL/HUG
+      TEXT "Title" 302x48 size=FILL/HUG text="К сожалению,
+ничего не найдено" style=title/medium (Medium 20) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=CENTER
+      TEXT "Body" 302x34 size=FILL/HUG text="Попробуйте другой запрос
+или снимите фильтр." style=body/regular (Regular 14) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=CENTER
+  INSTANCE "Button" 139x51 auto:H pad=0/32/0/32 gap=0 main=CENTER cross=CENTER size=HUG/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=8 INSTANCE OF Button / style=default with disabled=False, loading=False, title=Сбросить, style=default
+
+COMPONENT "kind=offline" 430x40 auto:H pad=0/16/0/16 gap=8 main=MIN cross=CENTER size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34
+  INSTANCE "wifi-off" 16x16 size=FIXED/FIXED INSTANCE OF wifi-off
+  TEXT "Label" 31x15 props=characters->label size=HUG/HUG text="Label" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+

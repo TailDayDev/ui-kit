@@ -1,0 +1,19 @@
+# Chip (78:77) — COMPONENT_SET
+Description: Назначение: Чип фильтра ленты: название типа задач и счётчик невыполненных. | Не использовать: Метка типа на карточке → TodayTaskTypeBadge. | Код: нет — ждёт кода | Статус: beta
+Props:
+  hasBadge: BOOLEAN default=True
+  name: TEXT default=Label
+  count: TEXT default=0
+  isSelected: VARIANT default=true options=['true', 'false']
+Render: png/78-77.png
+
+COMPONENT "isSelected=true" 76x31 auto:H pad=8/12/8/12 gap=4 main=MIN cross=CENTER size=HUG/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:61 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=8
+  TEXT "Подпись" 32x15 props=characters->name size=HUG/HUG text="Label" style=caption/bold (Bold 12) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:54 align=LEFT
+  FRAME "Счётчик" 16x15 props=visible->hasBadge auto:H pad=0/4/0/4 gap=0 main=CENTER cross=CENTER size=HUG/HUG minW=16 maxW=None fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=16
+    TEXT "Число" 8x15 props=characters->count size=HUG/HUG text="0" style=caption/medium (Medium 12) color=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:53 align=CENTER
+
+COMPONENT "isSelected=false" 76x31 auto:H pad=8/12/8/12 gap=4 main=MIN cross=CENTER size=HUG/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=8
+  TEXT "Подпись" 32x15 props=characters->name size=HUG/HUG text="Label" style=caption/medium (Medium 12) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  FRAME "Счётчик" 16x15 props=visible->hasBadge auto:H pad=0/4/0/4 gap=0 main=CENTER cross=CENTER size=HUG/HUG minW=16 maxW=None fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:61 radius=16
+    TEXT "Число" 8x15 props=characters->count size=HUG/HUG text="0" style=caption/medium (Medium 12) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:54 align=CENTER
+

@@ -1,0 +1,57 @@
+# TodaySkipReasonContent (263:481) — COMPONENT_SET
+Description: Назначение: Тело окна пропуска задачи: заголовок, список причин и поле «Другая причина». | Не использовать: Срок или питомец ручной задачи → тело окна выбора. | Код: нет — ждёт кода | Статус: beta
+Props:
+  subtitle: TEXT default=Subtitle
+  hasOtherReason: BOOLEAN default=False
+  reasonDescription: TEXT default=Text
+  counter: TEXT default=0/130
+  rows: VARIANT default=5 options=['5', '6', '3']
+Render: png/263-481.png
+
+COMPONENT "rows=5" 430x385 auto:V pad=8/24/24/24 gap=32 main=MIN cross=MIN size=FIXED/HUG
+  FRAME "Заголовок и подпись" 382x52 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+    TEXT "Заголовок" 382x29 size=FILL/HUG text="Выберите причину пропуска" style=largeTitle/semibold (Semi Bold 24) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Подпись" 382x15 props=characters->subtitle size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+  FRAME "Причины" 382x269 auto:V pad=0/0/0/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+    INSTANCE "Причина 1" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Питомец отказался от еды, isSelected=false
+    INSTANCE "Причина 2" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=По указанию владельца, isSelected=false
+    INSTANCE "Причина 3" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=По состоянию здоровья питомца, isSelected=false
+    INSTANCE "Причина 4" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Закончился корм питомца, isSelected=false
+    INSTANCE "Причина 5" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Другая причина, isSelected=false
+    FRAME "Ввод причины" 382x213 HIDDEN props=visible->hasOtherReason auto:V pad=16/16/16/16 gap=8 main=MIN cross=MIN size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+      TEXT "Подпись поля" 348x19 size=FILL/HUG text="Коротко опишите причину" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      FRAME "Поле" 348x132 auto:V pad=12/16/0/16 gap=0 main=MIN cross=MIN size=FILL/FIXED stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+        TEXT "Текст поля" 314x17 props=characters->reasonDescription size=FILL/HUG text="Text" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      TEXT "Счётчик" 348x12 props=characters->counter size=FILL/HUG text="0/130" style=smallCaption/medium (Medium 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+
+COMPONENT "rows=6" 430x442 auto:V pad=8/24/24/24 gap=32 main=MIN cross=MIN size=FIXED/HUG
+  FRAME "Заголовок и подпись" 382x52 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+    TEXT "Заголовок" 382x29 size=FILL/HUG text="Выберите причину пропуска" style=largeTitle/semibold (Semi Bold 24) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Подпись" 382x15 props=characters->subtitle size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+  FRAME "Причины" 382x326 auto:V pad=0/0/0/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+    INSTANCE "Причина 1" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Владелец забрал раньше, isSelected=false
+    INSTANCE "Причина 2" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Владелец сделает сам, isSelected=false
+    INSTANCE "Причина 3" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Владелец отменил услугу, isSelected=false
+    INSTANCE "Причина 4" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=По состоянию питомца, isSelected=false
+    INSTANCE "Причина 5" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Услуга не оказана, isSelected=false
+    INSTANCE "Причина 6" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Другая причина, isSelected=false
+    FRAME "Ввод причины" 382x213 HIDDEN props=visible->hasOtherReason auto:V pad=16/16/16/16 gap=8 main=MIN cross=MIN size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+      TEXT "Подпись поля" 348x19 size=FILL/HUG text="Коротко опишите причину" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      FRAME "Поле" 348x132 auto:V pad=12/16/0/16 gap=0 main=MIN cross=MIN size=FILL/FIXED stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+        TEXT "Текст поля" 314x17 props=characters->reasonDescription size=FILL/HUG text="Text" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      TEXT "Счётчик" 348x12 props=characters->counter size=FILL/HUG text="0/130" style=smallCaption/medium (Medium 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+
+COMPONENT "rows=3" 430x271 auto:V pad=8/24/24/24 gap=32 main=MIN cross=MIN size=FIXED/HUG
+  FRAME "Заголовок и подпись" 382x52 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+    TEXT "Заголовок" 382x29 size=FILL/HUG text="Выберите причину пропуска" style=largeTitle/semibold (Semi Bold 24) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+    TEXT "Подпись" 382x15 props=characters->subtitle size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+  FRAME "Причины" 382x155 auto:V pad=0/0/0/0 gap=16 main=MIN cross=MIN size=FILL/HUG
+    INSTANCE "Причина 1" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Не потребовалось, isSelected=false
+    INSTANCE "Причина 2" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Не успели, isSelected=false
+    INSTANCE "Причина 3" 382x41 auto:H pad=12/16/12/16 gap=8 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=8 INSTANCE OF OptionRow / isSelected=false with label=Другая причина, isSelected=false
+    FRAME "Ввод причины" 382x213 HIDDEN props=visible->hasOtherReason auto:V pad=16/16/16/16 gap=8 main=MIN cross=MIN size=FIXED/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16
+      TEXT "Подпись поля" 348x19 size=FILL/HUG text="Коротко опишите причину" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      FRAME "Поле" 348x132 auto:V pad=12/16/0/16 gap=0 main=MIN cross=MIN size=FILL/FIXED stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+        TEXT "Текст поля" 314x17 props=characters->reasonDescription size=FILL/HUG text="Text" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      TEXT "Счётчик" 348x12 props=characters->counter size=FILL/HUG text="0/130" style=smallCaption/medium (Medium 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+

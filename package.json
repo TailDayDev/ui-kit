@@ -57,7 +57,8 @@
     "changeset": "changeset",
     "version-packages": "changeset version && prettier --write CHANGELOG.md",
     "release:tag": "node scripts/release/publish-git-tag.mjs",
-    "yalc:publish": "npm run build && npx --yes yalc publish --push"
+    "yalc:publish": "npm run build && npx --yes yalc publish --push",
+    "figma:export-components": "node scripts/figma/export-components.mjs"
   },
   "peerDependencies": {
     "@react-native-picker/picker": ">=2.11.0",

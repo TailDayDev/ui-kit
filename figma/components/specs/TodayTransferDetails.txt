@@ -1,0 +1,18 @@
+# TodayTransferDetails (91:75) — COMPONENT
+Description: Назначение: Откуда и куда переселяют питомца. | Не использовать: Заезд и выезд → TodayDoorDetails. | Код: src/widgets/today-action-list/task-constructor/TodayTransferDetails.tsx · ждёт кода: разделитель сверху=нет, от верха до рамки=16 | Статус: beta
+Props:
+  fromTitle: TEXT default=Label
+  toTitle: TEXT default=Label
+Render: png/91-75.png
+
+COMPONENT "TodayTransferDetails" 398x88 auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FIXED/HUG
+  FRAME "Откуда и куда" 366x56 auto:H pad=0/0/0/0 gap=0 main=MIN cross=CENTER size=FILL/HUG stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=8
+    FRAME "Откуда" 182.5x56 auto:H pad=8/20/8/8 gap=8 main=MIN cross=CENTER size=FILL/FILL
+      RECTANGLE "Картинка места · с сервера" 24x24 size=FIXED/FIXED fill=IMAGE
+      TEXT "Откуда" 122.5x17 props=characters->fromTitle size=FILL/HUG text="Label" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+    FRAME "Разделитель" 1x56 size=FIXED/FILL stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=0 INSIDE
+    FRAME "Куда" 182.5x56 auto:H pad=8/8/8/20 gap=8 main=MAX cross=CENTER size=FILL/FILL
+      TEXT "Куда" 122.5x17 props=characters->toTitle size=FILL/HUG text="Label" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=RIGHT
+      RECTANGLE "Картинка места · с сервера" 24x24 size=FIXED/FIXED fill=IMAGE
+    FRAME "Стрелка" 32x32 auto:H pad=0/0/0/0 gap=0 main=CENTER cross=CENTER size=FIXED/FIXED ABSOLUTE fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:65 w=1 INSIDE radius=9999
+      INSTANCE "chevron-right" 20x20 size=FIXED/FIXED INSTANCE OF chevron-right

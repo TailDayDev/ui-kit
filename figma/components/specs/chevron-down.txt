@@ -1,0 +1,5 @@
+# chevron-down (78:17) — COMPONENT
+Render: png/78-17.png
+
+COMPONENT "chevron-down" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 12x7.41 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

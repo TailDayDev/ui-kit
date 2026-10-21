@@ -1,0 +1,9 @@
+# StatusBar (84:111) — COMPONENT
+Description: Назначение: Системная строка iOS над экраном: время, сеть, батарея. | Не использовать: Шапка экрана с названием и действиями → ServiceHeader. | Код: src/App.tsx | Статус: beta
+Props:
+  time: TEXT default=9:41
+Render: png/84-111.png
+
+COMPONENT "StatusBar" 430x50 auto:H pad=0/0/0/48 gap=0 main=MIN cross=CENTER size=FIXED/FIXED
+  TEXT "Время" 33x19 props=characters->time size=HUG/HUG text="9:41" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+  INSTANCE "ios-status-indicators" 77x13 size=FIXED/FIXED ABSOLUTE INSTANCE OF ios-status-indicators

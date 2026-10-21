@@ -1,0 +1,5 @@
+# check (78:10) — COMPONENT
+Render: png/78-10.png
+
+COMPONENT "check" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 17.5x13.41 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

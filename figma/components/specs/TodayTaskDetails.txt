@@ -1,0 +1,19 @@
+# TodayTaskDetails (91:28) — COMPONENT
+Description: Назначение: Что сделать по задаче: корм, лекарство, услуга или текст ручной задачи. | Не использовать: Заезд и выезд → TodayDoorDetails; переезд → TodayTransferDetails. | Код: src/widgets/today-action-list/task-constructor/TodayTaskDetails.tsx | Статус: beta
+Props:
+  hasIcon: BOOLEAN default=True
+  hasTrailing: BOOLEAN default=True
+  title: TEXT default=Title
+  trailing: TEXT default=Label
+  note: TEXT default=Text
+  hasNote: BOOLEAN default=True
+Render: png/91-28.png
+
+COMPONENT "TodayTaskDetails" 398x88 auto:V pad=16/16/16/16 gap=12 main=CENTER cross=MIN size=FIXED/HUG
+  RECTANGLE "Разделитель" 366x1 size=FILL/FIXED fill=#E0E0E0 [palette.paleGray|colors.border.default] var15:65
+  FRAME "Задача" 366x43 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FILL/HUG
+    FRAME "Название и количество" 366x24 auto:H pad=0/0/0/0 gap=12 main=MIN cross=MIN size=FILL/HUG
+      RECTANGLE "Иконка · img:dry_food_icon" 24x24 props=visible->hasIcon size=FIXED/FIXED fill=IMAGE
+      TEXT "Название" 282x17 props=characters->title size=FILL/HUG text="Title" style=body/bold (Bold 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+      TEXT "Количество" 36x17 props=visible->hasTrailing,characters->trailing size=HUG/HUG text="Label" style=body/regular (Regular 14) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT
+    TEXT "Описание" 366x15 props=visible->hasNote,characters->note size=FILL/HUG text="Text" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT

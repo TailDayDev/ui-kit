@@ -1,0 +1,6 @@
+# ScrollToTodayButton (257:2985) — COMPONENT
+Description: Назначение: Плавающий кружок со стрелкой вниз: прокрутить ленту к сегодняшним задачам. | Не использовать: Главное действие экрана → Fab. | Код: нет — ждёт кода | Статус: beta
+Render: png/257-2985.png
+
+COMPONENT "ScrollToTodayButton" 32x32 auto:H pad=8/8/8/8 gap=0 main=CENTER cross=CENTER size=HUG/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:25 stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=9999 opacity=0.8
+  INSTANCE "arrow-down" 16x16 size=FIXED/FIXED INSTANCE OF arrow-down

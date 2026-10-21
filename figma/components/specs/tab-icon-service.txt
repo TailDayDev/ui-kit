@@ -1,0 +1,5 @@
+# tab-icon-service (79:25) — COMPONENT
+Render: png/79-25.png
+
+COMPONENT "tab-icon-service" 24x24 size=FIXED/FIXED
+  VECTOR "glyph" 20.5x19 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

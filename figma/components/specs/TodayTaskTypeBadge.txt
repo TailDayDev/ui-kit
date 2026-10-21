@@ -1,0 +1,47 @@
+# TodayTaskTypeBadge (78:53) — COMPONENT_SET
+Description: Назначение: Метка типа задачи: значок и название, у заезда и выезда — ещё тип ухода. | Не использовать: Время и состояние задачи → TodayTaskTime. | Код: src/widgets/today-action-list/task-constructor/TodayTaskTypeBadge.tsx | Статус: beta
+Props:
+  label: TEXT default=Label
+  hasCareType: BOOLEAN default=False
+  careType: TEXT default=Label
+  hasSecondCareType: BOOLEAN default=False
+  secondCareType: TEXT default=Label
+  actionType: VARIANT default=CheckIn options=['CheckIn', 'CheckOut', 'Feeding', 'Medication', 'AdditionalService', 'Manual', 'Transfer']
+Render: png/78-53.png
+
+COMPONENT "actionType=CheckIn" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:TodayTaskCheckInIcon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 align=LEFT
+  RECTANGLE "careDot1" 4x4 HIDDEN props=visible->hasCareType size=FIXED/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=9999
+  TEXT "careType1" 40x19 HIDDEN props=visible->hasCareType,characters->careType size=FIXED/FIXED text="Label" style=headline/regular (Regular 16) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 align=LEFT maxLines=1
+  RECTANGLE "careDot2" 4x4 HIDDEN props=visible->hasSecondCareType size=FIXED/FIXED fill=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 radius=9999
+  TEXT "careType2" 40x19 HIDDEN props=visible->hasSecondCareType,characters->secondCareType size=FIXED/FIXED text="Label" style=headline/regular (Regular 16) color=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 align=LEFT maxLines=1
+
+COMPONENT "actionType=CheckOut" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#E9FFD5 [palette.secondaryLight|colors.bg.success-soft] var15:24 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:TodayTaskCheckOutIcon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#28B105 [palette.green|colors.text.success] var15:22 align=LEFT
+  RECTANGLE "careDot1" 4x4 HIDDEN props=visible->hasCareType size=FIXED/FIXED fill=#28B105 [palette.green|colors.text.success] var15:22 radius=9999
+  TEXT "careType1" 40x19 HIDDEN props=visible->hasCareType,characters->careType size=FIXED/FIXED text="Label" style=headline/regular (Regular 16) color=#28B105 [palette.green|colors.text.success] var15:22 align=LEFT maxLines=1
+  RECTANGLE "careDot2" 4x4 HIDDEN props=visible->hasSecondCareType size=FIXED/FIXED fill=#28B105 [palette.green|colors.text.success] var15:22 radius=9999
+  TEXT "careType2" 40x19 HIDDEN props=visible->hasSecondCareType,characters->secondCareType size=FIXED/FIXED text="Label" style=headline/regular (Regular 16) color=#28B105 [palette.green|colors.text.success] var15:22 align=LEFT maxLines=1
+
+COMPONENT "actionType=Feeding" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#FFF8B6 [palette.feedingBadgeBackground] var15:14 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:dry_food_icon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#BB6500 [palette.feedingBadgeForeground] var15:15 align=LEFT
+
+COMPONENT "actionType=Medication" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#FFE0E0 [palette.medicationBadgeBackground] var15:11 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:TodayTaskMedicationIcon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#E40E0E [palette.red|colors.text.error] var15:9 align=LEFT
+
+COMPONENT "actionType=AdditionalService" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#FFE6C7 [palette.additionalServiceBadgeBackground] var15:16 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:TodayTaskAdditionalServiceIcon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#F06800 [palette.additionalServiceBadgeForeground] var15:17 align=LEFT
+
+COMPONENT "actionType=Manual" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#F4DDFB [palette.manualBadgeBackground] var15:18 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:TodayTaskManualIcon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#9C27B0 [palette.manualBadgeForeground] var15:19 align=LEFT
+
+COMPONENT "actionType=Transfer" 100x32 auto:H pad=4/16/4/12 gap=8 main=MIN cross=CENTER size=HUG/HUG fill=#D9EFFF [palette.transferBadgeBackground] var15:20 radii=[8, 24, 24, 0]
+  RECTANGLE "Иконка · img:TodayTaskTransferIcon" 24x24 size=FIXED/FIXED fill=IMAGE
+  TEXT "Метка" 40x19 props=characters->label size=HUG/HUG text="Label" style=headline/regular (Regular 16) color=#0A4F82 [palette.transferBadgeForeground] var15:21 align=LEFT
+

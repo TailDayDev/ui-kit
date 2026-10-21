@@ -1,0 +1,5 @@
+# wifi-off (254:334) — COMPONENT
+Render: png/254-334.png
+
+COMPONENT "wifi-off" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 22.0x22.0 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

@@ -1,0 +1,5 @@
+# calendar-days (147:258) — COMPONENT
+Render: png/147-258.png
+
+COMPONENT "calendar-days" 24x24 size=FIXED/FIXED
+  VECTOR "Vector" 18x20 fill=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:66

@@ -1,0 +1,42 @@
+# CustomTabBar (99:279) — COMPONENT_SET
+Description: Назначение: Плавающая нижняя панель вкладок: Сегодня, Календарь, Услуги, Меню. | Не использовать: Переключение внутри экрана → чипы или вкладки экрана. | Код: src/navigation/tab-bar/CustomTabBar.tsx · ждёт кода: вид=плавающая капсула, подписи=нет, подложка=gradient/bar-fade, плашка=Indicator | Статус: beta
+Props:
+  activeTab: VARIANT default=today options=['today', 'calendar', 'service', 'menu']
+Render: png/99-279.png
+
+COMPONENT "activeTab=today" 430x118 auto:V pad=0/24/24/24 gap=0 main=MAX cross=MIN size=FIXED/FIXED fill=GRADIENT_LINEAR(#28281F00@0, #0000001A@1)
+  FRAME "Pill" 382x64 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=9999 effect=shadow/bar-floating
+    FRAME "Tabs" 366x48 auto:H pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG
+      RECTANGLE "Indicator" 91.5x48 size=FIXED/FIXED ABSOLUTE fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:61 radius=9999
+      INSTANCE "Tab/today" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=true with icon=79:14, hasBadge=False, isFocused=true
+      INSTANCE "Tab/calendar" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:19, isFocused=false
+      INSTANCE "Tab/service" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:25, isFocused=false
+      INSTANCE "Tab/menu" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:28, isFocused=false
+
+COMPONENT "activeTab=calendar" 430x118 auto:V pad=0/24/24/24 gap=0 main=MAX cross=MIN size=FIXED/FIXED fill=GRADIENT_LINEAR(#28281F00@0, #0000001A@1)
+  FRAME "Pill" 382x64 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=9999 effect=shadow/bar-floating
+    FRAME "Tabs" 366x48 auto:H pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG
+      RECTANGLE "Indicator" 91.5x48 size=FIXED/FIXED ABSOLUTE fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:61 radius=9999
+      INSTANCE "Tab/today" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with icon=79:14, hasBadge=False, isFocused=false
+      INSTANCE "Tab/calendar" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=true with hasBadge=False, icon=79:19, isFocused=true
+      INSTANCE "Tab/service" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:25, isFocused=false
+      INSTANCE "Tab/menu" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:28, isFocused=false
+
+COMPONENT "activeTab=service" 430x118 auto:V pad=0/24/24/24 gap=0 main=MAX cross=MIN size=FIXED/FIXED fill=GRADIENT_LINEAR(#28281F00@0, #0000001A@1)
+  FRAME "Pill" 382x64 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=9999 effect=shadow/bar-floating
+    FRAME "Tabs" 366x48 auto:H pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG
+      RECTANGLE "Indicator" 91.5x48 size=FIXED/FIXED ABSOLUTE fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:61 radius=9999
+      INSTANCE "Tab/today" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with icon=79:14, hasBadge=False, isFocused=false
+      INSTANCE "Tab/calendar" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:19, isFocused=false
+      INSTANCE "Tab/service" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=true with hasBadge=False, icon=79:25, isFocused=true
+      INSTANCE "Tab/menu" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:28, isFocused=false
+
+COMPONENT "activeTab=menu" 430x118 auto:V pad=0/24/24/24 gap=0 main=MAX cross=MIN size=FIXED/FIXED fill=GRADIENT_LINEAR(#28281F00@0, #0000001A@1)
+  FRAME "Pill" 382x64 auto:H pad=8/8/8/8 gap=0 main=MIN cross=MIN size=FILL/HUG fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 radius=9999 effect=shadow/bar-floating
+    FRAME "Tabs" 366x48 auto:H pad=0/0/0/0 gap=0 main=MIN cross=MIN size=FILL/HUG
+      RECTANGLE "Indicator" 91.5x48 size=FIXED/FIXED ABSOLUTE fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:61 radius=9999
+      INSTANCE "Tab/today" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with icon=79:14, hasBadge=False, isFocused=false
+      INSTANCE "Tab/calendar" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:19, isFocused=false
+      INSTANCE "Tab/service" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=false with hasBadge=False, icon=79:25, isFocused=false
+      INSTANCE "Tab/menu" 91.5x48 auto:H pad=12/0/12/0 gap=0 main=CENTER cross=CENTER size=FILL/HUG INSTANCE OF TabBarItem / isFocused=true with hasBadge=False, icon=79:28, isFocused=true
+

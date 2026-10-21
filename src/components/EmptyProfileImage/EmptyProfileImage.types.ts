@@ -1,3 +1,4 @@
+import type { TypographyVariant } from '../../tokens';
 import type { ReactElement, ReactNode } from 'react';
 import type { ColorValue, ImageURISource } from 'react-native';
 
@@ -43,6 +44,11 @@ export interface EmptyProfileImageProps {
   backgroundColor?: ColorValue;
   /** Initials color. Defaults to `colors.text.success`. */
   initialsColor?: ColorValue;
+  /**
+   * Text style of the initials as a Figma style name (e.g. `'body/regular'`).
+   * Defaults to the app look: bold, sized by `size`.
+   */
+  initialsVariant?: TypographyVariant;
   /**
    * Photo: a URL, a bundled image module or a ready element. Empty/`null`
    * shows the initials.

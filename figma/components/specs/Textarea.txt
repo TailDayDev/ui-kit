@@ -1,0 +1,26 @@
+# Textarea (255:328) — COMPONENT_SET
+Description: Назначение: Многострочное поле: подпись внутри, счётчик под полем. | Не использовать: Выбор значения из списка → FieldRow. | Код: src/shared/ui/Textarea.tsx · в коде вид задаёт ManualTaskSheet (containerStyle, labelStyle, counterStyle); по умолчанию подпись baseGray, счётчик caption/regular, отступы 10/14 · в коде есть ещё: фокус, disabled | Статус: beta
+Props:
+  label: TEXT default=Label
+  placeholder: TEXT default=Placeholder
+  value: TEXT default=Text
+  counter: TEXT default=0/0
+  state: VARIANT default=empty options=['empty', 'default']
+Render: png/255-328.png
+
+COMPONENT "state=empty" 382x120 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "Поле" 382x104 auto:H pad=12/12/12/16 gap=0 main=SPACE_BETWEEN cross=MIN size=FILL/FILL fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+    FRAME "Тексты" 354x38 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MIN size=FILL/HUG
+      TEXT "Подпись" 354x15 props=characters->label size=FILL/HUG text="Label" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+      TEXT "Подсказка" 354x19 props=characters->placeholder size=FILL/HUG text="Placeholder" style=headline/regular (Regular 16) color=#BDBDBD [palette.lightGray] var15:32 align=LEFT
+      TEXT "Значение" 354x19 HIDDEN props=characters->value size=FIXED/FIXED text="Text" style=headline/regular (Regular 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+  TEXT "Счётчик" 382x12 props=characters->counter size=FILL/HUG text="0/0" style=smallCaption/medium (Medium 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+
+COMPONENT "state=default" 382x120 auto:V pad=0/0/0/0 gap=4 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "Поле" 382x104 auto:H pad=12/12/12/16 gap=0 main=SPACE_BETWEEN cross=MIN size=FILL/FILL fill=#FFFFFF [palette.white|colors.text.inverse|colors.bg.surface] var15:58 stroke=#BDBDBD [palette.lightGray] var15:32 w=1 INSIDE radius=8
+    FRAME "Тексты" 354x38 auto:V pad=0/0/0/0 gap=4 main=CENTER cross=MIN size=FILL/HUG
+      TEXT "Подпись" 354x15 props=characters->label size=FILL/HUG text="Label" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+      TEXT "Подсказка" 354x19 HIDDEN props=characters->placeholder size=FIXED/FIXED text="Placeholder" style=headline/regular (Regular 16) color=#BDBDBD [palette.lightGray] var15:32 align=LEFT
+      TEXT "Значение" 354x19 props=characters->value size=FILL/HUG text="Text" style=headline/regular (Regular 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+  TEXT "Счётчик" 382x12 props=characters->counter size=FILL/HUG text="0/0" style=smallCaption/medium (Medium 10) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:31 align=LEFT
+

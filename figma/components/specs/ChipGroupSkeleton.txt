@@ -1,0 +1,9 @@
+# ChipGroupSkeleton (257:3293) — COMPONENT
+Description: Назначение: Заглушка ряда фильтров при загрузке: четыре серые плашки. | Не использовать: Фильтры загружены → ChipGroup. | Код: src/shared/ui/skeleton/ChipGroupSkeleton.tsx · в коде есть ещё: variant=filter | Статус: beta
+Render: png/257-3293.png
+
+COMPONENT "ChipGroupSkeleton" 430x32 auto:H pad=0/16/0/16 gap=4 main=MIN cross=MIN size=FIXED/HUG
+  INSTANCE "Заглушка чипа" 40x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+  INSTANCE "Заглушка чипа" 90x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+  INSTANCE "Заглушка чипа" 50x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton
+  INSTANCE "Заглушка чипа" 90x32 size=FIXED/FIXED fill=#F2F2F2 [palette.softGray|colors.bg.subtle] var15:34 radius=8 INSTANCE OF BaseSkeleton

@@ -1,0 +1,13 @@
+# TodayManualStaffPickerContent (266:3541) — COMPONENT
+Description: Назначение: Тело окна выбора сотрудника: «Без сотрудника» и список сотрудников. | Не использовать: Выбор питомца → TodayManualPetPickerContent. | Код: нет — ждёт кода | Статус: beta
+Render: png/266-3541.png
+
+COMPONENT "TodayManualStaffPickerContent" 430x686 auto:V pad=8/24/24/24 gap=0 main=MIN cross=MIN size=FIXED/FIXED
+  FRAME "Список" 382x472 auto:V pad=0/0/0/0 gap=8 main=MIN cross=MIN size=FILL/HUG
+    FRAME "Без сотрудника" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED fill=#F4EFFF [palette.primaryLight|colors.bg.accent-soft] var15:7 stroke=#7962FF [palette.primary|colors.text.accent|colors.bg.accent|colors.icon.accent] var15:6 w=1 INSIDE radius=16
+      TEXT "Без сотрудника" 316x19 size=FILL/HUG text="Без сотрудника" style=headline/medium (Medium 16) color=#333333 [palette.baseGray|colors.text.primary] var15:29 align=LEFT
+      INSTANCE "Radio" 20x20 size=FIXED/FIXED clip INSTANCE OF Radio / isActive=true, size=20 with isActive=true, size=20
+    INSTANCE "Сотрудник · Marvin McKinney" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF StaffPickerRow / isSelected=false with position=Владелец, name=Marvin McKinney, isSelected=false
+    INSTANCE "Сотрудник · Jane Cooper" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF StaffPickerRow / isSelected=false with position=Управляющий, name=Jane Cooper, isSelected=false
+    INSTANCE "Сотрудник · Robert Fox" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF StaffPickerRow / isSelected=false with position=Грумер, name=Robert Fox, isSelected=false
+    INSTANCE "Сотрудник · Esther Howard" 382x88 auto:H pad=0/16/0/16 gap=12 main=MIN cross=CENTER size=FILL/FIXED stroke=#E0E0E0 [palette.paleGray|colors.border.default] var15:33 w=1 INSIDE radius=16 INSTANCE OF StaffPickerRow / isSelected=false with position=Сотрудник, name=Esther Howard, isSelected=false

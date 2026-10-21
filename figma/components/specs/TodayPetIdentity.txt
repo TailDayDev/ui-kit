@@ -1,0 +1,14 @@
+# TodayPetIdentity (88:158) — COMPONENT
+Description: Назначение: Питомец в карточке задачи: фото, кличка, порода и где он сейчас. | Не использовать: Несколько питомцев в задаче → TodayMultiPetSummary. | Код: src/widgets/today-action-list/task-constructor/TodayPetIdentity.tsx · ждёт кода: hasPlacements=false у заезда до заселения | Статус: beta
+Props:
+  name: TEXT default=Title
+  meta: TEXT default=Subtitle
+  hasPlacements: BOOLEAN default=True
+Render: png/88-158.png
+
+COMPONENT "TodayPetIdentity" 398x80 auto:H pad=16/16/0/16 gap=12 main=MIN cross=CENTER size=FIXED/HUG
+  INSTANCE "Фото" 64x64 auto:H pad=0/0/0/0 gap=-24 main=MIN cross=MAX size=HUG/HUG INSTANCE OF PetOwnerAvatar / hasPhoto=true with ownerInitials=RL, hasPhoto=true
+  FRAME "Имя, порода, место" 290x64 auto:V pad=0/0/0/0 gap=2 main=CENTER cross=MIN size=FILL/FILL
+    TEXT "Имя" 290x19 props=characters->name size=FILL/HUG text="Title" style=headline/bold (Bold 16) color=#333333 [palette.baseGray|colors.text.primary] var15:51 align=LEFT maxLines=1
+    TEXT "Порода" 290x15 props=characters->meta size=FILL/HUG text="Subtitle" style=caption/regular (Regular 12) color=#828282 [palette.mediumGray|colors.text.secondary|colors.icon.default] var15:52 align=LEFT maxLines=1
+    INSTANCE "Размещение" 290x16 props=visible->hasPlacements auto:H pad=0/0/0/0 gap=4 main=MIN cross=CENTER size=FILL/HUG INSTANCE OF TodayPlacementList / itemsCount=1 with title=Label, itemsCount=1
