@@ -3,5 +3,6 @@ export * from './Card';
 export * from './CardLocked';
 export * from './InfoCard';
 export * from './InfoRow';
+export * from './Radio';
 export * from './Tag';
 export * from './Tips';
