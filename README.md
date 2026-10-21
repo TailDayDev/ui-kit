@@ -123,7 +123,7 @@ CI запускает `npm run tokens:check` и падает, если сген�
 
 **Всегда доступная версия** — в Chromatic (закрытый проект, доступ у тех, у кого есть доступ к репозиторию `TailDayDev/ui-kit`):
 
-- `main` — постоянная ссылка `https://main--<appId>.chromatic.com` (appId — в Chromatic: Manage → Permalinks). Обновляется после каждого пуша в `main`.
+- `main` — постоянная ссылка **https://main--6ad8fb304da89f8ee410c834.chromatic.com**. Обновляется после каждого пуша в `main`. Проект в Chromatic: https://www.chromatic.com/library?appId=6ad8fb304da89f8ee410c834
 - PR — свой Storybook и визуальное сравнение с `main` в отдельной проверке PR. Визуальные изменения подтверждаются в Chromatic и не роняют CI.
 
 Публикует workflow `.github/workflows/chromatic.yml`. Он пропускается, пока в секретах репозитория нет `CHROMATIC_PROJECT_TOKEN`.
