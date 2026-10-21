@@ -70,3 +70,4 @@ export * from './Textarea';
 export * from './Tips';
 export * from './Toggle';
 export * from './UserDetailsCard';
+export * from './WheelPicker';
