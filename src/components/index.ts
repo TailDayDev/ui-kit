@@ -7,3 +7,4 @@ export * from './InfoRow';
 export * from './Radio';
 export * from './Tag';
 export * from './Tips';
+export * from './Toggle';
