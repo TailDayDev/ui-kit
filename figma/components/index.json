@@ -1,0 +1,432 @@
+[
+ {
+  "id": "78:4",
+  "name": "search",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "78:7",
+  "name": "plus",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "78:10",
+  "name": "check",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "78:17",
+  "name": "chevron-down",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:4",
+  "name": "chevron-up",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:7",
+  "name": "chevron-right",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:10",
+  "name": "ellipsis-vertical",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:14",
+  "name": "tab-icon-today",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:19",
+  "name": "tab-icon-calendar",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:25",
+  "name": "tab-icon-service",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:28",
+  "name": "tab-icon-menu",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "79:39",
+  "name": "ios-status-indicators",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:237",
+  "name": "x",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:240",
+  "name": "undo-2",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:243",
+  "name": "pencil",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:249",
+  "name": "clock-edit-outline",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:252",
+  "name": "calendar-plus",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:255",
+  "name": "skip-forward",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:258",
+  "name": "calendar-days",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "147:261",
+  "name": "trash-2",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "175:979",
+  "name": "calendar-x",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:278",
+  "name": "clock-3",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:281",
+  "name": "paw-print",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:285",
+  "name": "user",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:294",
+  "name": "circle-x",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:315",
+  "name": "loader",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:334",
+  "name": "wifi-off",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "254:343",
+  "name": "arrow-down",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "127:9",
+  "name": "PetOwnerAvatar",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "78:53",
+  "name": "TodayTaskTypeBadge",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "78:66",
+  "name": "TodayTaskTime",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "78:24",
+  "name": "TodayDoorButton",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "78:77",
+  "name": "Chip",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "83:14",
+  "name": "IconRoundButton",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "83:20",
+  "name": "IconSquareButton",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:3154",
+  "name": "Fab",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "84:17",
+  "name": "TodayCompletionSlider",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "84:90",
+  "name": "TabBarItem",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "84:111",
+  "name": "StatusBar",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "126:12",
+  "name": "TodayPlacementList",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "148:767",
+  "name": "TaskSheetRow",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "255:288",
+  "name": "Button",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "255:299",
+  "name": "Radio",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "255:307",
+  "name": "OptionRow",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "255:310",
+  "name": "EmptyProfileImage",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "255:312",
+  "name": "BaseSkeleton",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "255:328",
+  "name": "Textarea",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "255:330",
+  "name": "CustomModal · содержимое",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:2965",
+  "name": "WheelPicker",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:2970",
+  "name": "TodaySkippedAction",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:2976",
+  "name": "TodayUndoToast",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:2985",
+  "name": "ScrollToTodayButton",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "88:65",
+  "name": "ChipGroup",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "88:76",
+  "name": "ServiceHeaderTrigger",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "88:130",
+  "name": "TodaySectionHeader",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "88:144",
+  "name": "TodayTaskHeader",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "88:158",
+  "name": "TodayPetIdentity",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "91:14",
+  "name": "TodayMultiPetSummary",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "91:28",
+  "name": "TodayTaskDetails",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "91:61",
+  "name": "TodayDoorDetails",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "91:75",
+  "name": "TodayTransferDetails",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "91:177",
+  "name": "TodayTaskFooter",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "151:239",
+  "name": "ModalHeader",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:3018",
+  "name": "CustomModalFooterActions",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "257:3148",
+  "name": "FieldRow",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "257:3176",
+  "name": "ScheduleRadioRow",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "257:3258",
+  "name": "PetPickerRow",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "257:3283",
+  "name": "StaffPickerRow",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "257:3293",
+  "name": "ChipGroupSkeleton",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "257:3363",
+  "name": "TodayScreenState",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "257:3371",
+  "name": "PullToRefreshErrorState",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "94:163",
+  "name": "TodayTaskCard",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "259:3197",
+  "name": "ServiceHeader",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "99:279",
+  "name": "CustomTabBar",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "151:950",
+  "name": "TaskSheet",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "259:346",
+  "name": "CustomModal",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "262:398",
+  "name": "ConfirmationModalContent",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "263:481",
+  "name": "TodaySkipReasonContent",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "264:502",
+  "name": "TodayManualDuePickerContent",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "264:561",
+  "name": "TaskSheetContent",
+  "type": "COMPONENT_SET"
+ },
+ {
+  "id": "264:624",
+  "name": "TodaySkeleton",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "266:556",
+  "name": "ManualTaskSheetContent",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "266:3414",
+  "name": "TodayManualPetPickerContent",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "266:3541",
+  "name": "TodayManualStaffPickerContent",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "266:3927",
+  "name": "MultiActionDetailsContent",
+  "type": "COMPONENT"
+ },
+ {
+  "id": "267:938",
+  "name": "TodaySearchModalContent",
+  "type": "COMPONENT_SET"
+ }
+]
