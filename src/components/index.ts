@@ -24,6 +24,7 @@ export * from './Input';
 export * from './InputClearButton';
 export * from './InputMaxHeight';
 export * from './LabeledDetailRow';
+export * from './LoadingWrapper';
 export * from './NoImagePlaceholder';
 export * from './OTPInput';
 export * from './PercentageValueField';
