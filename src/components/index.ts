@@ -33,6 +33,7 @@ export * from './ScreenNav';
 export * from './SegmentedControl';
 export * from './SelectableOptionCard';
 export * from './SourceActionSheet';
+export * from './StatusBadge';
 export * from './StickySegmentedControl';
 export * from './StickyTabs';
 export * from './SyncedTextInput';
