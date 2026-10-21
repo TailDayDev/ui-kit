@@ -1,0 +1,51 @@
+name: Storybook (Chromatic)
+
+# Publishes the Storybook to Chromatic:
+# - every push to main updates the permanent link (main--<appId>.chromatic.com);
+# - every PR gets its own Storybook and a visual diff against main.
+# Access follows the GitHub repository permissions (private project).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: chromatic-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    env:
+      CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    steps:
+      - name: Skip until the Chromatic project is connected
+        if: env.CHROMATIC_PROJECT_TOKEN == ''
+        run: echo "::notice::CHROMATIC_PROJECT_TOKEN is not set; Storybook was not published. See README → Storybook."
+
+      - uses: actions/checkout@v4
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        with:
+          fetch-depth: 0 # Chromatic needs history to find the baseline build
+
+      - uses: actions/setup-node@v4
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+
+      - uses: chromaui/action@v1
+        if: env.CHROMATIC_PROJECT_TOKEN != ''
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: storybook:build
+          # Visual changes are reviewed in Chromatic, they don't fail CI.
+          exitZeroOnChanges: true
+          # Merged changes on main become the new baseline automatically.
+          autoAcceptChanges: main
+          # Snapshot only stories affected by the change (saves the free quota).
+          onlyChanged: true
