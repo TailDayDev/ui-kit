@@ -96,6 +96,7 @@ export * from './TodaySectionHeader';
 export * from './TodaySkeleton';
 export * from './TodaySkipReasonContent';
 export * from './TodaySkippedAction';
+export * from './TodayTaskCard';
 export * from './TodayTaskDetails';
 export * from './TodayTaskFooter';
 export * from './TodayTaskHeader';
