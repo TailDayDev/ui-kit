@@ -12,6 +12,7 @@ export * from './FullScreenLoader';
 export * from './IconButton';
 export * from './InfoCard';
 export * from './InfoRow';
+export * from './InputClearButton';
 export * from './NoImagePlaceholder';
 export * from './PetAvatar';
 export * from './PetOwnerAvatar';
