@@ -1,0 +1,3 @@
+export { Box } from './Box.js';
+export type { BoxProps } from './Box.types.js';
+//# sourceMappingURL=index.d.ts.map

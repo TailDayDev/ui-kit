@@ -1,0 +1,1 @@
+{"version":3,"names":["opacity","exports","pressed","disabled","minTouchTarget"],"sourceRoot":"../../../src","sources":["tokens/static.ts"],"mappings":";;;;;;AAAA;AACA;AACA;AACA;AACO,MAAMA,OAAO,GAAAC,OAAA,CAAAD,OAAA,GAAG;EACrB;EACAE,OAAO,EAAE,IAAI;EACb;EACAC,QAAQ,EAAE;AACZ,CAAU;;AAEV;AACO,MAAMC,cAAc,GAAAH,OAAA,CAAAG,cAAA,GAAG,EAAE","ignoreList":[]}

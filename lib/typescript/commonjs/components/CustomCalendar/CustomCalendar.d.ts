@@ -1,0 +1,4 @@
+import type { CustomCalendarProps } from './CustomCalendar.types';
+/** Single-month calendar with start / end range, multi-date and single-date selection. */
+export declare const CustomCalendar: ({ startDate, endDate, onStartDateSelect, onEndDateSelect, onDateToggle, selectedDates, weekStartsOn, canEditStartDate, canEditEndDate, minStartDate, maxStartDate, minEndDate, maxEndDate, calendarHeight, endDateOnlyPresentation, highlightStartDate, invalidDate, isOccurrenceDate, onInvalidEndDateSelect, nutritionSchedulePresentation, isDateSelectable, locale, formatMonthTitle, }: CustomCalendarProps) => import("react").JSX.Element;
+//# sourceMappingURL=CustomCalendar.d.ts.map

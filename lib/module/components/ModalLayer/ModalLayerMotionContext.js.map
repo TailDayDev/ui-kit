@@ -1,0 +1,1 @@
+{"version":3,"names":["createContext","ModalLayerMotionContext","isReducedMotion"],"sourceRoot":"../../../../src","sources":["components/ModalLayer/ModalLayerMotionContext.ts"],"mappings":";;AAAA,SAASA,aAAa,QAAQ,OAAO;AAUrC,OAAO,MAAMC,uBAAuB,gBAAGD,aAAa,CAAoB;EACtEE,eAAe,EAAE;AACnB,CAAC,CAAC","ignoreList":[]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../../../src/components/ChipGroup/index.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,SAAS,EAAE,MAAM,gBAAa,CAAC;AACxC,OAAO,EAAE,iBAAiB,EAAE,MAAM,wBAAqB,CAAC;AACxD,YAAY,EACV,cAAc,EACd,sBAAsB,EACtB,gBAAgB,EAChB,QAAQ,GACT,MAAM,sBAAmB,CAAC;AAC3B,OAAO,EACL,4BAA4B,EAC5B,cAAc,EACd,6BAA6B,EAC7B,sBAAsB,GACvB,MAAM,gBAAa,CAAC"}
