@@ -20,3 +20,4 @@ export { SimpleArrowIcon } from './SimpleArrowIcon';
 export { TimelineClockOutlineIcon } from './TimelineClockOutlineIcon';
 export { TriangleAlertIcon } from './TriangleAlertIcon';
 export { WifiOffIcon } from './WifiOffIcon';
+export * from './figma';
