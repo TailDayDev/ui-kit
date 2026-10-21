@@ -2,6 +2,7 @@ export * from './Accordion';
 export * from './ActionListRow';
 export * from './BaseSkeleton';
 export * from './Button';
+export * from './CalendarModal';
 export * from './Card';
 export * from './CardLocked';
 export * from './CenteredScreenHeader';
