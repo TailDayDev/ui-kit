@@ -9,6 +9,7 @@ export * from './CheckBox';
 export * from './ContactDetailsCard';
 export * from './DashedBorder';
 export * from './DashedButton';
+export * from './DateRangeField';
 export * from './EmptyProfileImage';
 export * from './Fab';
 export * from './FieldRow';
