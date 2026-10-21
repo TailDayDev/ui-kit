@@ -80,6 +80,7 @@ export * from './StickyTabs';
 export * from './SyncedTextInput';
 export * from './TabBarItem';
 export * from './Tag';
+export * from './TaskSheet';
 export * from './TaskSheetContent';
 export * from './TaskSheetRow';
 export * from './Textarea';
