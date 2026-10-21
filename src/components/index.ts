@@ -22,5 +22,6 @@ export * from './ScheduleRadioRow';
 export * from './SelectableOptionCard';
 export * from './SyncedTextInput';
 export * from './Tag';
+export * from './Textarea';
 export * from './Tips';
 export * from './Toggle';
