@@ -1,3 +1,4 @@
+export * from './Accordion';
 export * from './ActionListRow';
 export * from './BaseSkeleton';
 export * from './Button';
