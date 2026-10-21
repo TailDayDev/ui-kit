@@ -20,6 +20,7 @@ export * from './PetAvatar';
 export * from './PetOwnerAvatar';
 export * from './Radio';
 export * from './ScheduleRadioRow';
+export * from './SegmentedControl';
 export * from './SelectableOptionCard';
 export * from './SyncedTextInput';
 export * from './Tag';
