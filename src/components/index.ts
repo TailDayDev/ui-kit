@@ -6,6 +6,7 @@ export * from './InfoCard';
 export * from './InfoRow';
 export * from './Radio';
 export * from './ScheduleRadioRow';
+export * from './SelectableOptionCard';
 export * from './Tag';
 export * from './Tips';
 export * from './Toggle';
