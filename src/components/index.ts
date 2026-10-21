@@ -11,6 +11,7 @@ export * from './CheckBox';
 export * from './Chip';
 export * from './ChipGroup';
 export * from './ConfirmationModal';
+export * from './ConfirmationModalContent';
 export * from './ContactDetailsCard';
 export * from './CustomCalendar';
 export * from './CustomModal';
