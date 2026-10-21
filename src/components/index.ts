@@ -16,6 +16,7 @@ export * from './CustomModal';
 export * from './DashedBorder';
 export * from './DashedButton';
 export * from './DateRangeField';
+export * from './EditPercentageModal';
 export * from './EditPriceModal';
 export * from './EmptyList';
 export * from './EmptyProfileImage';
