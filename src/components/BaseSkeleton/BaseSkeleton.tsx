@@ -1,4 +1,4 @@
-import { memo, useCallback, useId, useMemo, useRef, useState } from 'react';
+import { memo, useCallback, useEffect, useId, useMemo, useState } from 'react';
 import {
   Animated,
   StyleSheet,
@@ -56,11 +56,14 @@ const BaseSkeletonComponent = ({
   const styles = useThemedStyles(createStyles);
   const gradientId = `skeleton-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const [containerWidth, setContainerWidth] = useState(0);
-  const releaseAnimationRef = useRef<(() => void) | null>(null);
-  const setShimmerView = useCallback((node: unknown) => {
-    releaseAnimationRef.current?.();
-    releaseAnimationRef.current = node ? retainSkeletonAnimation() : null;
-  }, []);
+  const isMeasured = containerWidth > 0;
+  // The shared shimmer loop runs while at least one measured skeleton is mounted.
+  // Kept out of a callback ref: Animated re-creates refs on JS-driven frames (web),
+  // which would restart the loop on every frame.
+  useEffect(
+    () => (isMeasured ? retainSkeletonAnimation() : undefined),
+    [isMeasured],
+  );
 
   const fillColor = backgroundColor ?? theme.colors.bg.subtle;
   const baseStyle = useMemo<ViewStyle>(
@@ -101,7 +104,7 @@ const BaseSkeletonComponent = ({
       : ('no-hide-descendants' as const),
   };
 
-  if (containerWidth === 0) {
+  if (!isMeasured) {
     return (
       <View
         onLayout={onLayout}
@@ -120,7 +123,6 @@ const BaseSkeletonComponent = ({
       {...a11yProps}
     >
       <Animated.View
-        ref={setShimmerView}
         style={[
           styles.shimmer,
           { width: gradientWidth, transform: [{ translateX }] },
