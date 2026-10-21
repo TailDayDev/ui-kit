@@ -60,6 +60,7 @@ export * from './ScheduleOverview';
 export * from './ScheduleRadioRow';
 export * from './ScreenNav';
 export * from './SegmentedControl';
+export * from './Select';
 export * from './SelectableOptionCard';
 export * from './SourceActionSheet';
 export * from './StatusBadge';
