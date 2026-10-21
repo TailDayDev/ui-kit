@@ -8,6 +8,7 @@ export * from './Card';
 export * from './CardLocked';
 export * from './CenteredScreenHeader';
 export * from './CheckBox';
+export * from './Chip';
 export * from './ChipGroup';
 export * from './ConfirmationModal';
 export * from './ContactDetailsCard';
