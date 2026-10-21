@@ -18,6 +18,7 @@ export * from './FullScreenLoader';
 export * from './IconButton';
 export * from './InfoCard';
 export * from './InfoRow';
+export * from './InfoStep';
 export * from './Input';
 export * from './InputClearButton';
 export * from './InputMaxHeight';
