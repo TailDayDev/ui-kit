@@ -93,6 +93,7 @@ export * from './TodayMultiPetSummary';
 export * from './TodayPetIdentity';
 export * from './TodayPlacementList';
 export * from './TodayScreenState';
+export * from './TodaySearchModalContent';
 export * from './TodaySectionHeader';
 export * from './TodaySkeleton';
 export * from './TodaySkipReasonContent';
