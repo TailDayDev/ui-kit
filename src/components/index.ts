@@ -40,6 +40,7 @@ export * from './OfflineDataBar';
 export * from './PercentageValueField';
 export * from './PetAvatar';
 export * from './PetOwnerAvatar';
+export * from './PhotoUploadPreview';
 export * from './PullToRefreshErrorState';
 export * from './Radio';
 export * from './ScheduleRadioRow';
