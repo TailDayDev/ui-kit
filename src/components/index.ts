@@ -2,6 +2,7 @@ export * from './BaseSkeleton';
 export * from './Button';
 export * from './Card';
 export * from './CardLocked';
+export * from './CenteredScreenHeader';
 export * from './CheckBox';
 export * from './DashedBorder';
 export * from './DashedButton';
