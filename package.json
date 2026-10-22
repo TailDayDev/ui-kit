@@ -58,7 +58,10 @@
     "version-packages": "changeset version && prettier --write CHANGELOG.md",
     "release:tag": "node scripts/release/publish-git-tag.mjs",
     "yalc:publish": "npm run build && npx --yes yalc publish --push",
-    "figma:export-components": "node scripts/figma/export-components.mjs"
+    "figma:export-components": "node scripts/figma/export-components.mjs",
+    "figma:status": "node scripts/figma/status.mjs",
+    "figma:specs": "python3 -I scripts/figma/build-specs.py figma/components tokens/figma-export.json figma/components/specs",
+    "figma:icons": "node scripts/figma/build-icons.mjs"
   },
   "peerDependencies": {
     "@react-native-picker/picker": ">=2.11.0",
