@@ -14,7 +14,7 @@ Presentational React Native UI kit (RN 0.79, React 19, TypeScript strict). Singl
 - Presentational only: no network, store, navigation, i18n, image loading or business logic. Texts, data, images and callbacks come through props.
 - Every color/size/radius/shadow/text style comes from the theme (`useTheme` / `useThemedStyles`). No hex/rgb literals (ESLint enforces).
 - One folder per component: `src/components/<Name>/{<Name>.tsx,<Name>.types.ts,<Name>.stories.tsx,<Name>.test.tsx,index.ts}`; public exports only through `src/index.ts`.
-- Only Figma components with a **final** status are built (`npm run figma:status`; `beta` = draft, leave it).
+- Only Figma components whose description says **`Статус: stable`** are built (`npm run figma:status`); anything else (`beta`, …) is a draft — leave it.
 - Generated files are not edited by hand: `src/tokens/generated/*`, `src/icons/figma/*`, `figma/components/specs/*`.
 - The Storybook site (`TailDayDev/ui-kit-storybook`, GitHub Pages) is a build artifact published by CI on merge to `main`; never edit it.
 - Do not modify the app repository (`frontend-mobile`).

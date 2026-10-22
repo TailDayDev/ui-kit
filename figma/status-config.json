@@ -1,7 +1,7 @@
 {
-  "$comment": "How a Figma component is recognised as final (ready to be built into the kit). Values are matched case-insensitively against the `Статус:` field of the component description, or the Dev Mode status set on the component in Figma. Edit the lists if the design team uses other words.",
-  "finalStatuses": ["stable", "final", "финальный", "готов", "ready"],
+  "$comment": "How a Figma component is recognised as final (ready to be built into the kit). Agreed with design on 2026-10-22: the designer sets `Статус: stable` in the component description. Everything else (beta, …) is a draft.",
+  "finalStatuses": ["stable"],
   "draftStatuses": ["beta", "draft", "wip", "черновик"],
-  "finalDevStatuses": ["READY_FOR_DEV", "COMPLETED"],
+  "finalDevStatuses": [],
   "ignore": ["StatusBar", "CustomModal · содержимое"]
 }
