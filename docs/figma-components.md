@@ -5,13 +5,15 @@ Every Figma component (except device chrome and sample content) has a kit compon
 
 ## How components are kept in sync
 
+Full step-by-step process for agents (status «final», export, specs, story per variant, PR, publishing): **[figma-to-storybook.md](figma-to-storybook.md)**. `npm run figma:status` lists what is NEW / CHANGED since the last sync (`figma/components/sync.json`).
+
 1. **Export** (Figma REST API, works with a View seat):
    ```bash
    read -s FIGMA_TOKEN && export FIGMA_TOKEN && npm run figma:export-components; unset FIGMA_TOKEN
    ```
    Writes `figma/components/nodes.json` (node tree, committed), `index.json`, and local renders `png/` + icon `svg/` (git-ignored).
-2. **Specs**: `python3 -I scripts/figma/build-specs.py figma/components tokens/figma-export.json figma/components/specs` — one readable spec per component: auto-layout, sizes, paddings, radii, strokes, effects, text styles, colors with the matching kit tokens, component properties, nested instances. Build and review a component from its spec + `png/` render.
-3. **Icons**: `node scripts/figma/build-icons.mjs` regenerates `src/icons/figma/Icon*.tsx` from the SVG export (paths 1:1, color through the `color` prop).
+2. **Specs**: `npm run figma:specs` — one readable spec per component: auto-layout, sizes, paddings, radii, strokes, effects, text styles, colors with the matching kit tokens, component properties, nested instances. Build and review a component from its spec + `png/` render.
+3. **Icons**: `npm run figma:icons` regenerates `src/icons/figma/Icon*.tsx` from the SVG export (paths 1:1, color through the `color` prop).
 4. Component rules: Figma property → prop (VARIANT → union, BOOLEAN → `is…/has…`, TEXT → string, INSTANCE_SWAP → icon or `ReactNode` slot); values only from tokens; raster artwork (task-type icons, pet photos, placement images, illustrations) is a slot the app fills — the kit never loads images.
 5. Visual check: Storybook story per Figma variant, compared with the Figma render.
 
