@@ -38,7 +38,7 @@ const layout = async (testID: string, width: number) => {
 };
 
 describe('BaseSkeleton', () => {
-  it('renders the app defaults: full width, 22 tall, radius 8, subtle fill', async () => {
+  it('renders the Figma defaults: full width, 20 tall, radius 8, subtle fill', async () => {
     await render(<BaseSkeleton testID="skeleton" />);
     const style = StyleSheet.flatten(
       screen.getByTestId('skeleton', { includeHiddenElements: true }).props
@@ -46,7 +46,7 @@ describe('BaseSkeleton', () => {
     );
     expect(style).toMatchObject({
       width: '100%',
-      height: 22,
+      height: 20,
       borderRadius: lightTheme.radius.sm,
       backgroundColor: lightTheme.colors.bg.subtle,
     });

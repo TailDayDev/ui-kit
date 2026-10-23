@@ -15,8 +15,8 @@ import {
   skeletonAnimationProgress,
 } from './skeletonAnimation';
 
-// App BaseSkeleton default height (off-scale: not in Figma Spacing).
-const DEFAULT_HEIGHT = 22;
+// Figma `BaseSkeleton` default height.
+const DEFAULT_HEIGHT = 20;
 // The shimmer band is 1.2× the block width and sweeps from -band to +band.
 const SHIMMER_WIDTH_FACTOR = 1.2;
 // App gradient used `${color}80` / `#FFFFFF80`: hex alpha 0x80.

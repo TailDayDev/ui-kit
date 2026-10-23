@@ -4,7 +4,7 @@ import type { DimensionValue, StyleProp, ViewStyle } from 'react-native';
 export interface BaseSkeletonProps {
   /** Block width: points or a percentage. Defaults to `'100%'`. */
   width?: DimensionValue;
-  /** Block height: points or a percentage. Defaults to 22. */
+  /** Block height: points or a percentage. Defaults to 20. */
   height?: DimensionValue;
   /** Corner radius in points. Defaults to 8 (`radius.sm`). */
   borderRadius?: number;
