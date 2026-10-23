@@ -1,7 +1,8 @@
 {
-  "$comment": "How a Figma component is recognised as final (ready to be built into the kit). Agreed with design on 2026-10-22: the designer sets `Статус: stable` in the component description. Everything else (beta, …) is a draft.",
+  "$comment": "How a Figma component is recognised as final (ready to be built into the kit). Agreed with design on 2026-10-22: the designer sets `Статус: stable` in the component description. Everything else (beta, …) is a draft. `deprecated`: the component is being renamed or removed in Figma; the kit keeps the old name per README «Устаревание API» (agreed with design 2026-10-23).",
   "finalStatuses": ["stable"],
   "draftStatuses": ["beta", "draft", "wip", "черновик"],
+  "deprecatedStatuses": ["deprecated"],
   "finalDevStatuses": [],
   "ignore": ["StatusBar", "CustomModal · содержимое"]
 }
