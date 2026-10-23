@@ -5,13 +5,18 @@
  *   figma/components/png/<id>.png    2x render of every component set / component
  *   figma/components/index.json      id → name list of what was rendered
  *
- * Works with a View seat (REST API has per-minute limits, unlike the MCP server).
- *
- * Usage (the token is read from the environment, never pass it as an argument):
- *   read -s FIGMA_TOKEN && export FIGMA_TOKEN && npm run figma:export-components
+ * Needs a token from a full (Dev or Full) seat: View and Collab seats get
+ * Tier 1 limits (~6 requests a month to files and images); one export makes
+ * about five. https://developers.figma.com/docs/rest-api/rate-limits
  *
  * Token: Figma → Settings → Security → Personal access tokens, scope "File content: read".
+ * Never pass it as an argument. The script takes it from:
+ *   1. FIGMA_TOKEN in the environment, or
+ *   2. the macOS Keychain item "figma-token" (stored once, see docs/figma-to-storybook.md):
+ *        security add-generic-password -s figma-token -a "$USER" -w
+ *      (prompts for the token; it never lands in a file or in shell history)
  */
+import { execFileSync } from 'node:child_process';
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -25,11 +30,29 @@ const OUT = join(
   'figma',
   'components',
 );
-const TOKEN = process.env.FIGMA_TOKEN;
+const KEYCHAIN_SERVICE = 'figma-token';
+
+// Read for this run only; the value stays in this process.
+const readKeychainToken = () => {
+  if (process.platform !== 'darwin') return null;
+  try {
+    return (
+      execFileSync(
+        'security',
+        ['find-generic-password', '-s', KEYCHAIN_SERVICE, '-w'],
+        { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] },
+      ).trim() || null
+    );
+  } catch {
+    return null;
+  }
+};
+
+const TOKEN = process.env.FIGMA_TOKEN || readKeychainToken();
 
 if (!TOKEN) {
   console.error(
-    'FIGMA_TOKEN is not set. Run: read -s FIGMA_TOKEN && export FIGMA_TOKEN',
+    `No Figma token. Store it once in the macOS Keychain:\n  security add-generic-password -s ${KEYCHAIN_SERVICE} -a "$USER" -w\nor set it for this terminal: read -s FIGMA_TOKEN && export FIGMA_TOKEN`,
   );
   process.exit(1);
 }
