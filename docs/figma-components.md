@@ -5,11 +5,11 @@ Every Figma component (except device chrome and sample content) has a kit compon
 
 ## How components are kept in sync
 
-Full step-by-step process for agents (status «final», export, specs, story per variant, PR, publishing): **[figma-to-storybook.md](figma-to-storybook.md)**. `npm run figma:status` lists what is NEW / CHANGED since the last sync (`figma/components/sync.json`).
+Full step-by-step process for agents (status `Статус: stable`, export, specs, story per variant, PR, publishing): **[figma-to-storybook.md](figma-to-storybook.md)**. `npm run figma:status` lists what is NEW / CHANGED since the last sync (`figma/components/sync.json`).
 
-1. **Export** (Figma REST API, works with a View seat):
+1. **Export** (Figma REST API). The token must come from a **full (Dev or Full) seat**: View and Collab seats get Tier 1 limits of ~6 requests per month to files and images, and one export makes about five (tree, two PNG batches, SVG). A full seat on Professional gets 15 requests per minute ([rate limits](https://developers.figma.com/docs/rest-api/rate-limits)).
    ```bash
-   read -s FIGMA_TOKEN && export FIGMA_TOKEN && npm run figma:export-components; unset FIGMA_TOKEN
+   npm run figma:export-components   # token from the macOS Keychain item "figma-token", or FIGMA_TOKEN
    ```
    Writes `figma/components/nodes.json` (node tree, committed), `index.json`, and local renders `png/` + icon `svg/` (git-ignored).
 2. **Specs**: `npm run figma:specs` — one readable spec per component: auto-layout, sizes, paddings, radii, strokes, effects, text styles, colors with the matching kit tokens, component properties, nested instances. Build and review a component from its spec + `png/` render.
@@ -19,11 +19,19 @@ Full step-by-step process for agents (status «final», export, specs, story per
 
 ## Known differences (deliberate)
 
-- Text line height: Figma uses AUTO, kit tokens use fixed app line heights (`tokens/overrides.json`) → some components are 1–2pt shorter/taller.
+Every entry names the design decision and its date. Without such a decision Figma wins.
+
+| Component                                             | Difference                                                                                                                                                               | Decision                                         |
+| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| `WheelPicker` (used by `TodayManualDuePickerContent`) | Look follows the code: zero-padded hours, grey non-selected rows, 220pt. The Figma wheel only shows where it appears, as its description says.                           | Design, 2026-10-23                               |
+| `IconSquareButton`                                    | Default 40 as in the app; 48 only on the task card, level with the «Готово!» slider.                                                                                     | Design, 2026-10-23                               |
+| `PetOwnerAvatar`                                      | Without a pet photo: `paw-print` icon 12pt on `bg.subtle` instead of the app `NoImageIcon` artwork (the kit loads no images; the app can pass its own `petPlaceholder`). | Design, 2026-10-23 («значок лапы, как в макете») |
+
+Tokens: `tokens/overrides.json` is empty since 2026-10-23 — Figma text styles were aligned with the app (fixed line heights, letter spacing 0, strikethrough 14).
+
+Not design differences (rendering):
+
 - Figma INSIDE strokes are subtracted from paddings in code (RN borders take layout space), so outer sizes match.
-- `WheelPicker` (used by `TodayManualDuePickerContent`): hours are zero-padded and non-selected rows are grey, as in the app; Figma shows `8` and primary at 35% opacity.
-- `PetOwnerAvatar`: default stays the app size 56; Figma components use `size={64}`.
-- `TodayTaskCard`: the finished veil covers the whole card and opens the menu on tap — from the Figma description ("ждёт кода"), different from the current app.
 - Web Storybook can't show native wheel scrolling/initial position; check pickers on a device.
 
 ## Coverage (58 components, 28 icons)

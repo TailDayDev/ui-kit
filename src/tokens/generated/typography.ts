@@ -47,7 +47,7 @@ export const typography = {
       fontFamily: 'Inter-Medium',
       fontWeight: '500',
       fontSize: 16,
-      lineHeight: 19,
+      lineHeight: 20,
       letterSpacing: 0,
     },
     regular: {

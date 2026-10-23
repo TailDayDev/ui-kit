@@ -36,6 +36,6 @@ describe('PullToRefreshErrorState', () => {
     });
     expect(
       StyleSheet.flatten(screen.getByTestId('state').props.style),
-    ).toMatchObject({ maxWidth: 382, paddingHorizontal: 40, gap: 16 });
+    ).toMatchObject({ maxWidth: 382, paddingHorizontal: 40, gap: 48 });
   });
 });

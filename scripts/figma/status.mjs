@@ -8,7 +8,13 @@
  *   NEW      final in Figma, never synced into the kit
  *   CHANGED  final in Figma, changed since the last sync
  *   SYNCED   final in Figma, kit matches the synced version
+ *   DEPRECATED  marked for removal or renaming in Figma (`Статус: deprecated`):
+ *            the kit keeps the old name per README «Устаревание API»
+ *            (@deprecated + warnDeprecated in a minor, removal in the next major)
+ *   MISSING  built into the kit, but no longer in Figma under that name
+ *            (renamed or deleted without `deprecated` first)
  *   DRAFT    not final yet (left alone; "draft*" = changed since sync)
+ * Two Figma masters with the same name are reported: the kit matches by name.
  * Icons (components without a description) are handled by build-icons and skipped.
  *
  * Usage:
@@ -44,6 +50,7 @@ const config = JSON.parse(readFileSync(CONFIG, 'utf8'));
 const lower = list => list.map(value => value.toLowerCase());
 const finalStatuses = lower(config.finalStatuses);
 const draftStatuses = lower(config.draftStatuses);
+const deprecatedStatuses = lower(config.deprecatedStatuses ?? []);
 
 const exportJson = JSON.parse(readFileSync(NODES, 'utf8'));
 const entry = Object.values(exportJson.nodes)[0];
@@ -116,13 +123,17 @@ const walk = (node, isInsideSet) => {
       const isFinal =
         (status && finalStatuses.includes(status.toLowerCase())) ||
         (devStatus && config.finalDevStatuses.includes(devStatus));
+      const isDeprecated =
+        status && deprecatedStatuses.includes(status.toLowerCase());
       const isKnownDraft =
         status && draftStatuses.includes(status.toLowerCase());
       const hash = hashOf(node, description);
       const synced = manifest.components[node.name];
       const kit = findKitComponent(node.name);
       let state;
-      if (!isFinal) state = synced && synced.hash !== hash ? 'DRAFT*' : 'DRAFT';
+      if (isDeprecated) state = 'DEPRECATED';
+      else if (!isFinal)
+        state = synced && synced.hash !== hash ? 'DRAFT*' : 'DRAFT';
       else if (!synced || !kit) state = 'NEW';
       else state = synced.hash === hash ? 'SYNCED' : 'CHANGED';
       rows.push({
@@ -130,7 +141,8 @@ const walk = (node, isInsideSet) => {
         nodeId: node.id,
         state,
         status: status ?? (devStatus ? `dev:${devStatus}` : '—'),
-        isUnknownStatus: Boolean(status) && !isFinal && !isKnownDraft,
+        isUnknownStatus:
+          Boolean(status) && !isFinal && !isKnownDraft && !isDeprecated,
         kit: kit ?? '—',
         appCode: field(description, 'Код'),
         hash,
@@ -143,10 +155,34 @@ const walk = (node, isInsideSet) => {
 };
 walk(entry.document, false);
 
+const nameCounts = rows.reduce(
+  (counts, row) => counts.set(row.name, (counts.get(row.name) ?? 0) + 1),
+  new Map(),
+);
+const duplicateNames = [...nameCounts]
+  .filter(([, count]) => count > 1)
+  .map(([name]) => name);
+
+// Synced into the kit earlier, but gone from Figma under that name.
+for (const [name, synced] of Object.entries(manifest.components)) {
+  if (nameCounts.has(name)) continue;
+  rows.push({
+    name,
+    nodeId: synced.nodeId,
+    state: 'MISSING',
+    status: '—',
+    isUnknownStatus: false,
+    kit: findKitComponent(name) ?? '—',
+    appCode: null,
+    hash: null,
+    syncedAt: synced.syncedAt ?? null,
+  });
+}
+
 if (markIndex !== -1) {
   const targets = isMarkAllFinal
     ? rows
-        .filter(row => row.state !== 'DRAFT' && row.state !== 'DRAFT*')
+        .filter(row => ['NEW', 'CHANGED', 'SYNCED'].includes(row.state))
         .map(row => row.name)
     : markNames;
   if (!targets.length) {
@@ -158,6 +194,12 @@ if (markIndex !== -1) {
     const row = rows.find(r => r.name === name);
     if (!row) {
       console.error(`Unknown Figma component "${name}".`);
+      process.exit(1);
+    }
+    if (!['NEW', 'CHANGED', 'SYNCED'].includes(row.state)) {
+      console.error(
+        `"${name}" is ${row.state}; only final components are marked synced.`,
+      );
       process.exit(1);
     }
     if (row.kit === '—') {
@@ -186,14 +228,22 @@ if (markIndex !== -1) {
   process.exit(0);
 }
 
-const ORDER = { NEW: 0, CHANGED: 1, 'DRAFT*': 2, SYNCED: 3, DRAFT: 4 };
+const ORDER = {
+  NEW: 0,
+  CHANGED: 1,
+  MISSING: 2,
+  DEPRECATED: 3,
+  'DRAFT*': 4,
+  SYNCED: 5,
+  DRAFT: 6,
+};
 rows.sort(
   (a, b) => ORDER[a.state] - ORDER[b.state] || a.name.localeCompare(b.name),
 );
 
 if (isJson) {
   process.stdout.write(
-    `${JSON.stringify({ figmaLastModified: exportJson.lastModified, rows }, null, 2)}\n`,
+    `${JSON.stringify({ figmaLastModified: exportJson.lastModified, rows, duplicateNames }, null, 2)}\n`,
   );
   process.exit(0);
 }
@@ -212,8 +262,18 @@ for (const row of rows) {
 }
 const count = state => rows.filter(row => row.state === state).length;
 console.log(
-  `\nNEW ${count('NEW')} · CHANGED ${count('CHANGED')} · SYNCED ${count('SYNCED')} · DRAFT ${count('DRAFT') + count('DRAFT*')} (changed since sync: ${count('DRAFT*')})`,
+  `\nNEW ${count('NEW')} · CHANGED ${count('CHANGED')} · MISSING ${count('MISSING')} · DEPRECATED ${count('DEPRECATED')} · SYNCED ${count('SYNCED')} · DRAFT ${count('DRAFT') + count('DRAFT*')} (changed since sync: ${count('DRAFT*')})`,
 );
+if (duplicateNames.length) {
+  console.log(
+    `\nSame name on several Figma masters (the kit matches by name; rename all but one): ${duplicateNames.join(', ')}`,
+  );
+}
+if (count('MISSING')) {
+  console.log(
+    '\nMISSING: renamed or deleted in Figma without `Статус: deprecated` first. Ask design; keep the kit name until the deprecation is agreed.',
+  );
+}
 const unknown = rows.filter(row => row.isUnknownStatus);
 if (unknown.length) {
   console.log(

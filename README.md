@@ -107,15 +107,15 @@ export const PetHeader = ({ name }: { name: string }) => {
 
 Повторяемый процесс:
 
-1. В Figma desktop: **Plugins → Development → Import plugin from manifest…** → выбрать `figma-plugin/manifest.json`. Это нужно один раз.
-2. Открыть файл дизайн-системы и запустить плагин **UI kit — export tokens**. Он ничего не меняет в файле.
-3. Сохранить скачанный JSON как `tokens/figma-export.json`.
+1. Выгрузить переменные и стили в `tokens/figma-export.json`. Агент делает это сам через подключение к Figma (код `scripts/figma/export-tokens.figma.js`, см. [docs/figma-to-storybook.md](docs/figma-to-storybook.md) §4.1).
+2. Вручную (запасной путь): в Figma desktop **Plugins → Development → Import plugin from manifest…** → `figma-plugin/manifest.json` (один раз), затем запустить плагин **UI kit — export tokens** в файле дизайн-системы. Он ничего не меняет в файле.
+3. Сохранить JSON как `tokens/figma-export.json`. Формат плагина — канон.
 4. `npm run tokens:build` — перегенерирует `src/tokens/generated/*` и выведет отличия от Figma.
 5. Оформить PR с changeset: новый токен — minor, изменённое значение — patch.
 
-Почему плагин, а не REST API: Figma Variables API доступен только на тарифе Enterprise.
+Почему Plugin API, а не REST API: Figma Variables API доступен только на тарифе Enterprise.
 
-Если значение в коде осознанно отличается от Figma, это записывается в `tokens/overrides.json` вместе с причиной. Генератор печатает каждое такое отличие. Чтобы Figma «победила», достаточно удалить запись.
+Если значение в коде осознанно отличается от Figma, это записывается в `tokens/overrides.json` с решением дизайна и датой в `$reason`; без такого решения по умолчанию верен макет. Генератор печатает каждое такое отличие. Чтобы Figma «победила», достаточно удалить запись.
 
 CI запускает `npm run tokens:check` и падает, если сгенерированные файлы не совпадают с выгрузкой.
 

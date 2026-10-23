@@ -1,13 +1,9 @@
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { Text } from '../../primitives/Text';
 import { useThemedStyles, type Theme } from '../../theme';
+import { Button } from '../Button';
 import type { EmptyStateProps } from './EmptyState.types';
-
-/** App action pressed opacity (differs from `opacity.pressed`). */
-const ACTION_PRESSED_OPACITY = 0.8;
-/** App action minimum width (off-scale). */
-const ACTION_MIN_WIDTH = 120;
 
 const createStyles = (theme: Theme) =>
   StyleSheet.create({
@@ -25,16 +21,6 @@ const createStyles = (theme: Theme) =>
     textContainer: {
       alignItems: 'center',
       gap: theme.space[2],
-    },
-    actionButton: {
-      alignItems: 'center',
-      backgroundColor: theme.colors.bg.accent,
-      borderRadius: theme.radius.sm,
-      justifyContent: 'center',
-      minHeight: theme.minTouchTarget,
-      minWidth: ACTION_MIN_WIDTH,
-      paddingHorizontal: theme.space[5],
-      paddingVertical: theme.space[3],
     },
   });
 
@@ -57,7 +43,7 @@ export const EmptyState = ({
   isActionVisible = true,
 }: EmptyStateProps) => {
   const styles = useThemedStyles(createStyles);
-  const shouldShowAction = isActionVisible && Boolean(onAction);
+  const shouldShowAction = isActionVisible && onAction !== undefined;
 
   const illustrationElement = (
     <View style={styles.iconContainer}>{illustration}</View>
@@ -99,24 +85,16 @@ export const EmptyState = ({
         </>
       )}
 
-      {shouldShowAction ? (
-        <TouchableOpacity
-          activeOpacity={ACTION_PRESSED_OPACITY}
+      {shouldShowAction && onAction ? (
+        // Figma `TodayScreenState`: the shared Button (51pt, side padding 32).
+        <Button
+          title={actionTitle ?? ''}
           accessibilityLabel={actionTitle}
-          accessibilityRole="button"
           onPress={onAction}
-          style={[styles.actionButton, actionButtonStyle]}
+          restStyle={actionButtonStyle}
+          textStyle={actionTextStyle}
           testID={actionTestID}
-        >
-          <Text
-            variant="headline/medium"
-            color="inverse"
-            align="center"
-            style={actionTextStyle}
-          >
-            {actionTitle}
-          </Text>
-        </TouchableOpacity>
+        />
       ) : null}
     </View>
   );

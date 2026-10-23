@@ -1,17 +1,26 @@
 import { StyleSheet, View } from 'react-native';
 
-import { useThemedStyles, type Theme } from '../../theme';
+import { IconPawPrint } from '../../icons/figma';
+import { useTheme, useThemedStyles, type Theme } from '../../theme';
 import { EmptyProfileImage } from '../EmptyProfileImage';
 import { PET_AVATAR_SIZES, PetAvatar } from '../PetAvatar';
 import type { PetOwnerAvatarProps } from './PetOwnerAvatar.types';
 
 // App owner badge: 28pt circle (24pt xs photo + 2pt white ring), off-scale.
 const OWNER_BADGE_SIZE = 28;
+// Paw in the no-photo tile (Figma `NoImageIcon` artwork: ~10pt paw), off-scale.
+const PAW_SIZE = 12;
 
 const createStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       position: 'relative',
+    },
+    pawTile: {
+      alignItems: 'center',
+      backgroundColor: theme.colors.bg.subtle,
+      flex: 1,
+      justifyContent: 'center',
     },
     ownerBadge: {
       alignItems: 'center',
@@ -40,10 +49,11 @@ export const PetOwnerAvatar = ({
   petPlaceholder,
   renderPetImage,
   renderOwnerImage,
-  size = 56,
+  size = 64,
   accessibilityLabel,
   testID,
 }: PetOwnerAvatarProps) => {
+  const theme = useTheme();
   const styles = useThemedStyles(createStyles);
   const isLabelled = Boolean(accessibilityLabel);
   const isFigmaSize = size === 64;
@@ -66,7 +76,16 @@ export const PetOwnerAvatar = ({
         size={petSize}
         shape="square"
         radius={isFigmaSize ? 'md' : 'sm'}
-        placeholder={petPlaceholder}
+        placeholder={
+          petPlaceholder ?? (
+            <View
+              style={styles.pawTile}
+              testID={testID ? `${testID}.paw` : undefined}
+            >
+              <IconPawPrint size={PAW_SIZE} color={theme.palette.lightGray} />
+            </View>
+          )
+        }
         renderImage={renderPetImage}
         testID={testID ? `${testID}.pet` : undefined}
       />
@@ -81,7 +100,8 @@ export const PetOwnerAvatar = ({
           photoCacheKey={ownerCacheKey}
           size="xs"
           shape="circle"
-          initialsVariant={isFigmaSize ? 'body/regular' : undefined}
+          // Regular weight at the app size (Inter Regular 14), not bold.
+          initialsVariant="body/regular"
           renderImage={renderOwnerImage}
           testID={testID ? `${testID}.owner` : undefined}
         />

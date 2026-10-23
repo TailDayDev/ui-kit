@@ -40,15 +40,15 @@ describe('PetOwnerAvatar', () => {
       expect(petCalls.at(-1)).toMatchObject({
         uri: petPhotoUrl ?? '',
         photoCacheKey: petPhotoUrl ? 'pet:1' : undefined,
-        size: 56,
-        borderRadius: lightTheme.radius.sm,
+        size: 64,
+        borderRadius: lightTheme.radius.md,
       });
       expect(ownerCalls.at(-1)).toMatchObject({
         imageUrl: 'owner.jpg',
         photoCacheKey: 'owner:1',
         size: 24,
       });
-      expect(flatStyle('poa')).toMatchObject({ width: 56, height: 56 });
+      expect(flatStyle('poa')).toMatchObject({ width: 64, height: 64 });
       expect(flatStyle('poa.owner').borderRadius).toBe(12);
       expect(flatStyle('poa.ownerBadge')).toMatchObject({
         width: 28,
@@ -92,10 +92,9 @@ describe('PetOwnerAvatar', () => {
     ).toBeTruthy();
   });
 
-  it('draws the Figma size: 64pt photo, radius 12, body/regular initials', async () => {
+  it('draws the 64pt photo with radius 12 and regular 14pt initials by default', async () => {
     await render(
       <PetOwnerAvatar
-        size={64}
         petPhotoUrl={null}
         ownerFirstName="Rex"
         ownerLastName="Lee"
@@ -112,5 +111,26 @@ describe('PetOwnerAvatar', () => {
     expect(pet.borderRadius).toBe(lightTheme.radius.md);
     const initials = StyleSheet.flatten(screen.getByText('RL').props.style);
     expect(initials).toMatchObject(lightTheme.typography.body.regular);
+  });
+
+  it('keeps the compact 56pt size with radius 8', async () => {
+    await render(<PetOwnerAvatar size={56} testID="avatar" />);
+    expect(
+      StyleSheet.flatten(screen.getByTestId('avatar').props.style),
+    ).toMatchObject({ width: 56, height: 56 });
+    expect(
+      StyleSheet.flatten(screen.getByTestId('avatar.pet').props.style)
+        .borderRadius,
+    ).toBe(lightTheme.radius.sm);
+  });
+
+  it('shows a paw on the subtle fill when the app passes no placeholder', async () => {
+    await render(<PetOwnerAvatar testID="avatar" />);
+    expect(
+      StyleSheet.flatten(
+        screen.getByTestId('avatar.paw', { includeHiddenElements: true }).props
+          .style,
+      ).backgroundColor,
+    ).toBe(lightTheme.colors.bg.subtle);
   });
 });

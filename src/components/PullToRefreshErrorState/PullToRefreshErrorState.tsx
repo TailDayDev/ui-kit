@@ -18,7 +18,8 @@ const createStyles = (theme: Theme) =>
     container: {
       alignItems: 'center',
       alignSelf: 'center',
-      gap: theme.space[4],
+      // Figma: 48 between the image and the texts, 40 on the sides.
+      gap: theme.space[12],
       justifyContent: 'center',
       maxWidth: MAX_WIDTH,
       paddingHorizontal: theme.space[10],
