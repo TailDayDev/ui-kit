@@ -1,3 +1,4 @@
+/* global figma -- Figma Plugin API global, provided by use_figma */
 // Token export run by an agent inside the Figma file (Figma MCP `use_figma`,
 // Plugin API), without starting the plugin by hand. Read-only.
 // Same logic and output as figma-plugin/code.js (keep the two in sync); the
