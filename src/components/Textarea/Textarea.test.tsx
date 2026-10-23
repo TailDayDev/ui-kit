@@ -35,6 +35,19 @@ describe('Textarea', () => {
     ).toBeTruthy();
   });
 
+  it('uses the Figma look: secondary label, 120pt field, 104 + counter', async () => {
+    const { input } = await renderTextarea();
+    expect(
+      StyleSheet.flatten(
+        screen.getByText('Notes', { includeHiddenElements: true }).props.style,
+      ).color,
+    ).toBe(lightTheme.colors.text.secondary);
+    expect(fieldStyle(input).minHeight).toBe(120);
+
+    await renderTextarea({ maxLength: 100 });
+    expect(fieldStyle(screen.getByLabelText('Notes')).minHeight).toBe(104);
+  });
+
   it('passes typed text to setValue unchanged', async () => {
     const { setValue, input } = await renderTextarea();
     await fireEvent.changeText(input, 'Likes 🐟');

@@ -19,6 +19,9 @@ const FIELD_PADDING_X = 14;
 const COUNTER_OFFSET = -18;
 /** Minimum text area height from the app `Textarea`. */
 const INPUT_MIN_HEIGHT = 40;
+/** Figma `Textarea`: 120 in total; with a counter the field is 104 + 16 counter space. */
+const FIELD_HEIGHT = 120;
+const COUNTER_SPACE = 16;
 /**
  * Focused-field shadow from the app `Input`/`Textarea` (accent, offset 0/4,
  * 15 %, radius 8, Android elevation 8). Figma `shadow/focus` (0 0 8 #7962FF33)
@@ -94,6 +97,7 @@ export const Textarea = ({
           accessible={false}
           style={[
             styles.container,
+            maxLength ? styles.fieldWithCounter : undefined,
             isFocused ? styles.focusedContainer : undefined,
             maxLength && !fieldRef ? styles.counterInput : undefined,
             containerStyle,
@@ -103,6 +107,7 @@ export const Textarea = ({
           {label ? (
             <Text
               variant="caption/regular"
+              color="secondary"
               // Announced through the text input's accessibilityLabel.
               accessibilityElementsHidden
               importantForAccessibility="no"
@@ -154,7 +159,8 @@ const createStyles = (theme: Theme) =>
       borderColor: theme.palette.lightGray,
       borderRadius: theme.radius.sm,
       borderWidth: theme.stroke[1],
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
+      minHeight: FIELD_HEIGHT,
       paddingHorizontal: FIELD_PADDING_X,
       paddingVertical: theme.space[2.5],
     },
@@ -165,10 +171,13 @@ const createStyles = (theme: Theme) =>
       position: 'absolute',
     },
     counterInput: {
-      marginBottom: theme.space[4],
+      marginBottom: COUNTER_SPACE,
     },
     counterSpace: {
-      paddingBottom: theme.space[4],
+      paddingBottom: COUNTER_SPACE,
+    },
+    fieldWithCounter: {
+      minHeight: FIELD_HEIGHT - COUNTER_SPACE,
     },
     focusedContainer: {
       borderColor: theme.colors.bg.accent,
