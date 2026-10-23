@@ -1,15 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-native-web-vite';
 
 import { Box } from '../../primitives';
-import { NoImagePlaceholder } from '../NoImagePlaceholder';
 import { PetOwnerAvatar } from './PetOwnerAvatar';
-
-// Story-only stand-in for the app's admin `NoImageIcon` artwork.
-const samplePlaceholder = (
-  <NoImagePlaceholder
-    renderImage={() => <Box flex background="subtle" radius="sm" />}
-  />
-);
 
 const meta = {
   title: 'Components/PetOwnerAvatar',
@@ -18,7 +10,6 @@ const meta = {
     petPhotoUrl: 'https://picsum.photos/id/237/112/112',
     ownerFirstName: 'Anna',
     ownerLastName: 'Cooper',
-    petPlaceholder: samplePlaceholder,
   },
 } satisfies Meta<typeof PetOwnerAvatar>;
 
@@ -33,7 +24,13 @@ export const OwnerPhoto: Story = {
   args: { ownerPhotoUrl: 'https://picsum.photos/id/64/48/48' },
 };
 
-export const NoPetPhoto: Story = { args: { petPhotoUrl: null } };
+/** Figma hasPhoto=false: grey paw on `bg.subtle` (default `petPlaceholder`). */
+export const NoPetPhoto: Story = {
+  args: {
+    petPhotoUrl: null,
+    ownerPhotoUrl: 'https://picsum.photos/id/64/48/48',
+  },
+};
 
 export const NoPhotos: Story = {
   args: { petPhotoUrl: null, ownerPhotoUrl: null },
@@ -51,5 +48,5 @@ export const OnSurface: Story = {
   ),
 };
 
-/** Figma `PetOwnerAvatar`: 64pt photo, radius 12, `body/regular` initials. */
-export const FigmaSize: Story = { args: { size: 64, petPhotoUrl: null } };
+/** Compact 56pt photo with radius 8 (old app size). */
+export const CompactSize: Story = { args: { size: 56 } };
