@@ -44,6 +44,10 @@ describe('EmptyState', () => {
     expect(action).toBe(screen.getByTestId('empty.action'));
     await fireEvent.press(action);
     expect(onAction).toHaveBeenCalledTimes(1);
+    expect(StyleSheet.flatten(action.props.style)).toMatchObject({
+      height: 51,
+      paddingHorizontal: lightTheme.space[8],
+    });
   });
 
   it('hides the action when isActionVisible is false', async () => {

@@ -10,7 +10,7 @@ export interface EmptyStateProps {
   title: string;
   /** Explanation under the title (`body/regular`). Hidden when empty. */
   description?: string;
-  /** Action label (`headline/medium`). Set it together with `onAction`; also used as the screen-reader label. */
+  /** Action label (kit `Button`, style `default`). Set it together with `onAction`; also used as the screen-reader label. */
   actionTitle?: string;
   /**
    * Picture above the texts, rendered as is. The app wrapper passes its default
@@ -29,9 +29,9 @@ export interface EmptyStateProps {
   titleStyle?: StyleProp<TextStyle>;
   /** Extra description style. */
   descriptionStyle?: StyleProp<TextStyle>;
-  /** Extra action button style. */
+  /** Extra action button style (`Button.restStyle`). */
   actionButtonStyle?: StyleProp<ViewStyle>;
-  /** Extra action label style. */
+  /** Extra action label style (`Button.textStyle`). */
   actionTextStyle?: StyleProp<TextStyle>;
   /** Test identifier of the container. */
   testID?: string;
