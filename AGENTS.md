@@ -18,7 +18,8 @@ Presentational React Native UI kit (RN 0.79, React 19, TypeScript strict). Singl
 - Generated files are not edited by hand: `src/tokens/generated/*`, `src/icons/figma/*`, `figma/components/specs/*`.
 - The Storybook site (`TailDayDev/ui-kit-storybook`, GitHub Pages) is a build artifact published by CI on merge to `main`; never edit it.
 - Do not modify the app repository (`frontend-mobile`).
-- Never write access tokens into files, command arguments, commits or messages; use `read -s VAR && export VAR`.
+- Never write access tokens into files, command arguments, commits or messages. The Figma token lives in the macOS Keychain (`figma-token`); otherwise `read -s VAR && export VAR`.
+- Known differences and `tokens/overrides.json` entries need a design decision with a date; without one, Figma wins.
 
 ## Commands
 
@@ -26,7 +27,7 @@ Presentational React Native UI kit (RN 0.79, React 19, TypeScript strict). Singl
 | ------------------------------------- | -------------------------------------------------------------------------------- |
 | `npm run check`                       | lint + typecheck + tests + build (must be green before a PR)                     |
 | `npm run storybook`                   | local Storybook on :6006                                                         |
-| `npm run figma:export-components`     | export Figma page "01 Components" (needs `FIGMA_TOKEN` in env)                   |
+| `npm run figma:export-components`     | export Figma page "01 Components" (token from macOS Keychain or `FIGMA_TOKEN`)   |
 | `npm run figma:specs` / `figma:icons` | regenerate component specs / Figma icons                                         |
 | `npm run figma:status`                | what is NEW / CHANGED / SYNCED / DRAFT; `-- --mark-synced <Name>` after building |
 | `npm run tokens:build`                | regenerate tokens from `tokens/figma-export.json`                                |

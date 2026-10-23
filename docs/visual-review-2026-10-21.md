@@ -95,7 +95,7 @@
 
 **Решения дизайна 23.10.**
 
-- Текст: межбуквенный интервал 0, высоты строк как в приложении (headline/medium — 20), strikethrough 14. Макет поправлен; в коде headline/medium уже 20, остальные записи `tokens/overrides.json` уйдут при следующей выгрузке токенов.
+- Текст: межбуквенный интервал 0, высоты строк как в приложении (headline/medium — 20), strikethrough 14. Макет поправлен; в коде headline/medium уже 20, остальные записи `tokens/overrides.json` удалены после выгрузки токенов 23.10 (значения в коде не изменились).
 - FieldRow: в макете без фона, 52 — совпадает.
 - В коде, как в макете: PetOwnerAvatar (64 по умолчанию, инициалы обычным начертанием, лапа без фото), PullToRefreshErrorState (48 / 40), Textarea (подпись `text.secondary`, 120), BaseSkeleton (20), EmptyState (общий `Button`).
 - Без изменений: IconSquareButton (40, на карточке задачи 48), WheelPicker (вид по коду), TodayTaskCard (как в макете).

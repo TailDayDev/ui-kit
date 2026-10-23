@@ -35,13 +35,15 @@ GitHub Pages: taildaydev.github.io/ui-kit-storybook   (автоматическ�
 
 - Компоненты: файл Figma **TailDay**, страница **01 Components** (`JGXl0xHQB1XmQVG9qQgZbq`, node `10:3`). Токены: переменные и стили того же файла.
 - У каждого компонента в Figma есть описание в формате:
-  `Назначение: … | Не использовать: … | Код: <путь в приложении> · ждёт кода: … · в коде есть ещё: … | Статус: beta`
-- **Финальный** = в описании компонента стоит **`Статус: stable`** (договорённость с дизайнером от 22.10.2026; настройка — [`figma/status-config.json`](../figma/status-config.json)). Статусы Dev Mode («Ready for dev» и т.п.) не учитываются.
+  `Назначение: … | Не использовать: … | Код: ui-kit <Имя> · ждёт кода: … · в коде есть ещё: … | Статус: beta`
+- **Финальный** = в описании компонента стоит **`Статус: stable`** (договорённость с дизайнером от 22.10.2026; настройка — [`figma/status-config.json`](../figma/status-config.json)). Статусы Dev Mode («Ready for dev» и т.п.) не учитываются. `stable` ставится по слову владельца «в код» — одновременно в описании компонента и в каталоге дизайна (договорённость 23.10.2026).
+- **`Статус: deprecated`** — компонент, свойство или вариант будут переименованы или удалены (договорённость 23.10.2026). `figma:status` показывает его как `DEPRECATED`. В библиотеке старое имя остаётся по правилу README «Устаревание API»: `@deprecated` + `warnDeprecated()` в minor-версии, удаление — только в следующей major, с инструкцией по переходу. Переименование `stable` без `deprecated` дизайн ловит проверкой до выгрузки; если оно всё же прошло, `figma:status` покажет собранный компонент как `MISSING` — уточните у дизайнера, имя в библиотеке не меняйте.
+- `figma:status` сопоставляет Figma и библиотеку **по имени**. Новый мастер с именем существующего компонента библиотеки — это тот же компонент (обновляем его, второй не создаём). Два мастера с одним именем `figma:status` показывает отдельным предупреждением.
 - Любой другой статус (`beta` и т.д.) — черновик: в библиотеку **не переносим** и не меняем под него код. Если `figma:status` сообщает о неизвестном значении статуса — уточните у дизайнера, а не добавляйте его в финальные самостоятельно.
 
 Поля описания для разработки:
 
-- `Код:` — где компонент живёт в приложении сейчас (полезно сравнить поведение).
+- `Код:` — `ui-kit <Имя>`: компонент есть в библиотеке; `нет — ждёт кода`: в библиотеке его ещё нет (договорённость 23.10.2026). В старых описаниях ещё встречается путь в приложении (`src/shared/ui/…`) — его можно использовать, чтобы сравнить поведение.
 - `ждёт кода: …` — что в Figma уже решено, а в коде ещё нет → это нужно реализовать.
 - `в коде есть ещё: …` — что есть в коде, но не нарисовано в Figma → не удалять, оставить как есть.
 
@@ -49,8 +51,15 @@ GitHub Pages: taildaydev.github.io/ui-kit-storybook   (автоматическ�
 
 - Node 22 (`.nvmrc`), `npm ci`.
 - Python 3 (для генерации спецификаций).
-- Figma personal access token: Figma → Settings → Security → Personal access tokens, scope **File content: read**. Токен нужен с **полного места** (Dev или Full): у мест View и Collab лимит Tier 1 — около 6 запросов в месяц к файлу и картинкам, а одна выгрузка делает около пяти (дерево, две пачки PNG, SVG). Полное место на Professional — 15 запросов в минуту ([лимиты REST API](https://developers.figma.com/docs/rest-api/rate-limits)). Токен хранится только в переменной окружения текущего терминала — не в файлах, не в аргументах команд, не в чатах.
-- Для токенов дизайн-системы: плагин `figma-plugin/` импортирован в Figma desktop (Plugins → Development → Import plugin from manifest…). Подробнее — README, раздел «Токены».
+- Figma personal access token: Figma → Settings → Security → Personal access tokens, scope **File content: read**. Токен нужен с **полного места** (Dev или Full): у мест View и Collab лимит Tier 1 — около 6 запросов в месяц к файлу и картинкам, а одна выгрузка делает около пяти (дерево, две пачки PNG, SVG). Полное место на Professional — 15 запросов в минуту ([лимиты REST API](https://developers.figma.com/docs/rest-api/rate-limits)). Токен не пишется в файлы, аргументы команд и чаты. Храните его в Связке ключей macOS — один раз (команда сама спросит токен, ввод скрыт):
+
+  ```bash
+  security add-generic-password -s figma-token -a "$USER" -w
+  ```
+
+  `npm run figma:export-components` берёт его оттуда на время запуска. Без macOS — переменная окружения текущего терминала: `read -s FIGMA_TOKEN && export FIGMA_TOKEN`.
+
+- Для токенов дизайн-системы: подключение к Figma (Figma MCP) у агента — выгрузка без ручного плагина (§4.1). Запасной путь — плагин `figma-plugin/` в Figma desktop (Plugins → Development → Import plugin from manifest…), см. README, раздел «Токены».
 
 ## 4. Цикл обновления
 
@@ -61,12 +70,18 @@ GitHub Pages: taildaydev.github.io/ui-kit-storybook   (автоматическ�
 ```bash
 git checkout main && git pull
 git checkout -b figma/sync-$(date +%Y-%m-%d)
-read -s FIGMA_TOKEN && export FIGMA_TOKEN && npm run figma:export-components; unset FIGMA_TOKEN
+npm run figma:export-components   # токен — из Связки ключей (§3)
 npm run figma:specs     # figma/components/specs/<Name>.txt — читаемая спецификация каждого компонента
 npm run figma:icons     # src/icons/figma/Icon*.tsx из SVG
 ```
 
-Если в Figma менялись переменные или стили (цвета, отступы, шрифты, тени): выгрузить их плагином в `tokens/figma-export.json` и выполнить `npm run tokens:build`. Отличия от Figma, которые оставлены осознанно, перечислены в `tokens/overrides.json` — генератор их печатает.
+Если в Figma менялись переменные или стили (цвета, отступы, шрифты, тени), агент выгружает их сам, без ручного плагина:
+
+1. Выполнить код [`scripts/figma/export-tokens.figma.js`](../scripts/figma/export-tokens.figma.js) в файле через Figma MCP `use_figma` (fileKey `JGXl0xHQB1XmQVG9qQgZbq`). Он только читает файл.
+2. Сохранить возвращённый JSON как `tokens/figma-export.json` (`npx prettier --write tokens/figma-export.json`). Формат плагина `figma-plugin/` — канон (договорённость 23.10.2026); у скрипта и плагина одна логика, при правке меняйте оба.
+3. `npm run tokens:build`.
+
+Осознанные отличия от Figma — в `tokens/overrides.json`, генератор их печатает. У каждой записи в `$reason` — решение дизайна и дата; без такого решения по умолчанию верен макет (запись удаляется).
 
 ### 4.2. Понять, что делать
 
