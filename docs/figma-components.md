@@ -5,9 +5,9 @@ Every Figma component (except device chrome and sample content) has a kit compon
 
 ## How components are kept in sync
 
-Full step-by-step process for agents (status «final», export, specs, story per variant, PR, publishing): **[figma-to-storybook.md](figma-to-storybook.md)**. `npm run figma:status` lists what is NEW / CHANGED since the last sync (`figma/components/sync.json`).
+Full step-by-step process for agents (status `Статус: stable`, export, specs, story per variant, PR, publishing): **[figma-to-storybook.md](figma-to-storybook.md)**. `npm run figma:status` lists what is NEW / CHANGED since the last sync (`figma/components/sync.json`).
 
-1. **Export** (Figma REST API, works with a View seat):
+1. **Export** (Figma REST API). The token must come from a **full (Dev or Full) seat**: View and Collab seats get Tier 1 limits of ~6 requests per month to files and images, and one export makes about five (tree, two PNG batches, SVG). A full seat on Professional gets 15 requests per minute ([rate limits](https://developers.figma.com/docs/rest-api/rate-limits)).
    ```bash
    read -s FIGMA_TOKEN && export FIGMA_TOKEN && npm run figma:export-components; unset FIGMA_TOKEN
    ```
@@ -19,11 +19,11 @@ Full step-by-step process for agents (status «final», export, specs, story per
 
 ## Known differences (deliberate)
 
-- Text line height: Figma uses AUTO, kit tokens use fixed app line heights (`tokens/overrides.json`) → some components are 1–2pt shorter/taller.
+- Text: until the next token export, `tokens/overrides.json` keeps the app line heights, letter spacing 0 and strikethrough 14. Figma was aligned to these values on 23.10, so the entries go away with the export (design decision 23.10).
 - Figma INSIDE strokes are subtracted from paddings in code (RN borders take layout space), so outer sizes match.
-- `WheelPicker` (used by `TodayManualDuePickerContent`): hours are zero-padded and non-selected rows are grey, as in the app; Figma shows `8` and primary at 35% opacity.
-- `PetOwnerAvatar`: default stays the app size 56; Figma components use `size={64}`.
-- `TodayTaskCard`: the finished veil covers the whole card and opens the menu on tap — from the Figma description ("ждёт кода"), different from the current app.
+- `WheelPicker` (used by `TodayManualDuePickerContent`): look follows the code (zero-padded hours, grey non-selected rows, 220pt); the Figma wheel only shows where it appears, as its description says (design decision 23.10).
+- `IconSquareButton`: default 40 as in the app; 48 only on the task card, level with the «Готово!» slider (design decision 23.10).
+- `TodayTaskCard`: the finished veil covers the whole card and opens the menu on tap, as in Figma (confirmed by design 23.10).
 - Web Storybook can't show native wheel scrolling/initial position; check pickers on a device.
 
 ## Coverage (58 components, 28 icons)

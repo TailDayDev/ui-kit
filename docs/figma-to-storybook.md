@@ -49,7 +49,7 @@ GitHub Pages: taildaydev.github.io/ui-kit-storybook   (автоматическ�
 
 - Node 22 (`.nvmrc`), `npm ci`.
 - Python 3 (для генерации спецификаций).
-- Figma personal access token: Figma → Settings → Security → Personal access tokens, scope **File content: read**. Достаточно места View. Токен хранится только в переменной окружения текущего терминала — не в файлах, не в аргументах команд, не в чатах.
+- Figma personal access token: Figma → Settings → Security → Personal access tokens, scope **File content: read**. Токен нужен с **полного места** (Dev или Full): у мест View и Collab лимит Tier 1 — около 6 запросов в месяц к файлу и картинкам, а одна выгрузка делает около пяти (дерево, две пачки PNG, SVG). Полное место на Professional — 15 запросов в минуту ([лимиты REST API](https://developers.figma.com/docs/rest-api/rate-limits)). Токен хранится только в переменной окружения текущего терминала — не в файлах, не в аргументах команд, не в чатах.
 - Для токенов дизайн-системы: плагин `figma-plugin/` импортирован в Figma desktop (Plugins → Development → Import plugin from manifest…). Подробнее — README, раздел «Токены».
 
 ## 4. Цикл обновления
